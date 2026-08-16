@@ -5,13 +5,14 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v2";
+const CACHE = "cursivee-v3";
 
 const SHELL = [
   "./",
   "./index.html",
   "./small-text.html",
   "./glitch-text.html",
+  "./cursed-text.html",
   "./weird-text.html",
   "./about.html",
   "./privacy.html",

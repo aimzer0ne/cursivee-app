@@ -1,6 +1,6 @@
 # cursivee.app
 
-Four Unicode text generators as an installable, offline-capable static site.
+Five Unicode text generators as an installable, offline-capable static site.
 Type once, get alphabets you can paste into any bio, caption, or username that
 only accepts plain text.
 
@@ -23,8 +23,9 @@ no offline support or install prompt that way. Everything else behaves normally.
 | `index.html` | Cursive generator — 21 styles: script, blackletter, bold, bubbles, effects |
 | `small-text.html` | Small generator — 5 styles: superscript, subscript, small caps, tiny caps |
 | `glitch-text.html` | Glitch generator — 10 styles plus an intensity dial and zone toggles |
-| `weird-text.html` | Weird generator — 13 styles: flipped, mirrored, lookalike, morse, braille, binary |
-| `about.html` | How it works and where it breaks |
+| `cursed-text.html` | Cursed generator — 11 styles: a substituted alphabet corrupted on top, with the same dial |
+| `weird-text.html` | Weird generator — 15 styles: strange alphabets, mirrored, lookalike, morse, braille, binary |
+| `about.html` | How it works and where it breaks (footer-linked; not in the top nav) |
 | `privacy.html` · `terms.html` · `contact.html` | Site pages |
 | `404.html` · `offline.html` | Fallbacks |
 
@@ -69,6 +70,14 @@ not contiguous — use `·` as a placeholder for "no such character exists, leav
 the letter alone". For non-alphabet styles pass any `fn(text, opts)`, or use the
 `combiner`, `flipper`, `separated` and `wrap` helpers.
 
+## Preview size
+
+The four **Size** pills in the controls bar set `--out-scale` on `:root`, and the
+hero preview and every style row derive their font size from it with `calc()`.
+The choice is saved to `localStorage` under `cf.size`. If you add another place
+that renders converted text, multiply its font size by `var(--out-scale,1)` so it
+scales too.
+
 ## The colour scheme is generated
 
 `assets/palette.js` rolls a random hue on every page load and derives all ten
@@ -100,7 +109,7 @@ palette was generated.
 Every indexable page carries a unique title, meta description, canonical URL,
 Open Graph and Twitter card tags, and a JSON-LD `@graph` (`WebPage` +
 `BreadcrumbList`, plus `WebApplication` on the generators and `WebSite` +
-`Organization` on the home page). The four generator pages also emit `FAQPage`
+`Organization` on the home page). The five generator pages also emit `FAQPage`
 data generated *from* their visible FAQ markup, so the structured data can never
 drift from what a reader sees — which is Google's requirement for the rich
 result.
@@ -150,7 +159,7 @@ scratch directory). Copy them into `scratch/` if you want them in the repo:
 
 | Script | Checks |
 | --- | --- |
-| `verify.js` | all 49 styles transform, edge cases, glitch determinism |
+| `verify.js` | all 62 styles transform, edge cases, glitch determinism |
 | `contrast.js` | WCAG contrast across all 360 hues, both themes |
 | `site-check.js` | internal links, shared chrome, page wiring, manifest, service worker |
 | `seo-check.js` | titles, descriptions, canonicals, OG, JSON-LD, sitemap parity |

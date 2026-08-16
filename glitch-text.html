@@ -37,15 +37,16 @@
 
   <header class="site-head">
     <a class="brand" href="index.html">cursivee.app</a>
-    <nav class="site-nav" aria-label="Generators">
-      <ul class="nav">
-      <li><a href="index.html">Cursive</a></li>
-      <li><a href="small-text.html">Small</a></li>
-      <li><a href="glitch-text.html" aria-current="page">Glitch</a></li>
-      <li><a href="weird-text.html">Weird</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    </nav>
+    
+      <nav class="site-nav" aria-label="Generators">
+        <ul class="nav">
+        <li><a href="index.html">Cursive</a></li>
+        <li><a href="small-text.html">Small</a></li>
+        <li><a href="glitch-text.html" aria-current="page">Glitch</a></li>
+        <li><a href="cursed-text.html">Cursed</a></li>
+        <li><a href="weird-text.html">Weird</a></li>
+        </ul>
+      </nav>
     <button class="btn" id="themeBtn" type="button">Dark</button>
   </header>
 
@@ -66,7 +67,7 @@
       <div class="desk-foot">
         <span class="count" id="count"></span>
         <span class="spacer"></span>
-        <button class="btn btn-primary" id="heroCopy" type="button">Copy glitch</button>
+        <button class="btn btn-primary btn-lg" id="heroCopy" type="button">Copy</button>
       </div>
     </section>
 
@@ -127,17 +128,17 @@
 
   <section class="pitch">
     <span class="kicker">The long way round</span>
-    <h2>⚡ Nothing here is broken, which is the unsettling part</h2>
+    <h2>⚡ It looks broken. It isn't.</h2>
 
-    <p class="lede">Glitch text looks like a rendering error. 👁️ It is not. Every one of those marks clawing at your letters is a perfectly valid character, doing precisely what the specification says it should — attaching itself to the letter before it. The horror is entirely, boringly correct.</p>
+    <p class="lede">Glitch text looks like something's gone wrong with your screen. 👁️ Nothing has. Every one of those marks crawling over the letters is a completely normal character, doing exactly what it's meant to do — attaching itself to the letter in front of it.</p>
 
-    <p>That is what makes it different from a broken image or a corrupted file. 🧩 Those are failures. This is <strong>compliance taken too far</strong>. Unicode says a letter may carry combining marks, and it never says how many, because nobody writing that rule imagined anyone would ask for forty. So your browser stacks all forty, dutifully, and the result crawls out of its line and into the sentence above.</p>
+    <p>That's what makes it different from a corrupted file. This isn't a failure, it's the rules being followed a little too enthusiastically. 🧩 Unicode says a letter can carry accent marks. It never says how many, because nobody imagined anyone would ask for forty. So your browser adds forty, politely, and the result climbs out of its line and into the sentence above.</p>
 
-    <p>Which is also why it behaves so badly in the wild. 🚧 Those marks have no width — the text pushes upward and downward instead of sideways — so it overlaps neighbouring lines, wrecks the spacing of a comment thread, and makes moderators nervous. Several platforms strip it on sight for exactly that reason. That is not censorship of an aesthetic; it is a rational response to text that refuses to stay in its box.</p>
+    <p>It's also why it misbehaves out in the wild. 🚧 The marks have no width, so the text grows up and down instead of sideways. It overlaps other lines, wrecks the spacing in a comment thread, and makes moderators twitchy. A lot of platforms just strip it, and it's hard to blame them.</p>
 
-    <p>So use the dial. 🎚️ The instinct is to shove it to maximum, and maximum is the version that gets filtered, truncated, or silently flattened into plain letters. A <strong>light</strong> tremor reads as unease. A <strong>medium</strong> one reads as damage. Full corruption mostly reads as a character-count problem you will discover after you hit post.</p>
+    <p>So use the slider. 🎚️ Everyone's first instinct is to shove it to maximum, and maximum is the setting that gets filtered, cut off, or quietly flattened back into plain text. A light setting reads as unease. Medium reads as damage. Full corruption mostly reads as "why is my bio over the character limit".</p>
 
-    <p>And spare a thought for anyone using a screen reader. 🔇 Zalgo is close to the worst thing you can hand one — a stream of diacritic names with a word buried somewhere inside. Beautiful in a caption. Genuinely cruel in a place where people need to <em>read</em> what you wrote.</p>
+    <p>And spare a thought for screen readers. 🔇 Zalgo is about the worst thing you can hand one: a stream of accent names with a word buried somewhere in the middle. Great in a caption. Genuinely rough anywhere people need to actually read you.</p>
   </section>
 
   <section class="more">
@@ -153,10 +154,15 @@
         <span class="card-name">Small text</span>
         <span class="card-note">Superscript, subscript, small caps</span>
       </a></li>
+      <li><a class="card" href="cursed-text.html">
+        <span class="card-sample">𝔠̷̬͎̈́ų̴̗̃ř̶̪s̸̰̈e̵̱̽d̴̜̏</span>
+        <span class="card-name">Cursed text</span>
+        <span class="card-note">Corrupted alphabets, dialled up</span>
+      </a></li>
       <li><a class="card" href="weird-text.html">
-        <span class="card-sample">pɹıǝʍ ʇxǝʇ</span>
+        <span class="card-sample">山乇丨尺ᗪ</span>
         <span class="card-name">Weird text</span>
-        <span class="card-note">Upside down, mirrored, morse</span>
+        <span class="card-note">Runes, Cherokee, morse, mirrored</span>
       </a></li>
     </ul>
   </section>
@@ -172,6 +178,7 @@
         <li><a href="index.html">Cursive text</a></li>
         <li><a href="small-text.html">Small text</a></li>
         <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="cursed-text.html">Cursed text</a></li>
         <li><a href="weird-text.html">Weird text</a></li>
       </ul>
     </div>

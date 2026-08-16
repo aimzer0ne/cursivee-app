@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weird Text Generator — Upside Down, Mirrored, Morse</title>
-<meta name="description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<title>Weird Text Generator — Runes, Symbols and Morse</title>
+<meta name="description" content="Rebuild your words from runes, Cherokee syllables, currency symbols and CJK lookalikes, or mirror them and send them as morse. Free copy and paste tool.">
 <link rel="canonical" href="https://cursivee.app/weird-text.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="cursivee.app">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://cursivee.app/weird-text.html">
-<meta property="og:title" content="Weird Text Generator — Upside Down, Mirrored, Morse">
-<meta property="og:description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<meta property="og:title" content="Weird Text Generator — Runes, Symbols and Morse">
+<meta property="og:description" content="Rebuild your words from runes, Cherokee syllables, currency symbols and CJK lookalikes, or mirror them and send them as morse. Free copy and paste tool.">
 <meta property="og:image" content="https://cursivee.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="cursivee.app — Unicode text generators">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Weird Text Generator — Upside Down, Mirrored, Morse">
-<meta name="twitter:description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<meta name="twitter:title" content="Weird Text Generator — Runes, Symbols and Morse">
+<meta name="twitter:description" content="Rebuild your words from runes, Cherokee syllables, currency symbols and CJK lookalikes, or mirror them and send them as morse. Free copy and paste tool.">
 <meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
@@ -37,21 +37,22 @@
 
   <header class="site-head">
     <a class="brand" href="index.html">cursivee.app</a>
-    <nav class="site-nav" aria-label="Generators">
-      <ul class="nav">
-      <li><a href="index.html">Cursive</a></li>
-      <li><a href="small-text.html">Small</a></li>
-      <li><a href="glitch-text.html">Glitch</a></li>
-      <li><a href="weird-text.html" aria-current="page">Weird</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    </nav>
+    
+      <nav class="site-nav" aria-label="Generators">
+        <ul class="nav">
+        <li><a href="index.html">Cursive</a></li>
+        <li><a href="small-text.html">Small</a></li>
+        <li><a href="glitch-text.html">Glitch</a></li>
+        <li><a href="cursed-text.html">Cursed</a></li>
+        <li><a href="weird-text.html" aria-current="page">Weird</a></li>
+        </ul>
+      </nav>
     <button class="btn" id="themeBtn" type="button">Dark</button>
   </header>
 
   <div class="masthead">
     <h1 class="title">Weird text generator</h1>
-    <p class="tagline">The transformations that do something to your words rather than restyle them — <b>flipped, mirrored, spaced, encoded</b>. Turn a sentence upside down, put it in mocking caps, or send it as morse.</p>
+    <p class="tagline">The alphabets that borrow their shapes from somewhere else entirely — <b>strange, mirrored, spaced, encoded</b>. Rebuild a sentence out of Cherokee syllables, put it in mocking caps, or send it as morse.</p>
   </div>
 
   <main id="main">
@@ -66,7 +67,7 @@
       <div class="desk-foot">
         <span class="count" id="count"></span>
         <span class="spacer"></span>
-        <button class="btn btn-primary" id="heroCopy" type="button">Copy upside down</button>
+        <button class="btn btn-primary btn-lg" id="heroCopy" type="button">Copy</button>
       </div>
     </section>
 
@@ -88,7 +89,10 @@
             <tr><th>Style</th><th>Method</th></tr>
           </thead>
           <tbody>
-            <tr><td>Upside down</td><td>Swaps each letter for a rotated lookalike, then reverses the order — so it reads correctly when the screen is turned around.</td></tr>
+            <tr><td>Asian style</td><td>Substitutes CJK and Canadian Aboriginal characters chosen purely for their resemblance to Latin letters. The most recognisable "weird font" on the internet.</td></tr>
+            <tr><td>Runic</td><td>Elder Futhark runes standing in for the letters they historically sound like. Genuine runic characters, used decoratively.</td></tr>
+            <tr><td>Cherokee</td><td>Syllabary characters from the Cherokee script that happen to share shapes with Latin capitals.</td></tr>
+            <tr><td>Currency</td><td>Struck-through and hooked letterforms borrowed from currency symbols and African orthographies.</td></tr>
             <tr><td>Mirrored</td><td>Left-to-right reflection using reversed letterforms. Hold it up to a mirror.</td></tr>
             <tr><td>Reversed</td><td>Character order only, letters untouched. The reliable one — nothing can fail to render.</td></tr>
             <tr><td>Lookalike</td><td>Substitutes Greek, Cyrillic and Armenian letters that resemble the Latin ones. Looks foreign, reads fine.</td></tr>
@@ -106,9 +110,9 @@
     <h2 class="more-title">Common questions</h2>
     <div class="faq">
       <details>
-        <summary>How does upside down text actually work?</summary>
+        <summary>Why do some letters come through unchanged?</summary>
         <div class="answer">
-          <p>Two steps. Each letter is swapped for a character that happens to look like its rotated twin — ɐ for a, ǝ for e, most of them borrowed from phonetic alphabets — and then the whole string is reversed, so it reads correctly when you turn the screen around. Nothing is being rotated by software; the shapes just happen to exist.</p>
+          <p>Because no character in that script resembles them closely enough to be worth faking. Rather than substitute something from an unrelated alphabet — which is how text ends up as boxes or with its word order scrambled — the letter is left alone. Q and V are the usual holdouts.</p>
         </div>
       </details>
       <details>
@@ -134,17 +138,17 @@
 
   <section class="pitch">
     <span class="kicker">The long way round</span>
-    <h2>🙃 A page held together by coincidences</h2>
+    <h2>🙃 A page built entirely on coincidence</h2>
 
-    <p class="lede">Upside down text should not be possible. There is no rotate button in Unicode, no flip flag, nothing in the standard that says <em>render this the other way up</em>. It works because a handful of linguists, decades ago, needed a symbol for a vowel sound and happened to pick one shaped like an upside down <strong>a</strong>. 🌍</p>
+    <p class="lede">卂 isn't an A. 🌍 It's a Chinese character with its own meaning, its own pronunciation, and a few thousand years of history that have nothing whatsoever to do with our alphabet. It just happens to look a bit like one. That's the only reason it ever ended up in your caption.</p>
 
-    <p>Every style on this page runs on that kind of luck. ɐ is a phonetic character. ᴚ comes from a Cyrillic extension. The letters that mirror cleanly do so entirely by accident of design, and the ones that refuse — <em>k, s, x</em> — refuse because nobody ever needed their reflection for anything. This page is a scrapbook of near-misses that turned out useful. 🎲</p>
+    <p>Almost everything here works that way. ᚱ is a real Elder Futhark rune. Ꮢ comes from the Cherokee syllabary, which Sequoyah invented in the 1820s. ₮ is a currency symbol. None of them were designed to stand in for our letters — they got picked, centuries later, by people who spotted a resemblance and had a use for it. 🎲</p>
 
-    <p>Then there is the other half: morse, braille, binary. 📻 Not decoration at all, but actual encodings, each built so a message could survive a channel that could not carry letters — a telegraph wire, a fingertip, a switch that is either on or off. Dropping them beside vaporwave and mocking caps is faintly ridiculous, and also the honest thing to do, because on the internet they get used for exactly the same reason: to make a sentence take a longer, stranger route to its reader. 🛤️</p>
+    <p>Then there's the other half of the page: morse, braille, binary. 📻 Those aren't decoration at all. They're real encodings, each one built so a message could survive something that couldn't carry letters — a telegraph wire, a fingertip, a switch that's either on or off. Putting them next to vaporwave is a bit silly, but online they get used for the same reason: to make a sentence take the scenic route.</p>
 
-    <p>One of these deserves genuine care, though. ⚠️ <strong>Lookalike letters</strong> — the Greek and Cyrillic characters that pass for Latin ones — are the same trick used to spoof domain names and impersonate accounts. Charming in a caption. In a username, it is the move that gets handles suspended and links flagged, and the systems watching for it do not much care that you meant it playfully.</p>
+    <p>One thing here does deserve care. ⚠️ The lookalike letters — the Greek and Cyrillic ones that pass for Latin — are exactly what people use to fake domain names and copy usernames. Lovely in a caption. In a handle it's the move that gets accounts suspended, and the systems watching for it don't much care that you meant it playfully.</p>
 
-    <p>Everything else here? Harmless, weightless, faintly absurd. 🎈 Flip a sentence, put it in mocking caps, send it as dots and dashes. Nothing on this page has ever needed to justify itself, which is, honestly, the entire appeal.</p>
+    <p>The rest is harmless. 🎈 Mirror a sentence, put it in mocking caps, rebuild it out of runes, send it as dots and dashes. Nothing on this page has ever had to justify itself, which is honestly the best thing about it.</p>
   </section>
 
   <section class="more">
@@ -179,6 +183,7 @@
         <li><a href="index.html">Cursive text</a></li>
         <li><a href="small-text.html">Small text</a></li>
         <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="cursed-text.html">Cursed text</a></li>
         <li><a href="weird-text.html">Weird text</a></li>
       </ul>
     </div>
@@ -208,8 +213,8 @@
       "@type": "WebPage",
       "@id": "https://cursivee.app/weird-text.html#webpage",
       "url": "https://cursivee.app/weird-text.html",
-      "name": "Weird Text Generator — Upside Down, Mirrored, Morse",
-      "description": "Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.",
+      "name": "Weird Text Generator — Runes, Symbols and Morse",
+      "description": "Rebuild your words from runes, Cherokee syllables, currency symbols and CJK lookalikes, or mirror them and send them as morse. Free copy and paste tool.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://cursivee.app/#website"
@@ -241,7 +246,7 @@
       "@id": "https://cursivee.app/weird-text.html#app",
       "name": "Weird Text Generator",
       "url": "https://cursivee.app/weird-text.html",
-      "description": "Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.",
+      "description": "Rebuild your words from runes, Cherokee syllables, currency symbols and CJK lookalikes, or mirror them and send them as morse. Free copy and paste tool.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any",
       "browserRequirements": "Requires JavaScript",
@@ -260,10 +265,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How does upside down text actually work?",
+          "name": "Why do some letters come through unchanged?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two steps. Each letter is swapped for a character that happens to look like its rotated twin — ɐ for a, ǝ for e, most of them borrowed from phonetic alphabets — and then the whole string is reversed, so it reads correctly when you turn the screen around. Nothing is being rotated by software; the shapes just happen to exist."
+            "text": "Because no character in that script resembles them closely enough to be worth faking. Rather than substitute something from an unrelated alphabet — which is how text ends up as boxes or with its word order scrambled — the letter is left alone. Q and V are the usual holdouts."
           }
         },
         {

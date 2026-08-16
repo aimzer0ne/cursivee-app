@@ -299,6 +299,60 @@ if(ornEl){
   });
 }
 
+/* ── preview size ───────────────────────────────────────── */
+var SIZES=[
+  {id:"s", name:"Small",       scale:0.8},
+  {id:"m", name:"Medium",      scale:1},
+  {id:"l", name:"Large",       scale:1.3},
+  {id:"xl",name:"Extra large", scale:1.65}
+];
+function applySize(id){
+  var s=SIZES.filter(function(x){ return x.id===id; })[0]||SIZES[1];
+  document.documentElement.style.setProperty("--out-scale",String(s.scale));
+  return s;
+}
+(function sizeControl(){
+  var controls=document.querySelector(".controls");
+  if(!controls) return;
+
+  var saved=load("cf.size","m");
+  if(!SIZES.some(function(s){ return s.id===saved; })) saved="m";
+  applySize(saved);
+
+  var bar=document.createElement("div");
+  bar.className="sizebar";
+  var label=document.createElement("span");
+  label.className="label";
+  label.textContent="Size";
+  var pills=document.createElement("div");
+  pills.className="pills";
+  pills.setAttribute("role","group");
+  pills.setAttribute("aria-label","Preview size");
+
+  SIZES.forEach(function(s){
+    var b=document.createElement("button");
+    b.className="pill";
+    b.type="button";
+    b.textContent="A";
+    b.dataset.size=s.id;
+    b.setAttribute("aria-pressed",s.id===saved?"true":"false");
+    b.setAttribute("aria-label",s.name+" preview text");
+    b.title=s.name;
+    b.addEventListener("click",function(){
+      applySize(s.id);
+      save("cf.size",s.id);
+      Array.prototype.forEach.call(pills.children,function(el){
+        el.setAttribute("aria-pressed",el===b?"true":"false");
+      });
+    });
+    pills.appendChild(b);
+  });
+
+  bar.appendChild(label);
+  bar.appendChild(pills);
+  controls.appendChild(bar);
+})();
+
 /* ── glitch knobs ───────────────────────────────────────── */
 if(knobsEl&&cfg.knobs){
   var knobIntensity=document.createElement("div");
@@ -363,9 +417,13 @@ if(knobsEl&&cfg.knobs){
 /* ── wire up ────────────────────────────────────────────── */
 src.addEventListener("input",update);
 if(filterEl) filterEl.addEventListener("input",applyFilter);
-if(heroCopy) heroCopy.addEventListener("click",function(){
-  copyText(heroOut.textContent,heroStyle.name);
-});
+if(heroCopy){
+  /* The visible label is just "Copy" — say what it copies for screen readers. */
+  heroCopy.setAttribute("aria-label","Copy the "+heroStyle.name+" version");
+  heroCopy.addEventListener("click",function(){
+    copyText(heroOut.textContent,heroStyle.name);
+  });
+}
 
 build();
 update();

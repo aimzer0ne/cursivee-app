@@ -220,13 +220,6 @@ add("glitch","Static","Buzzing",         combiner("҉"));
 add("glitch","Static","Shattered",       combiner("̴͓"));
 
 /* weird --------------------------------------------------- */
-var FLIP={
-  u:"∀𐐒ƆpƎℲפHIſʞ˥WNOԀQᴚS⊥∩ᴧMX⅄Z",
-  l:"ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz",
-  d:"0ƖᄅƐㄣϛ9ㄥ86",
-  punct:{".":"˙",",":"'","?":"¿","!":"¡","'":",",'"':"„","(":")",")":"(",
-         "[":"]","]":"[","{":"}","}":"{","<":">",">":"<","&":"⅋","_":"‾",";":"؛"}
-};
 var MIRROR={
   u:"AᙠƆᗡƎꟻӘHIႱ⋊⅃MИOꟼΌЯƧTUVWXYZ",
   l:"ɒdɔbɘꟻǫʜiႱʞlmnoqpɿꙅƚuvwxʏz"
@@ -240,7 +233,30 @@ var BRAILLE={
   d:"⠴⠂⠆⠒⠲⠢⠖⠶⠦⠔"
 };
 
-add("weird","Flipped & reversed","Upside down",flipper(FLIP));
+/* Strange alphabets. Every substitute below is a BMP character with wide
+   font coverage and a left-to-right direction — the two things that decide
+   whether a "weird" style survives a paste or turns into boxes and scrambled
+   word order. "·" marks a letter with no usable counterpart; it is left alone
+   rather than faked with something from an unrelated script. */
+var ASIAN={
+  u:"卂乃匚ᗪ乇千Ꮆ卄丨ﾌҜㄥ爪几ㄖ卩·尺丂ㄒㄩᐯ山乂ㄚ乙"
+};
+var RUNIC={
+  u:"ᚨᛒᚲᛞᛖᚠᚷᚺᛁᛃᚲᛚᛗᚾᛟᛈᛩᚱᛊᛏᚢᚡᚹᛪᛦᛉ"
+};
+var CHEROKEE={
+  u:"ᎪᏴᏟᎠᎬᏫᏀᎻᏆᎫᏦᏞᎷᏁᎾᏢԚᏒᏚᎢᏌᏉᏔᎩᎽᏃ"
+};
+var CURRENCY={
+  u:"₳฿₵ĐɆ₣₲Ⱨł·₭Ⱡ₥₦Ø₱·Ɽ₴₮Ʉ·₩ӾɎⱫ"
+};
+
+add("weird","Strange alphabets","Asian style",mapper({u:ASIAN.u,l:ASIAN.u}));
+add("weird","Strange alphabets","Runic",mapper({u:RUNIC.u,l:RUNIC.u}));
+add("weird","Strange alphabets","Cherokee",mapper({u:CHEROKEE.u,l:CHEROKEE.u}));
+add("weird","Strange alphabets","Currency",mapper({u:CURRENCY.u,l:CURRENCY.u}));
+add("weird","Strange alphabets","Lookalike",mapper({u:LOOKALIKE.u,l:LOOKALIKE.l}));
+
 add("weird","Flipped & reversed","Mirrored",flipper(MIRROR));
 add("weird","Flipped & reversed","Reversed",reversed);
 
@@ -251,12 +267,40 @@ add("weird","Novelty","Vaporwave",wrap("【 "," 】",function(t){
   return spaced(mapper({u:0xFF21,l:0xFF41,d:0xFF10})(t));
 }));
 add("weird","Novelty","Bracketed",wrap("「","」"));
-add("weird","Novelty","Lookalike",mapper({u:LOOKALIKE.u,l:LOOKALIKE.l}));
-add("weird","Novelty","Cursed",zalgo({salt:8,up:2,mid:1,down:2}));
 
 add("weird","Codes","Morse",toMorse);
 add("weird","Codes","Braille",mapper({u:BRAILLE.l,l:BRAILLE.l,d:BRAILLE.d}));
 add("weird","Codes","Binary",toBinary);
+
+/* cursed --------------------------------------------------- */
+/* Cursed is the glitch page's corruption applied on top of a substituted
+   alphabet, rather than on plain letters — that combination is what reads
+   as "cursed" instead of merely damaged. */
+function chain(){
+  var fns=Array.prototype.slice.call(arguments);
+  return function(text,opts){
+    return fns.reduce(function(t,f){ return f(t,opts); },text);
+  };
+}
+var FRAKTUR=mapper({u:0x1D504,l:0x1D51E,ex:{C:"ℭ",H:"ℌ",I:"ℑ",R:"ℜ",Z:"ℨ"}});
+var SMALLCAPS=mapper({u:UP,l:SMALL_CAPS});
+var LOOKS=mapper({u:LOOKALIKE.u,l:LOOKALIKE.l});
+var DOUBLE=mapper({u:0x1D538,l:0x1D552,d:0x1D7D8,
+  ex:{C:"ℂ",H:"ℍ",N:"ℕ",P:"ℙ",Q:"ℚ",R:"ℝ",Z:"ℤ"}});
+
+add("cursed","Lightly cursed","Whispers",   chain(SMALLCAPS,zalgo({salt:11,up:1,mid:0,down:1})));
+add("cursed","Lightly cursed","Unsettled",  chain(alternating,zalgo({salt:12,up:2,mid:0,down:2})));
+add("cursed","Lightly cursed","Wrong",      chain(LOOKS,zalgo({salt:13,up:1,mid:1,down:1})));
+
+add("cursed","Properly cursed","Cursed",    chain(LOOKS,zalgo({salt:14,up:3,mid:1,down:3})));
+add("cursed","Properly cursed","Eldritch",  chain(FRAKTUR,zalgo({salt:15,up:4,mid:1,down:4})));
+add("cursed","Properly cursed","Haunted",   chain(DOUBLE,zalgo({salt:16,up:3,mid:2,down:3})));
+add("cursed","Properly cursed","Possessed", chain(flipper(MIRROR),zalgo({salt:17,up:4,mid:2,down:4})));
+
+add("cursed","Beyond saving","Rotting",     chain(FRAKTUR,zalgo({salt:18,up:0,mid:2,down:9})));
+add("cursed","Beyond saving","Ascending",   chain(SMALLCAPS,zalgo({salt:19,up:9,mid:0,down:0})));
+add("cursed","Beyond saving","Damned",      chain(LOOKS,alternating,zalgo({salt:20,up:8,mid:3,down:8})));
+add("cursed","Beyond saving","Unspeakable", chain(FRAKTUR,zalgo({salt:21,up:14,mid:4,down:14})));
 
 /* ── ornaments ──────────────────────────────────────────── */
 var ORNAMENTS=[
