@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with your live origin before deploying.
+Sitemap: https://cursivee.app/sitemap.xml

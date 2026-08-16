@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About cursivee.app — How Unicode Text Generators Work</title>
+<meta name="description" content="These are Unicode characters, not fonts — which is why they survive a copy-paste into apps that never let you change typefaces. How it works, and where it breaks.">
+<link rel="canonical" href="https://cursivee.app/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/about.html">
+<meta property="og:title" content="About cursivee.app — How Unicode Text Generators Work">
+<meta property="og:description" content="These are Unicode characters, not fonts — which is why they survive a copy-paste into apps that never let you change typefaces. How it works, and where it breaks.">
+<meta property="og:image" content="https://cursivee.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="cursivee.app — Unicode text generators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About cursivee.app — How Unicode Text Generators Work">
+<meta name="twitter:description" content="These are Unicode characters, not fonts — which is why they survive a copy-paste into apps that never let you change typefaces. How it works, and where it breaks.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="assets/palette.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="index.html">cursivee.app</a>
+    <nav class="site-nav" aria-label="Generators">
+      <ul class="nav">
+      <li><a href="index.html">Cursive</a></li>
+      <li><a href="small-text.html">Small</a></li>
+      <li><a href="glitch-text.html">Glitch</a></li>
+      <li><a href="weird-text.html">Weird</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+    </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <p class="eyebrow">About</p>
+    <h1 class="title">Letters, not fonts</h1>
+    <p class="tagline">Why text copied from this site keeps its shape when it lands somewhere that has never heard of typography.</p>
+  </div>
+
+  <main id="main" class="prose">
+    <h2>The short version</h2>
+    <p>A font is a set of drawings your device applies to text. Change the app and the drawing changes with it — which is why you cannot make your Instagram bio italic by choosing a typeface. There is no typeface to choose.</p>
+    <p>Unicode is different. It assigns a permanent number to every character, and over the years it has been given whole parallel alphabets: a mathematical script set, a blackletter set, fullwidth forms borrowed from Japanese typesetting, circled letters from Japanese and Chinese standards, phonetic small capitals. These were added for mathematicians, linguists and typesetters, not for social media — but they are ordinary characters, so they travel with the text itself.</p>
+    <p>That is all this site does. It swaps each letter you type for its counterpart in one of those sets. Nothing is styled; the characters are simply different characters.</p>
+
+    <h2>The four generators</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Page</th><th>What it draws on</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="index.html">Cursive text</a></td><td>Mathematical alphanumeric symbols — script, blackletter, double-struck, bold, monospace — plus enclosed and fullwidth forms.</td></tr>
+          <tr><td><a href="small-text.html">Small text</a></td><td>Superscript and subscript modifiers, and the small-capital letters from the phonetic extensions.</td></tr>
+          <tr><td><a href="glitch-text.html">Glitch text</a></td><td>Combining diacritical marks, stacked far past their intended depth.</td></tr>
+          <tr><td><a href="weird-text.html">Weird text</a></td><td>Rotated and reflected lookalikes, cross-script substitutions, and plain encodings like morse and braille.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Where it breaks</h2>
+    <p>Being honest about the limits is more useful than pretending there are none.</p>
+    <ul>
+      <li><strong>Screen readers.</strong> This is the real cost. A screen reader may read 𝓱𝓮𝓵𝓵𝓸 as a string of mathematical symbol names, or skip it in silence. Keep your actual name and anything important in plain letters.</li>
+      <li><strong>Missing letters.</strong> Some sets are incomplete — there is no superscript <em>q</em>, no small-capital <em>x</em>. Those letters come through unchanged, and no tool can fix it.</li>
+      <li><strong>Platform rules.</strong> Some services strip these characters from usernames, some normalise them back to plain text, and some flag mixed scripts as a spoofing risk. Test with a short paste before committing.</li>
+      <li><strong>Old software.</strong> If a device lacks a font covering the range, you get empty boxes. This is rarer than it used to be, but it still happens on older Android and in some desktop apps.</li>
+    </ul>
+
+    <h2>How the site is built</h2>
+    <p>Static HTML, one stylesheet, two small scripts. Every conversion happens in your browser as you type — there is no server doing the work, no account, and no analytics. What you type stays on your device. The <a href="privacy.html">privacy page</a> covers this in full.</p>
+    <p>Your theme choice and pinned styles are kept in your browser's local storage so the site remembers them. Clearing site data removes them.</p>
+
+    <hr>
+    <p class="stamp">Questions or corrections → <a href="contact.html">Contact</a></p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="index.html">Cursive text</a></li>
+        <li><a href="small-text.html">Small text</a></li>
+        <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="weird-text.html">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/about.html#webpage",
+      "url": "https://cursivee.app/about.html",
+      "name": "About cursivee.app — How Unicode Text Generators Work",
+      "description": "These are Unicode characters, not fonts — which is why they survive a copy-paste into apps that never let you change typefaces. How it works, and where it breaks.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/about.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/about.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://cursivee.app/about.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weird Text Generator — Upside Down, Mirrored, Morse</title>
+<meta name="description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<link rel="canonical" href="https://cursivee.app/weird-text.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/weird-text.html">
+<meta property="og:title" content="Weird Text Generator — Upside Down, Mirrored, Morse">
+<meta property="og:description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<meta property="og:image" content="https://cursivee.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="cursivee.app — Unicode text generators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weird Text Generator — Upside Down, Mirrored, Morse">
+<meta name="twitter:description" content="Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="assets/palette.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the generator</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="index.html">cursivee.app</a>
+    <nav class="site-nav" aria-label="Generators">
+      <ul class="nav">
+      <li><a href="index.html">Cursive</a></li>
+      <li><a href="small-text.html">Small</a></li>
+      <li><a href="glitch-text.html">Glitch</a></li>
+      <li><a href="weird-text.html" aria-current="page">Weird</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <h1 class="title">Weird text generator</h1>
+    <p class="tagline">The transformations that do something to your words rather than restyle them — <b>flipped, mirrored, spaced, encoded</b>. Turn a sentence upside down, put it in mocking caps, or send it as morse.</p>
+  </div>
+
+  <main id="main">
+    <section class="desk">
+      <div class="desk-in">
+        <label class="label" for="src">Your text</label>
+        <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">read this sideways</textarea>
+      </div>
+      <div class="exemplar">
+        <span class="exemplar-out" id="heroOut"></span>
+      </div>
+      <div class="desk-foot">
+        <span class="count" id="count"></span>
+        <span class="spacer"></span>
+        <button class="btn btn-primary" id="heroCopy" type="button">Copy upside down</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input id="filter" type="search" placeholder="Filter styles — try “morse”" aria-label="Filter styles">
+      <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+    </section>
+
+    <div id="sheetBody"></div>
+    <p class="empty" id="empty" hidden>No style matches that name.</p>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">What each one actually does</h2>
+    <div class="prose">
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Style</th><th>Method</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Upside down</td><td>Swaps each letter for a rotated lookalike, then reverses the order — so it reads correctly when the screen is turned around.</td></tr>
+            <tr><td>Mirrored</td><td>Left-to-right reflection using reversed letterforms. Hold it up to a mirror.</td></tr>
+            <tr><td>Reversed</td><td>Character order only, letters untouched. The reliable one — nothing can fail to render.</td></tr>
+            <tr><td>Lookalike</td><td>Substitutes Greek, Cyrillic and Armenian letters that resemble the Latin ones. Looks foreign, reads fine.</td></tr>
+            <tr><td>Morse</td><td>International Morse. Letters split by a space, words by a slash. Unsupported characters are dropped rather than guessed at.</td></tr>
+            <tr><td>Braille</td><td>Unicode braille patterns. These are the dot shapes, not a contracted braille translation — a braille reader will not read it as fluent text.</td></tr>
+            <tr><td>Binary</td><td>Eight-bit values for ordinary characters. Anything above the first 256 code points is left as-is.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="callout"><strong>Lookalike letters carry a real caveat.</strong> Mixing scripts is exactly the trick used to fake domain names and usernames, so some platforms block it and some security tools flag it. It is fine for a caption and a poor choice for anything that identifies you.</p>
+    </div>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How does upside down text actually work?</summary>
+        <div class="answer">
+          <p>Two steps. Each letter is swapped for a character that happens to look like its rotated twin — ɐ for a, ǝ for e, most of them borrowed from phonetic alphabets — and then the whole string is reversed, so it reads correctly when you turn the screen around. Nothing is being rotated by software; the shapes just happen to exist.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is lookalike text safe to use?</summary>
+        <div class="answer">
+          <p>For a caption, yes. For anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the exact technique behind spoofed domains and impersonated usernames, so platforms block it and security tools flag it. Fun in a post; a bad idea in a handle.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does morse drop some of my characters?</summary>
+        <div class="answer">
+          <p>Because International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at — a wrong signal would be worse than a missing one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Will a blind person be able to read the braille output?</summary>
+        <div class="answer">
+          <p>Not as fluent braille. These are Unicode braille <em>patterns</em> — the dot shapes themselves — not a contracted braille translation, and they are not connected to a refreshable display. Treat it as a visual effect, not an accessibility feature.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="pitch">
+    <span class="kicker">The long way round</span>
+    <h2>🙃 A page held together by coincidences</h2>
+
+    <p class="lede">Upside down text should not be possible. There is no rotate button in Unicode, no flip flag, nothing in the standard that says <em>render this the other way up</em>. It works because a handful of linguists, decades ago, needed a symbol for a vowel sound and happened to pick one shaped like an upside down <strong>a</strong>. 🌍</p>
+
+    <p>Every style on this page runs on that kind of luck. ɐ is a phonetic character. ᴚ comes from a Cyrillic extension. The letters that mirror cleanly do so entirely by accident of design, and the ones that refuse — <em>k, s, x</em> — refuse because nobody ever needed their reflection for anything. This page is a scrapbook of near-misses that turned out useful. 🎲</p>
+
+    <p>Then there is the other half: morse, braille, binary. 📻 Not decoration at all, but actual encodings, each built so a message could survive a channel that could not carry letters — a telegraph wire, a fingertip, a switch that is either on or off. Dropping them beside vaporwave and mocking caps is faintly ridiculous, and also the honest thing to do, because on the internet they get used for exactly the same reason: to make a sentence take a longer, stranger route to its reader. 🛤️</p>
+
+    <p>One of these deserves genuine care, though. ⚠️ <strong>Lookalike letters</strong> — the Greek and Cyrillic characters that pass for Latin ones — are the same trick used to spoof domain names and impersonate accounts. Charming in a caption. In a username, it is the move that gets handles suspended and links flagged, and the systems watching for it do not much care that you meant it playfully.</p>
+
+    <p>Everything else here? Harmless, weightless, faintly absurd. 🎈 Flip a sentence, put it in mocking caps, send it as dots and dashes. Nothing on this page has ever needed to justify itself, which is, honestly, the entire appeal.</p>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">More generators</h2>
+    <ul class="cards">
+      <li><a class="card" href="index.html">
+        <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+        <span class="card-name">Cursive text</span>
+        <span class="card-note">Script, blackletter, bubbles</span>
+      </a></li>
+      <li><a class="card" href="small-text.html">
+        <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
+        <span class="card-name">Small text</span>
+        <span class="card-note">Superscript, subscript, small caps</span>
+      </a></li>
+      <li><a class="card" href="glitch-text.html">
+        <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
+        <span class="card-name">Glitch text</span>
+        <span class="card-note">Zalgo corruption with a dial</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="index.html">Cursive text</a></li>
+        <li><a href="small-text.html">Small text</a></li>
+        <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="weird-text.html">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/engine.js"></script>
+<script>window.PAGE_CONFIG={page:"weird"};</script>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/weird-text.html#webpage",
+      "url": "https://cursivee.app/weird-text.html",
+      "name": "Weird Text Generator — Upside Down, Mirrored, Morse",
+      "description": "Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/weird-text.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/weird-text.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Weird text generator",
+          "item": "https://cursivee.app/weird-text.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/weird-text.html#app",
+      "name": "Weird Text Generator",
+      "url": "https://cursivee.app/weird-text.html",
+      "description": "Flip, mirror and encode your words: upside down text, mocking caps, vaporwave, lookalike letters, morse, braille and binary. Free copy and paste tool.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does upside down text actually work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two steps. Each letter is swapped for a character that happens to look like its rotated twin — ɐ for a, ǝ for e, most of them borrowed from phonetic alphabets — and then the whole string is reversed, so it reads correctly when you turn the screen around. Nothing is being rotated by software; the shapes just happen to exist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is lookalike text safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a caption, yes. For anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the exact technique behind spoofed domains and impersonated usernames, so platforms block it and security tools flag it. Fun in a post; a bad idea in a handle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does morse drop some of my characters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at — a wrong signal would be worse than a missing one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will a blind person be able to read the braille output?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not as fluent braille. These are Unicode braille patterns — the dot shapes themselves — not a contracted braille translation, and they are not connected to a refreshable display. Treat it as a visual effect, not an accessibility feature."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

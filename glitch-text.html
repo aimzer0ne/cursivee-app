@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glitch Text Generator — Zalgo and Cursed Text Maker</title>
+<meta name="description" content="Create glitch and zalgo text with an intensity dial. Corrupt your words above, through and below the line, then copy and paste the result anywhere.">
+<link rel="canonical" href="https://cursivee.app/glitch-text.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/glitch-text.html">
+<meta property="og:title" content="Glitch Text Generator — Zalgo and Cursed Text Maker">
+<meta property="og:description" content="Create glitch and zalgo text with an intensity dial. Corrupt your words above, through and below the line, then copy and paste the result anywhere.">
+<meta property="og:image" content="https://cursivee.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="cursivee.app — Unicode text generators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glitch Text Generator — Zalgo and Cursed Text Maker">
+<meta name="twitter:description" content="Create glitch and zalgo text with an intensity dial. Corrupt your words above, through and below the line, then copy and paste the result anywhere.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="assets/palette.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the generator</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="index.html">cursivee.app</a>
+    <nav class="site-nav" aria-label="Generators">
+      <ul class="nav">
+      <li><a href="index.html">Cursive</a></li>
+      <li><a href="small-text.html">Small</a></li>
+      <li><a href="glitch-text.html" aria-current="page">Glitch</a></li>
+      <li><a href="weird-text.html">Weird</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <h1 class="title">Glitch text generator</h1>
+    <p class="tagline">Stack combining marks on every letter until the text starts to come apart. Turn the <b>intensity</b> dial for anything from a faint tremor to full corruption, and pick whether the damage sits above, through, or below the line.</p>
+  </div>
+
+  <main id="main">
+    <section class="desk">
+      <div class="desk-in">
+        <label class="label" for="src">Your text</label>
+        <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">something is wrong</textarea>
+      </div>
+      <div class="exemplar">
+        <span class="exemplar-out" id="heroOut"></span>
+      </div>
+      <div class="desk-foot">
+        <span class="count" id="count"></span>
+        <span class="spacer"></span>
+        <button class="btn btn-primary" id="heroCopy" type="button">Copy glitch</button>
+      </div>
+    </section>
+
+    <div class="knobs" id="knobs"></div>
+
+    <section class="controls">
+      <input id="filter" type="search" placeholder="Filter styles — try “heavy”" aria-label="Filter styles">
+      <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+    </section>
+
+    <div id="sheetBody"></div>
+    <p class="empty" id="empty" hidden>No style matches that name.</p>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">Using it without breaking things</h2>
+    <div class="prose">
+      <p>Glitch text works by hanging accent marks — the same ones that build á, ñ and ç — off each letter, dozens deep. Nothing is being drawn over your text; every mark is a real character riding along with it.</p>
+      <p>That has consequences worth knowing before you paste:</p>
+      <ul>
+        <li><strong>It gets long fast.</strong> At maximum, one letter can cost thirty characters. A 40-character bio can blow past a 150-character limit without looking any longer on screen.</li>
+        <li><strong>It spills upward and downward.</strong> Marks overflow the line box, so heavy settings will overlap the lines above and below in most apps. That is the effect — but some platforms clip it, and a few strip the marks entirely.</li>
+        <li><strong>Moderation systems notice.</strong> Several networks treat deep stacking as disruptive and will filter or truncate it. Light and Medium travel much better than Maximum.</li>
+      </ul>
+      <p>Every render is stable while you type, so the corruption does not reshuffle under your cursor. Press <strong>Re-scramble</strong> when you want a different roll of the same settings.</p>
+    </div>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What is zalgo text?</summary>
+        <div class="answer">
+          <p>It is ordinary text with combining accent marks stacked on it far past any sane depth. The marks are the same ones that build á, ñ and ç — there are just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does my glitch text get cut off or flattened?</summary>
+        <div class="answer">
+          <p>Two different causes. Some apps clip anything overflowing the line box, so the marks are still there but hidden. Others actively strip combining characters, which permanently flattens the text. <strong>Light</strong> and <strong>Medium</strong> survive far more places than <strong>Maximum</strong>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does glitch text count as more characters?</summary>
+        <div class="answer">
+          <p>Yes, and dramatically so. Every mark is a real character. At maximum intensity a single letter can cost thirty of them, so a short bio can blow past a 150-character limit while looking no longer on screen.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does it look the same every time I type?</summary>
+        <div class="answer">
+          <p>Deliberately. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press <strong>Re-scramble</strong> for a different roll of the same settings.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="pitch">
+    <span class="kicker">The long way round</span>
+    <h2>⚡ Nothing here is broken, which is the unsettling part</h2>
+
+    <p class="lede">Glitch text looks like a rendering error. 👁️ It is not. Every one of those marks clawing at your letters is a perfectly valid character, doing precisely what the specification says it should — attaching itself to the letter before it. The horror is entirely, boringly correct.</p>
+
+    <p>That is what makes it different from a broken image or a corrupted file. 🧩 Those are failures. This is <strong>compliance taken too far</strong>. Unicode says a letter may carry combining marks, and it never says how many, because nobody writing that rule imagined anyone would ask for forty. So your browser stacks all forty, dutifully, and the result crawls out of its line and into the sentence above.</p>
+
+    <p>Which is also why it behaves so badly in the wild. 🚧 Those marks have no width — the text pushes upward and downward instead of sideways — so it overlaps neighbouring lines, wrecks the spacing of a comment thread, and makes moderators nervous. Several platforms strip it on sight for exactly that reason. That is not censorship of an aesthetic; it is a rational response to text that refuses to stay in its box.</p>
+
+    <p>So use the dial. 🎚️ The instinct is to shove it to maximum, and maximum is the version that gets filtered, truncated, or silently flattened into plain letters. A <strong>light</strong> tremor reads as unease. A <strong>medium</strong> one reads as damage. Full corruption mostly reads as a character-count problem you will discover after you hit post.</p>
+
+    <p>And spare a thought for anyone using a screen reader. 🔇 Zalgo is close to the worst thing you can hand one — a stream of diacritic names with a word buried somewhere inside. Beautiful in a caption. Genuinely cruel in a place where people need to <em>read</em> what you wrote.</p>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">More generators</h2>
+    <ul class="cards">
+      <li><a class="card" href="index.html">
+        <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+        <span class="card-name">Cursive text</span>
+        <span class="card-note">Script, blackletter, bubbles</span>
+      </a></li>
+      <li><a class="card" href="small-text.html">
+        <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
+        <span class="card-name">Small text</span>
+        <span class="card-note">Superscript, subscript, small caps</span>
+      </a></li>
+      <li><a class="card" href="weird-text.html">
+        <span class="card-sample">pɹıǝʍ ʇxǝʇ</span>
+        <span class="card-name">Weird text</span>
+        <span class="card-note">Upside down, mirrored, morse</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="index.html">Cursive text</a></li>
+        <li><a href="small-text.html">Small text</a></li>
+        <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="weird-text.html">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/engine.js"></script>
+<script>window.PAGE_CONFIG={page:"glitch",knobs:true};</script>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/glitch-text.html#webpage",
+      "url": "https://cursivee.app/glitch-text.html",
+      "name": "Glitch Text Generator — Zalgo and Cursed Text Maker",
+      "description": "Create glitch and zalgo text with an intensity dial. Corrupt your words above, through and below the line, then copy and paste the result anywhere.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/glitch-text.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/glitch-text.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Glitch text generator",
+          "item": "https://cursivee.app/glitch-text.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/glitch-text.html#app",
+      "name": "Glitch Text Generator",
+      "url": "https://cursivee.app/glitch-text.html",
+      "description": "Create glitch and zalgo text with an intensity dial. Corrupt your words above, through and below the line, then copy and paste the result anywhere.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is zalgo text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is ordinary text with combining accent marks stacked on it far past any sane depth. The marks are the same ones that build á, ñ and ç — there are just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my glitch text get cut off or flattened?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two different causes. Some apps clip anything overflowing the line box, so the marks are still there but hidden. Others actively strip combining characters, which permanently flattens the text. Light and Medium survive far more places than Maximum."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does glitch text count as more characters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and dramatically so. Every mark is a real character. At maximum intensity a single letter can cost thirty of them, so a short bio can blow past a 150-character limit while looking no longer on screen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does it look the same every time I type?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deliberately. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press Re-scramble for a different roll of the same settings."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

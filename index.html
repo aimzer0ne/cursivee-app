@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursive Text Generator — Copy and Paste Script Fonts</title>
+  <meta name="description"
+    content="Turn plain text into cursive script, blackletter and bubble letters you can copy and paste into any bio, caption or username. Free, instant, no sign-up.">
+  <link rel="canonical" href="https://cursivee.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="cursivee.app">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://cursivee.app/">
+  <meta property="og:title" content="Cursive Text Generator — Copy and Paste Script Fonts">
+  <meta property="og:description"
+    content="Turn plain text into cursive script, blackletter and bubble letters you can copy and paste into any bio, caption or username. Free, instant, no sign-up.">
+  <meta property="og:image" content="https://cursivee.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="cursivee.app — Unicode text generators">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cursive Text Generator — Copy and Paste Script Fonts">
+  <meta name="twitter:description"
+    content="Turn plain text into cursive script, blackletter and bubble letters you can copy and paste into any bio, caption or username. Free, instant, no sign-up.">
+  <meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="cursivee">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <script src="assets/palette.js"></script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to the generator</a>
+  <div class="sheet">
+
+    <header class="site-head">
+      <a class="brand" href="index.html">cursivee.app</a>
+      <nav class="site-nav" aria-label="Generators">
+        <ul class="nav">
+          <li><a href="index.html" aria-current="page">Cursive</a></li>
+          <li><a href="small-text.html">Small</a></li>
+          <li><a href="glitch-text.html">Glitch</a></li>
+          <li><a href="weird-text.html">Weird</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="btn" id="themeBtn" type="button">Dark</button>
+    </header>
+
+    <div class="masthead">
+      <h1 class="title"><span class="script">Cursive</span> text generator</h1>
+      <p class="tagline">Type once and get twenty-one alphabets — <b>script, blackletter, bold, bubbles</b> — that paste
+        into any bio, caption, or username that only accepts plain text.</p>
+    </div>
+
+    <main id="main">
+      <section class="desk">
+        <div class="desk-in">
+          <label class="label" for="src">Your text</label>
+          <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">Hello, beautiful</textarea>
+        </div>
+        <div class="exemplar">
+          <span class="exemplar-out" id="heroOut"></span>
+        </div>
+        <div class="desk-foot">
+          <span class="count" id="count"></span>
+          <span class="spacer"></span>
+          <button class="btn btn-primary" id="heroCopy" type="button">Copy script</button>
+        </div>
+      </section>
+
+      <section class="controls">
+        <input id="filter" type="search" placeholder="Filter styles — try “script”" aria-label="Filter styles">
+        <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+      </section>
+
+      <div id="sheetBody"></div>
+      <p class="empty" id="empty" hidden>No style matches that name.</p>
+    </main>
+
+    <section class="more">
+      <h2 class="more-title">More generators</h2>
+      <ul class="cards">
+        <li><a class="card" href="small-text.html">
+            <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
+            <span class="card-name">Small text</span>
+            <span class="card-note">Superscript, subscript, small caps</span>
+          </a></li>
+        <li><a class="card" href="glitch-text.html">
+            <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
+            <span class="card-name">Glitch text</span>
+            <span class="card-note">Zalgo corruption with a dial</span>
+          </a></li>
+        <li><a class="card" href="weird-text.html">
+            <span class="card-sample">pɹıǝʍ ʇxǝʇ</span>
+            <span class="card-name">Weird text</span>
+            <span class="card-note">Upside down, mirrored, morse</span>
+          </a></li>
+      </ul>
+    </section>
+
+    <section class="more">
+      <h2 class="more-title">Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is this actually a font?</summary>
+          <div class="answer">
+            <p>No — and that is exactly why it works. A font is a set of drawings your app chooses. These are
+              <strong>Unicode characters</strong>: 𝒜 and A are as different as A and B, with their own permanent
+              numbers in the standard. Because the difference lives in the text rather than in a style setting, it
+              survives the trip into apps that never offered you a typeface menu.
+            </p>
+          </div>
+        </details>
+        <details>
+          <summary>Will it work on Instagram, TikTok or Discord?</summary>
+          <div class="answer">
+            <p>In bios and captions, almost always. In <em>usernames</em>, it varies — some platforms strip these
+              characters, some replace them with plain letters, and some reject the entry outright. Paste a short test
+              before you commit to anything you would hate to lose.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Why did some of my letters not change?</summary>
+          <div class="answer">
+            <p>Because that character does not exist. Unicode added these alphabets for mathematicians and typesetters,
+              one at a time, so a few have gaps. Any letter without a counterpart comes through untouched, and no
+              generator anywhere can invent it.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Is it free, and does it keep what I type?</summary>
+          <div class="answer">
+            <p>Free, with no account and no limit. Every conversion runs in your own browser — nothing you type is sent
+              anywhere, logged, or stored. Close the tab and it is gone. The <a href="privacy.html">privacy page</a>
+              spells this out.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="pitch">
+      <span class="kicker">The long way round</span>
+
+      <p class="lede">
+        You might be surprised to know that a long time ago, a group of people in charge of making rules for writing
+        math stuff got together to discuss something pretty specific. They were trying to figure out if mathematicians
+        really needed a special letter ℬ that would mean something different from a regular bold B. And guess what? They
+        decided that yes, they did need it. This decision might seem like a small thing, but it's actually the reason
+        why you can make your captions look like they're handwritten today. It's pretty cool to think that a choice made
+        for some complicated math equations that probably only physics professors would understand ended up having a
+        bigger impact.</p>
+
+      <p>You know what's funny about this page? Every style of writing here is actually just a coincidence from the
+        past.
+        The blackletter style, for example, was only kept around because of medieval scholarship. And have you ever
+        wondered why we use fullwidth letters? It's because they were used on old Japanese typewriters. Even the circled
+        characters came from signs you see when you're traveling. None of these styles were meant to be used on social
+        media, but somehow they all work really well together anyway. 🧵
+      </p>
+      <p>
+        There's something really odd about this. Most of the time, when you're online, you're asked to pick a font,
+        which
+        is basically like asking for permission from the app you're using. But this is different. It doesn't ask for
+        anything. The letters are the message, and that's it. You can copy and paste them into any field, even if it
+        doesn't know anything about typography, and they'll still show up just fine. That's because there's nothing
+        extra
+        to remove - just the characters, doing their thing. ✨
+      </p>
+      <p>
+        The thing is, there's a problem with using fancy fonts and symbols in your writing. 🤔 When a screen reader
+        comes
+        across something like 𝓱𝓮𝓵𝓵𝓸, it doesn't see a word, it sees a bunch of mathematical symbols all lined up.
+        🔍
+        And then it either reads them out one by one, which can be really confusing, or it just skips over them
+        altogether
+        and says nothing. That's a real person who's having a harder time because of your choice, just so your bio can
+        look fancy. 📄 It's okay to use these kinds of things to add some flair or decoration, or for a name that's
+        already easy to read. But for the important parts, it's better to stick with regular letters. That way, everyone
+        can understand what you're trying to say, no matter how they're reading it. 📖
+      </p>
+      <p>
+        So what's next? Just keep going, I guess. 🖋️ Start writing, go through all twenty-one alphabets, and see which
+        two you like best - mark them with a star or something. Then, just take those two with you. The best part is,
+        it's
+        free, it doesn't take up any space, and you can use it even when you're not online, which is pretty rare for
+        things on the internet these days.
+
+      </p>
+    </section>
+
+    <footer class="site-foot">
+      <div class="foot-brand">
+        <p class="foot-mark">cursivee.app</p>
+        <p class="foot-note">Unicode alphabets you can paste anywhere plain text is allowed.</p>
+      </div>
+      <div>
+        <p class="foot-head">Generators</p>
+        <ul class="foot-list">
+          <li><a href="index.html">Cursive text</a></li>
+          <li><a href="small-text.html">Small text</a></li>
+          <li><a href="glitch-text.html">Glitch text</a></li>
+          <li><a href="weird-text.html">Weird text</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-head">Site</p>
+        <ul class="foot-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/engine.js"></script>
+  <script>window.PAGE_CONFIG = { page: "cursive" };</script>
+  <script src="assets/app.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://cursivee.app/#website",
+      "url": "https://cursivee.app/",
+      "name": "cursivee.app",
+      "description": "Free Unicode text generators: cursive, small, glitch and weird text you can copy and paste anywhere.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cursivee.app/#org",
+      "name": "cursivee.app",
+      "url": "https://cursivee.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cursivee.app/assets/icon-512.png",
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/#webpage",
+      "url": "https://cursivee.app/",
+      "name": "Cursive Text Generator — Copy and Paste Script Fonts",
+      "description": "Turn plain text into cursive script, blackletter and bubble letters you can copy and paste into any bio, caption or username. Free, instant, no sign-up.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/#app",
+      "name": "Cursive Text Generator",
+      "url": "https://cursivee.app/",
+      "description": "Turn plain text into cursive script, blackletter and bubble letters you can copy and paste into any bio, caption or username. Free, instant, no sign-up.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this actually a font?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — and that is exactly why it works. A font is a set of drawings your app chooses. These are Unicode characters: 𝒜 and A are as different as A and B, with their own permanent numbers in the standard. Because the difference lives in the text rather than in a style setting, it survives the trip into apps that never offered you a typeface menu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it work on Instagram, TikTok or Discord?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In bios and captions, almost always. In usernames, it varies — some platforms strip these characters, some replace them with plain letters, and some reject the entry outright. Paste a short test before you commit to anything you would hate to lose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did some of my letters not change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because that character does not exist. Unicode added these alphabets for mathematicians and typesetters, one at a time, so a few have gaps. Any letter without a counterpart comes through untouched, and no generator anywhere can invent it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free, and does it keep what I type?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free, with no account and no limit. Every conversion runs in your own browser — nothing you type is sent anywhere, logged, or stored. Close the tab and it is gone. The privacy page spells this out."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+
+</html>

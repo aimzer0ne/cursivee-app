@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small Text Generator — Tiny Caps, Superscript, Subscript</title>
+<meta name="description" content="Make small text instantly: superscript, subscript, small caps and tiny capitals you can copy and paste anywhere. Free Unicode small text generator.">
+<link rel="canonical" href="https://cursivee.app/small-text.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/small-text.html">
+<meta property="og:title" content="Small Text Generator — Tiny Caps, Superscript, Subscript">
+<meta property="og:description" content="Make small text instantly: superscript, subscript, small caps and tiny capitals you can copy and paste anywhere. Free Unicode small text generator.">
+<meta property="og:image" content="https://cursivee.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="cursivee.app — Unicode text generators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Small Text Generator — Tiny Caps, Superscript, Subscript">
+<meta name="twitter:description" content="Make small text instantly: superscript, subscript, small caps and tiny capitals you can copy and paste anywhere. Free Unicode small text generator.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-image.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="assets/palette.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the generator</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="index.html">cursivee.app</a>
+    <nav class="site-nav" aria-label="Generators">
+      <ul class="nav">
+      <li><a href="index.html">Cursive</a></li>
+      <li><a href="small-text.html" aria-current="page">Small</a></li>
+      <li><a href="glitch-text.html">Glitch</a></li>
+      <li><a href="weird-text.html">Weird</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <h1 class="title">Small text generator</h1>
+    <p class="tagline">Shrink your text into <b>superscript, subscript, small caps</b> and tiny capitals. Useful for footnote marks, quiet asides in a bio, and usernames that need to look half a size down.</p>
+  </div>
+
+  <main id="main">
+    <section class="desk">
+      <div class="desk-in">
+        <label class="label" for="src">Your text</label>
+        <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">whispering quietly</textarea>
+      </div>
+      <div class="exemplar">
+        <span class="exemplar-out" id="heroOut"></span>
+      </div>
+      <div class="desk-foot">
+        <span class="count" id="count"></span>
+        <span class="spacer"></span>
+        <button class="btn btn-primary" id="heroCopy" type="button">Copy superscript</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input id="filter" type="search" placeholder="Filter styles — try “caps”" aria-label="Filter styles">
+      <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+    </section>
+
+    <div id="sheetBody"></div>
+    <p class="empty" id="empty" hidden>No style matches that name.</p>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">Why some letters stay full size</h2>
+    <div class="prose">
+      <p>Unicode never set out to build a complete miniature alphabet. It added small letters one at a time, as phonetic notation and mathematical convention demanded them, so the sets have gaps — and a gap means that letter comes through at its normal size.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Style</th><th>Missing</th><th>What happens instead</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Superscript</td><td>q, Q</td><td>Stays a full-size q</td></tr>
+            <tr><td>Subscript</td><td>b, c, d, f, g, q, w, y, z</td><td>Stays full size; capitals use the lowercase form</td></tr>
+            <tr><td>Small caps</td><td>q, x</td><td>Stays a full-size q or x</td></tr>
+            <tr><td>Tiny caps</td><td>Q</td><td>Stays a full-size Q</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No generator can fix this, including this one — the characters simply do not exist. If a word lands badly, a synonym without the missing letter is usually the shortest way out.</p>
+    </div>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What is the difference between small caps and superscript?</summary>
+        <div class="answer">
+          <p><strong>Small caps</strong> sit on the baseline at roughly x-height — ʟɪᴋᴇ ᴛʜɪꜱ — so they read as quiet capitals. <strong>Superscript</strong> lifts the letters up to the top of the line, ˡⁱᵏᵉ ᵗʰⁱˢ, which reads as a footnote or an aside. Small caps stay legible at length; superscript is best in short bursts.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I use small text in a username?</summary>
+        <div class="answer">
+          <p>Sometimes. These are modifier and phonetic characters rather than plain letters, and username validators are the strictest fields on any platform. Bios and display names are a far safer bet. Test before you commit.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does subscript have so many gaps?</summary>
+        <div class="answer">
+          <p>Subscript letters were added for chemistry and mathematics — the ones needed for notation got encoded, the rest never did. That leaves no subscript b, c, d, f, g, q, w, y or z anywhere in Unicode, so those letters stay full size.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does small text actually take up less space?</summary>
+        <div class="answer">
+          <p>Visually, yes. In character count, no — each small letter still counts as one character, and a few count as more. A bio at its limit will not gain room by shrinking.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="pitch">
+    <span class="kicker">The long way round</span>
+    <h2>🔎 The alphabet that chemistry left behind</h2>
+
+    <p class="lede">Small text has the strangest origin story on this whole site. These letters were not made to be cute. 🧪 They were made so a chemist could write H₂O, so a linguist could mark a raised ʰ in a phonetic transcription, and so a mathematician could index a variable without ambiguity. Somewhere between the lab bench and the group chat, they got adopted for entirely different reasons.</p>
+
+    <p>Which explains the gaps — and the gaps are the whole personality of this page. There is <strong>no subscript b</strong>. No subscript g. No superscript q. Nobody needed them, so nobody encoded them, and thirty years later your username quietly refuses to shrink one particular letter. 🤷 It is not a bug in this tool or any other. It is a committee's to-do list, frozen mid-sentence, and you are standing in the part they never got to.</p>
+
+    <p>Most generators hide this. They swap the missing letter for a lookalike from some unrelated script and hope you do not notice — which works until a platform flags your name as mixed-script or a font renders it as a box. 📦 We would rather show you the gap and let you write around it. A synonym is usually the shortest fix, and it always renders.</p>
+
+    <p>What small text is genuinely <em>good</em> at is volume control. 🔉 Full-size letters shout; these murmur. A pronoun set, a city, a job title, a line you want present but not competing — drop it a size and the hierarchy of your bio does the reading for you, without a single extra character of punctuation or decoration.</p>
+
+    <p>Just remember the trade. ⚖️ To a screen reader these are modifier letters and phonetic symbols, not a whisper — and a whisper is not a thing software can hear. Keep the essentials full size. Use the small stuff for the parts where <strong>tone matters more than information</strong>.</p>
+  </section>
+
+  <section class="more">
+    <h2 class="more-title">More generators</h2>
+    <ul class="cards">
+      <li><a class="card" href="index.html">
+        <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+        <span class="card-name">Cursive text</span>
+        <span class="card-note">Script, blackletter, bubbles</span>
+      </a></li>
+      <li><a class="card" href="glitch-text.html">
+        <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
+        <span class="card-name">Glitch text</span>
+        <span class="card-note">Zalgo corruption with a dial</span>
+      </a></li>
+      <li><a class="card" href="weird-text.html">
+        <span class="card-sample">pɹıǝʍ ʇxǝʇ</span>
+        <span class="card-name">Weird text</span>
+        <span class="card-note">Upside down, mirrored, morse</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="index.html">Cursive text</a></li>
+        <li><a href="small-text.html">Small text</a></li>
+        <li><a href="glitch-text.html">Glitch text</a></li>
+        <li><a href="weird-text.html">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/engine.js"></script>
+<script>window.PAGE_CONFIG={page:"small"};</script>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/small-text.html#webpage",
+      "url": "https://cursivee.app/small-text.html",
+      "name": "Small Text Generator — Tiny Caps, Superscript, Subscript",
+      "description": "Make small text instantly: superscript, subscript, small caps and tiny capitals you can copy and paste anywhere. Free Unicode small text generator.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/small-text.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/small-text.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Small text generator",
+          "item": "https://cursivee.app/small-text.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/small-text.html#app",
+      "name": "Small Text Generator",
+      "url": "https://cursivee.app/small-text.html",
+      "description": "Make small text instantly: superscript, subscript, small caps and tiny capitals you can copy and paste anywhere. Free Unicode small text generator.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between small caps and superscript?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small caps sit on the baseline at roughly x-height — ʟɪᴋᴇ ᴛʜɪꜱ — so they read as quiet capitals. Superscript lifts the letters up to the top of the line, ˡⁱᵏᵉ ᵗʰⁱˢ, which reads as a footnote or an aside. Small caps stay legible at length; superscript is best in short bursts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use small text in a username?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes. These are modifier and phonetic characters rather than plain letters, and username validators are the strictest fields on any platform. Bios and display names are a far safer bet. Test before you commit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does subscript have so many gaps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subscript letters were added for chemistry and mathematics — the ones needed for notation got encoded, the rest never did. That leaves no subscript b, c, d, f, g, q, w, y or z anywhere in Unicode, so those letters stay full size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does small text actually take up less space?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visually, yes. In character count, no — each small letter still counts as one character, and a few count as more. A bio at its limit will not gain room by shrinking."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>
