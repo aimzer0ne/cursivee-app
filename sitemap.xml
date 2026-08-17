@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Replace https://cursivee.app with your live origin before submitting this. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://cursivee.app/</loc>
     <lastmod>2026-08-16</lastmod>
+    <image:image>
+      <image:loc>https://cursivee.app/assets/cursive-font-generator-1200.jpg</image:loc>
+      <image:title>Cursive Font Generator</image:title>
+      <image:caption>Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen</image:caption>
+    </image:image>
     <priority>1.0</priority>
   </url>
   <url>

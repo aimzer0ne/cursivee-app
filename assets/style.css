@@ -498,6 +498,23 @@ a{color:var(--accent)}
 .card-name{display:block;font-weight:600;font-size:.95rem}
 .card-note{display:block;font-size:.85rem;color:var(--ink-soft);margin-top:2px}
 
+/* ── showcase image ─────────────────────────────────────── */
+.showcase{margin:34px 0 0}
+.showcase img{
+  display:block;
+  width:100%;
+  height:auto;              /* with width/height on the tag, reserves space and avoids layout shift */
+  border:1px dashed var(--rule);
+  border-radius:4px;
+}
+.showcase figcaption{
+  margin-top:10px;
+  max-width:62ch;
+  font-family:var(--f-serif);
+  font-size:.92rem;
+  color:var(--ink-soft);
+}
+
 /* ── FAQ ────────────────────────────────────────────────── */
 .faq{margin-top:14px;display:flex;flex-direction:column;gap:2px}
 .faq details{
