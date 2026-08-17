@@ -26,7 +26,7 @@
      block (U+0300–U+036F) — Georgia covers barely a quarter of it and turns
      glitch marks into tofu. None of these carry the mathematical alphanumerics,
      so those still fall through to the math faces further down the list. */
-  --f-out:"Times New Roman","Liberation Serif","DejaVu Serif","Helvetica Neue",Helvetica,Arial,"Cambria Math","STIX Two Math","Apple Symbols",Georgia,serif;
+  --f-out:"Times New Roman","Liberation Serif","DejaVu Serif",Geneva,"Noto Sans","DejaVu Sans","Helvetica Neue",Helvetica,Arial,"Cambria Math","STIX Two Math","Apple Symbols",Georgia,serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
