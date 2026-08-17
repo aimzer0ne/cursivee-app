@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cursed Text Generator — Cursed Font & Creepy Text Maker</title>
@@ -83,20 +92,6 @@
     <div id="sheetBody"></div>
     <p class="empty" id="empty" hidden>No style matches that name.</p>
   </main>
-
-  <section class="more">
-    <h2 class="more-title">How cursed differs from glitch</h2>
-    <div class="prose">
-      <p>The <a href="glitch-text.html">glitch generator</a> stacks combining marks on your letters and leaves the letters themselves alone. This page changes the letters first — into blackletter, small caps, double-struck or mirrored forms — and <em>then</em> corrupts them. That second layer is what separates something that looks broken from something that looks wrong on purpose.</p>
-      <p>The practical consequences are the same, and worth repeating:</p>
-      <ul>
-        <li><strong>The character count multiplies.</strong> A substituted letter is often already two characters wide in memory, and every mark adds another. <em>Unspeakable</em> can cost forty characters per letter.</li>
-        <li><strong>It overflows its line.</strong> Marks have no width, so heavy settings climb into the text above and below. Some apps clip this, some strip it entirely.</li>
-        <li><em>Fonts give out before Unicode does.</em> Blackletter and double-struck letters carrying deep stacks are the most likely combination on this site to render as boxes on an older device.</li>
-      </ul>
-      <p>Everything is seeded, so the corruption stays put while you edit. <strong>Re-scramble</strong> rolls it again.</p>
-    </div>
-  </section>
 
   <section class="more">
     <h2 class="more-title">What this cursed text generator does</h2>

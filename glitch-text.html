@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glitch Text Generator — Zalgo & Glitch Font Generator</title>
@@ -83,20 +92,6 @@
     <div id="sheetBody"></div>
     <p class="empty" id="empty" hidden>No style matches that name.</p>
   </main>
-
-  <section class="more">
-    <h2 class="more-title">Using it without breaking things</h2>
-    <div class="prose">
-      <p>Glitch text works by hanging accent marks — the same ones that build á, ñ and ç — off each letter, dozens deep. Nothing is being drawn over your text; every mark is a real character riding along with it.</p>
-      <p>That has consequences worth knowing before you paste:</p>
-      <ul>
-        <li><strong>It gets long fast.</strong> At maximum, one letter can cost thirty characters. A 40-character bio can blow past a 150-character limit without looking any longer on screen.</li>
-        <li><strong>It spills upward and downward.</strong> Marks overflow the line box, so heavy settings will overlap the lines above and below in most apps. That is the effect — but some platforms clip it, and a few strip the marks entirely.</li>
-        <li><strong>Moderation systems notice.</strong> Several networks treat deep stacking as disruptive and will filter or truncate it. Light and Medium travel much better than Maximum.</li>
-      </ul>
-      <p>Every render is stable while you type, so the corruption does not reshuffle under your cursor. Press <strong>Re-scramble</strong> when you want a different roll of the same settings.</p>
-    </div>
-  </section>
 
   <section class="more">
     <h2 class="more-title">What this glitch text generator does</h2>
