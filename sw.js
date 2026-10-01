@@ -5,7 +5,7 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v4";
+const CACHE = "cursivee-v5";
 
 const SHELL = [
   "./",
@@ -25,6 +25,7 @@ const SHELL = [
   "./assets/palette.js",
   "./assets/engine.js",
   "./assets/app.js",
+  "./assets/favicon-32.png",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/apple-touch-icon.png"
