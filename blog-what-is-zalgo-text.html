@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Zalgo Text? How Glitch Text Works, How to Remove It</title>
+<meta name="description" content="Zalgo or glitch text is ordinary letters buried under stacked accent marks. How it works, where the name came from, why apps differ, and how to remove it.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://cursivee.app/blog-what-is-zalgo-text">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/blog-what-is-zalgo-text">
+<meta property="og:title" content="What Is Zalgo Text? How Glitch Text Works, How to Remove It">
+<meta property="og:description" content="Zalgo or glitch text is ordinary letters buried under stacked accent marks. How it works, where the name came from, why apps differ, and how to remove it.">
+<meta property="og:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<meta property="article:published_time" content="2026-10-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Zalgo Text? How Glitch Text Works, How to Remove It">
+<meta name="twitter:description" content="Zalgo or glitch text is ordinary letters buried under stacked accent marks. How it works, where the name came from, why apps differ, and how to remove it.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F7F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0A12" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="./">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="./">Cursive</a></li>
+        <li><a href="small-text">Small</a></li>
+        <li><a href="glitch-text">Glitch</a></li>
+        <li><a href="cursed-text">Cursed</a></li>
+        <li><a href="weird-text">Weird</a></li>
+        <li class="nav-sep"><a href="blog" aria-current="true">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <p class="eyebrow"><a href="blog">Blog</a> · <time datetime="2026-10-05">5 October 2026</time> · 4 min read</p>
+    <h1 class="title">What is Zalgo text, and how does it work?</h1>
+    <p class="tagline">Glitch text looks like a rendering bug, but it is ordinary letters carrying far more accent marks than anyone intended. Here is the mechanism, the history, and how to undo it.</p>
+  </div>
+
+  <main id="main">
+    <article class="prose">
+    <h2>The short answer</h2>
+    <p>Zalgo text — also called glitch text or corrupted text — is normal text in which every letter has been loaded with combining marks: accents, dots, hooks and strokes that attach themselves to the character before them. Stack enough of them and the marks climb out of the line and over its neighbours:</p>
+    <p class="glyphs glyphs-tall">g̢̛͖̳͋ͨ̃l̠̥̩͑̎̉͟ī̙̯ͣ͛̚͞t̻̘͎̉̔̑͟c̻̯̳͗̔͛͡h̨̟͖͑ͧͫ͞ t̝̰̦̉͗͌͟e͙̼͗͌͂̚͞x̷͎̙͓͌̈̏ẗ̼͙͈͐̉͡</p>
+    <p>Nothing is broken. No font is involved, and it is not an image. It is plain text behaving exactly as the standard says it should, pushed well past the point anyone designed for.</p>
+
+    <h2>How combining marks work</h2>
+    <p>There are two ways to write é in Unicode. One is a single ready-made character. The other is a plain e followed by a separate character, the <em>combining acute accent</em>, which has no width of its own and draws itself on top of whatever came before. Both look identical on screen.</p>
+    <p>The second method exists because the world's languages need far more letter-and-accent combinations than anyone could list in advance. Vietnamese routinely puts two marks on one vowel. Phonetic transcription uses more. So combining marks are designed to stack, and the standard sets no hard limit on how many may follow a letter. Unicode has a block of 112 general-purpose ones, with more elsewhere.</p>
+    <p>Glitch text takes that open-ended rule literally. Instead of one accent, a letter gets ten, or thirty. Each new mark is positioned relative to the last, so they pile outward from the letter.</p>
+
+    <h2>Three directions of damage</h2>
+    <p>Combining marks fall into three groups according to where they attach, and the look of glitch text depends on which are used:</p>
+    <ul>
+      <li><strong>Above</strong> — accents, rings and tildes that climb upward into the line before.</li>
+      <li><strong>Below</strong> — cedillas, dots and hooks that hang down into the line after.</li>
+      <li><strong>Through</strong> — strokes and slashes that cut across the letter itself, which is how strikethrough text is made.</li>
+    </ul>
+    <p>The <a href="glitch-text">glitch text generator</a> lets you switch each of these zones on or off and turn an intensity dial for how many marks land on each letter. Marks above only gives text that looks as though it is evaporating; marks below only makes it drip. The <a href="cursed-text">cursed text generator</a> does the same thing on top of a substituted alphabet, so the letters underneath are wrong as well.</p>
+
+    <h2>Where the name comes from</h2>
+    <p>Zalgo began as an internet horror meme in the mid-2000s. Dave Kelly, posting on the Something Awful forums, edited ordinary newspaper comic strips so that the characters dissolved into something monstrous, attributing it to an entity called Zalgo. Text mangled with combining marks became the standard way of writing in Zalgo's voice, with the stock phrase "he comes", and the name stuck to the technique.</p>
+    <p>It reached a wider audience of programmers in 2009, through a celebrated Stack Overflow answer about why HTML cannot be parsed with regular expressions, in which the text itself progressively collapses into Zalgo as the author's composure does.</p>
+
+    <h2>Why it looks different in every app</h2>
+    <p>Unicode says the marks should stack. It does not say what an app must do when the stack is taller than the line. That decision belongs to whatever is drawing the text, and every renderer answers it differently:</p>
+    <ul>
+      <li>Some let the marks overflow freely over adjacent lines. This is the full effect.</li>
+      <li>Some clip everything to the height of the line, cutting the towers off flat.</li>
+      <li>Some stop stacking after a few marks and draw the rest on top of each other as a smudge.</li>
+      <li>Some platforms strip excess marks when you post, as an anti-spam measure.</li>
+    </ul>
+    <p>So the same string can look dramatic in one app and nearly normal in the next. If you are making glitch text for a particular place, test it there.</p>
+
+    <h2>Is it harmful?</h2>
+    <p>No. Zalgo text is not a virus, cannot damage a device and cannot hack an account. It is text. There are, though, three real costs:</p>
+    <ul>
+      <li><strong>It eats character limits.</strong> Every mark counts as a character. A letter with twenty marks uses twenty-one. A short phrase at high intensity can overrun a 150-character bio while looking no longer.</li>
+      <li><strong>It covers other people's text.</strong> In a chat or comment thread, overflowing marks obscure the messages above and below. Many communities treat heavy Zalgo as spam and remove it.</li>
+      <li><strong>It is hard on accessibility.</strong> Screen readers may try to announce every mark. See <a href="blog-fancy-text-accessibility">what screen readers do with fancy text</a>.</li>
+    </ul>
+    <p>At low intensity most of this disappears. A mark or two per letter reads as unease rather than noise, stays inside its own line, and tends to be the more effective look anyway.</p>
+
+    <h2>How to remove Zalgo from text</h2>
+    <p>Because the original letters are still there underneath, the damage is reversible: delete the combining marks and the plain text comes back. In JavaScript, one line does it:</p>
+    <p><code>text.normalize("NFD").replace(/\p{M}/gu, "")</code></p>
+    <p>This splits every character into its base letter and its marks, then removes all the marks. Be aware that it does not distinguish vandalism from spelling: it turns <em>café</em> into <em>cafe</em> as well. For text in English that is usually acceptable. For names and other languages it is not, and a gentler approach — allowing one or two marks per letter and removing the rest — is the better filter.</p>
+    <p>If you would rather add marks than remove them, the <a href="glitch-text">glitch generator</a> is one click away.</p>
+
+    <hr>
+    <p class="stamp"><a href="blog">← All posts</a></p>
+    </article>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">Keep reading</h2>
+    <ul class="cards">
+      <li><a class="card" href="blog-cursive-text-instagram-bio">
+          <span class="card-sample">𝓎ℴ𝓊𝓇 𝒷𝒾ℴ</span>
+          <span class="card-name">How to put cursive text in your Instagram bio</span>
+          <span class="card-note">Which fields accept cursive on Instagram, TikTok, Discord and X — and which strip it.</span>
+        </a></li>
+      <li><a class="card" href="blog-cursive-alphabet-copy-paste">
+          <span class="card-sample">𝒜 ℬ 𝒞</span>
+          <span class="card-name">The cursive alphabet, A to Z, to copy and paste</span>
+          <span class="card-note">All 52 letters in three styles, and the eleven that never quite match the rest.</span>
+        </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Free cursive, small, glitch, cursed and weird text generators. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="./">Cursive text</a></li>
+        <li><a href="small-text">Small text</a></li>
+        <li><a href="glitch-text">Glitch text</a></li>
+        <li><a href="cursed-text">Cursed text</a></li>
+        <li><a href="weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Guides</p>
+      <ul class="foot-list">
+        <li><a href="blog-cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="blog-cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="blog-fancy-text-boxes-question-marks">Why text shows as boxes</a></li>
+        <li><a href="blog-fancy-text-accessibility">Fancy text and screen readers</a></li>
+        <li><a href="blog-what-is-zalgo-text">What is Zalgo text?</a></li>
+        <li><a href="blog">All posts</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="privacy">Privacy</a></li>
+        <li><a href="terms">Terms</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://cursivee.app/blog-what-is-zalgo-text#article",
+      "headline": "What is Zalgo text, and how does it work?",
+      "description": "Zalgo or glitch text is ordinary letters buried under stacked accent marks. How it works, where the name came from, why apps differ, and how to remove it.",
+      "url": "https://cursivee.app/blog-what-is-zalgo-text",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "inLanguage": "en",
+      "image": "https://cursivee.app/assets/og-cursive-font-generator.jpg",
+      "wordCount": 887,
+      "author": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://cursivee.app/blog-what-is-zalgo-text#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://cursivee.app/blog#blog"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/blog-what-is-zalgo-text#webpage",
+      "url": "https://cursivee.app/blog-what-is-zalgo-text",
+      "name": "What Is Zalgo Text? How Glitch Text Works, How to Remove It",
+      "description": "Zalgo or glitch text is ordinary letters buried under stacked accent marks. How it works, where the name came from, why apps differ, and how to remove it.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/blog-what-is-zalgo-text#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/blog-what-is-zalgo-text#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cursivee.app/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is Zalgo text?",
+          "item": "https://cursivee.app/blog-what-is-zalgo-text"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

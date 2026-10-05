@@ -1,10 +1,10 @@
 {
   "name": "cursivee.app — Cursive & Unicode Text Generator",
   "short_name": "cursivee",
-  "description": "Turn what you type into script, small, glitch and weird Unicode alphabets you can paste anywhere plain text is allowed.",
+  "description": "Turn what you type into script, small, glitch, cursed and weird Unicode alphabets you can paste anywhere plain text is allowed.",
   "lang": "en",
   "dir": "ltr",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "id": "/",
   "display": "standalone",
@@ -13,8 +13,8 @@
     "minimal-ui",
     "browser"
   ],
-  "background_color": "#E8ECF1",
-  "theme_color": "#E8ECF1",
+  "background_color": "#F7F5F1",
+  "theme_color": "#F7F5F1",
   "categories": [
     "utilities",
     "productivity",
@@ -44,7 +44,7 @@
     {
       "name": "Cursive text",
       "short_name": "Cursive",
-      "url": "./index.html",
+      "url": "./",
       "icons": [
         {
           "src": "assets/icon-192.png",
@@ -56,7 +56,7 @@
     {
       "name": "Small text",
       "short_name": "Small",
-      "url": "./small-text.html",
+      "url": "./small-text",
       "icons": [
         {
           "src": "assets/icon-192.png",
@@ -68,7 +68,7 @@
     {
       "name": "Glitch text",
       "short_name": "Glitch",
-      "url": "./glitch-text.html",
+      "url": "./glitch-text",
       "icons": [
         {
           "src": "assets/icon-192.png",
@@ -80,7 +80,7 @@
     {
       "name": "Cursed text",
       "short_name": "Cursed",
-      "url": "./cursed-text.html",
+      "url": "./cursed-text",
       "icons": [
         {
           "src": "assets/icon-192.png",
@@ -92,7 +92,7 @@
     {
       "name": "Weird text",
       "short_name": "Weird",
-      "url": "./weird-text.html",
+      "url": "./weird-text",
       "icons": [
         {
           "src": "assets/icon-192.png",

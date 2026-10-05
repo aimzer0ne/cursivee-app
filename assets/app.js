@@ -70,33 +70,13 @@ function copyText(text,label){
     btn.textContent=isDark()?"Light":"Dark";
     btn.setAttribute("aria-label","Switch to "+(isDark()?"light":"dark")+" theme");
   }
-  function repaint(){
-    /* The palette is generated, so the theme swap has to re-derive it. */
-    if(window.CFPalette) window.CFPalette.apply();
-  }
   if(btn) btn.addEventListener("click",function(){
     var next=isDark()?"light":"dark";
     document.documentElement.setAttribute("data-theme",next);
     save("cf.theme",next);
-    repaint();
     sync();
   });
   sync();
-
-  /* Re-roll the hue without a reload. */
-  if(btn&&window.CFPalette){
-    var shuffle=document.createElement("button");
-    shuffle.className="btn";
-    shuffle.type="button";
-    shuffle.textContent="Shuffle";
-    shuffle.title="New colour scheme";
-    shuffle.setAttribute("aria-label","Shuffle the colour scheme");
-    btn.parentNode.insertBefore(shuffle,btn);
-    shuffle.addEventListener("click",function(){
-      var h=window.CFPalette.roll();
-      toast("New colour scheme — hue "+h+"°");
-    });
-  }
 })();
 
 /* ── progressive web app ────────────────────────────────── */

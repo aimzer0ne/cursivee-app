@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can Screen Readers Read Fancy Text? Cursive and Accessibility</title>
+<meta name="description" content="Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://cursivee.app/blog-fancy-text-accessibility">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/blog-fancy-text-accessibility">
+<meta property="og:title" content="Can Screen Readers Read Fancy Text? Cursive and Accessibility">
+<meta property="og:description" content="Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.">
+<meta property="og:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<meta property="article:published_time" content="2026-10-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Can Screen Readers Read Fancy Text? Cursive and Accessibility">
+<meta name="twitter:description" content="Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F7F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0A12" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="./">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="./">Cursive</a></li>
+        <li><a href="small-text">Small</a></li>
+        <li><a href="glitch-text">Glitch</a></li>
+        <li><a href="cursed-text">Cursed</a></li>
+        <li><a href="weird-text">Weird</a></li>
+        <li class="nav-sep"><a href="blog" aria-current="true">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <p class="eyebrow"><a href="blog">Blog</a> · <time datetime="2026-10-05">5 October 2026</time> · 3 min read</p>
+    <h1 class="title">Can screen readers read fancy text?</h1>
+    <p class="tagline">Mostly no. Here is what cursive Unicode sounds like to someone who cannot see it, who else it trips up, and how to keep using it without shutting people out.</p>
+  </div>
+
+  <main id="main">
+    <article class="prose">
+    <h2>The short answer</h2>
+    <p>Mostly, no. A screen reader works from the identity of each character, not its appearance. The characters that make up fancy text are not styled letters; they are mathematical symbols that happen to look like letters. Depending on the screen reader, its voice and its settings, a word in script is read as a long list of symbol names, spelled out one letter at a time, or passed over in silence.</p>
+    <p>We run a site that produces this text, so it would be easy to play this down. It is the main cost of using it, and it is worth understanding properly.</p>
+
+    <h2>What it sounds like</h2>
+    <p>Every character in Unicode has an official name. The plain letter h is called <em>Latin small letter h</em>, and a screen reader knows to treat it as part of a word. The script version, 𝒽, is a different character with a different name: <em>mathematical script small h</em>.</p>
+    <p>So take a one-word bio: 𝒽ℯ𝓁𝓁ℴ. Where a sighted visitor sees a word in elegant handwriting, someone listening may hear "mathematical script small h, mathematical script small e, mathematical script small l…" and so on. Five letters become around twenty-five words. Other screen readers have no pronunciation for those characters and say nothing, which is arguably worse: the listener does not know anything was there.</p>
+    <p>Behaviour varies between VoiceOver, TalkBack, NVDA and JAWS, and between versions of each. Some handle some alphabets more gracefully than others. None of them reliably reads fancy text as the word you meant, and you have no control over which one your reader uses.</p>
+
+    <h2>It is not only screen readers</h2>
+    <ul>
+      <li><strong>Search.</strong> Find-on-page and most site search match characters exactly. Searching for "hello" will not find 𝒽ℯ𝓁𝓁ℴ.</li>
+      <li><strong>Translation.</strong> Automatic translation generally leaves fancy text untouched, because it does not recognise it as words.</li>
+      <li><strong>Reading difficulty.</strong> Blackletter and light script are slower to read for everyone, and considerably harder for people with dyslexia or low vision, who cannot override the shapes with a font they find comfortable.</li>
+      <li><strong>Voice control and dictation.</strong> A button or name written in symbols cannot be spoken aloud to select it.</li>
+      <li><strong>Missing fonts.</strong> Some readers will see <a href="blog-fancy-text-boxes-question-marks">empty boxes instead of letters</a>.</li>
+    </ul>
+
+    <h2>Glitch text is harder still</h2>
+    <p><a href="blog-what-is-zalgo-text">Glitch or Zalgo text</a> is made by stacking combining marks on each letter. Each mark is its own character. A screen reader may ignore them and read the word normally, which is the best case, or it may stumble through dozens of accent names for a single letter. Visually, heavy glitch text also spills over the lines above and below it and obscures them for everyone.</p>
+
+    <h2>The "braille" style is not braille</h2>
+    <p>The <a href="weird-text">weird text generator</a> includes a braille style, and it is worth being clear about what that is. It converts letters into Unicode's braille pattern characters: pictures of dot arrangements on a flat screen. Nobody can feel them, and they are not a substitute for a tactile braille display, which works from ordinary text. It is a visual novelty.</p>
+
+    <h2>Six rules that keep it considerate</h2>
+    <ol>
+      <li><strong>Decoration, not information.</strong> If removing the fancy text would lose meaning, it should not be fancy text.</li>
+      <li><strong>Keep the essentials plain.</strong> Your name, handle, contact details, dates, prices, links and any instruction should always be in ordinary letters.</li>
+      <li><strong>Keep it short.</strong> One word or a short phrase. A listener can sit through five symbol names; nobody will sit through a paragraph of them.</li>
+      <li><strong>Say it twice if it matters.</strong> If a styled line carries something important, repeat it in plain text nearby.</li>
+      <li><strong>Never in alt text or image descriptions.</strong> Those exist specifically for screen readers.</li>
+      <li><strong>Not in hashtags or keywords.</strong> They stop working as hashtags and keywords.</li>
+    </ol>
+
+    <h2>When real formatting is available, use it</h2>
+    <p>Fancy text exists to work around fields that offer no formatting. Where a platform does offer it, the built-in version is better in every respect, because the underlying letters stay ordinary letters. Screen readers read them, search finds them, and they still look emphasised.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Where</th><th>How to format properly</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Discord, Reddit, Slack</td><td>Markdown-style marks: wrap text in asterisks for italic or bold, tildes for strikethrough.</td></tr>
+          <tr><td>WhatsApp</td><td>Asterisks for bold, underscores for italic, tildes for strikethrough.</td></tr>
+          <tr><td>Documents, email, websites</td><td>The bold and italic buttons, or a real typeface.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>For bios, captions and display names, where there is nothing built in, Unicode text is the only option. Used as a short flourish beside plain-text essentials, it costs your readers very little. The <a href="./">cursive generator</a> is there for exactly that.</p>
+
+    <hr>
+    <p class="stamp"><a href="blog">← All posts</a></p>
+    </article>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">Keep reading</h2>
+    <ul class="cards">
+      <li><a class="card" href="blog-what-is-zalgo-text">
+          <span class="card-sample">z̹̓a̘ͬĺ̘g͍͒o͉ͦ</span>
+          <span class="card-name">What is Zalgo text, and how does it work?</span>
+          <span class="card-note">The mechanics of glitch text, where the name came from, and how to strip it back out.</span>
+        </a></li>
+      <li><a class="card" href="blog-cursive-text-instagram-bio">
+          <span class="card-sample">𝓎ℴ𝓊𝓇 𝒷𝒾ℴ</span>
+          <span class="card-name">How to put cursive text in your Instagram bio</span>
+          <span class="card-note">Which fields accept cursive on Instagram, TikTok, Discord and X — and which strip it.</span>
+        </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">Free cursive, small, glitch, cursed and weird text generators. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="./">Cursive text</a></li>
+        <li><a href="small-text">Small text</a></li>
+        <li><a href="glitch-text">Glitch text</a></li>
+        <li><a href="cursed-text">Cursed text</a></li>
+        <li><a href="weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Guides</p>
+      <ul class="foot-list">
+        <li><a href="blog-cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="blog-cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="blog-fancy-text-boxes-question-marks">Why text shows as boxes</a></li>
+        <li><a href="blog-fancy-text-accessibility">Fancy text and screen readers</a></li>
+        <li><a href="blog-what-is-zalgo-text">What is Zalgo text?</a></li>
+        <li><a href="blog">All posts</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="privacy">Privacy</a></li>
+        <li><a href="terms">Terms</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://cursivee.app/blog-fancy-text-accessibility#article",
+      "headline": "Can screen readers read fancy text?",
+      "description": "Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.",
+      "url": "https://cursivee.app/blog-fancy-text-accessibility",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "inLanguage": "en",
+      "image": "https://cursivee.app/assets/og-cursive-font-generator.jpg",
+      "wordCount": 751,
+      "author": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://cursivee.app/blog-fancy-text-accessibility#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://cursivee.app/blog#blog"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/blog-fancy-text-accessibility#webpage",
+      "url": "https://cursivee.app/blog-fancy-text-accessibility",
+      "name": "Can Screen Readers Read Fancy Text? Cursive and Accessibility",
+      "description": "Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/blog-fancy-text-accessibility#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/blog-fancy-text-accessibility#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cursivee.app/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fancy text and screen readers",
+          "item": "https://cursivee.app/blog-fancy-text-accessibility"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

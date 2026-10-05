@@ -6,15 +6,17 @@ only accepts plain text.
 
 ## Running it
 
-No build step and no dependencies. For the full experience — service worker,
-installability — serve it over HTTP rather than opening the files directly:
+No build step and no dependencies. Links between pages are extensionless
+(`/about`, not `/about.html`), because that is how the production host
+(Cloudflare) serves them — it redirects the `.html` form. Preview with a server
+that does the same:
 
 ```sh
-python3 -m http.server 8000   # then visit http://localhost:8000
+npx serve          # serves about.html at /about
 ```
 
-`open index.html` also works, but `file://` blocks service workers, so there is
-no offline support or install prompt that way. Everything else behaves normally.
+`python3 -m http.server` and opening the files over `file://` will show any
+single page correctly, but the links between pages will 404.
 
 ## Pages
 
@@ -25,15 +27,23 @@ no offline support or install prompt that way. Everything else behaves normally.
 | `glitch-text.html` | Glitch generator — 10 styles plus an intensity dial and zone toggles |
 | `cursed-text.html` | Cursed generator — 11 styles: a substituted alphabet corrupted on top, with the same dial |
 | `weird-text.html` | Weird generator — 15 styles: strange alphabets, mirrored, lookalike, morse, braille, binary |
-| `about.html` | How it works and where it breaks (footer-linked; not in the top nav) |
+| `about.html` | How it works and where it breaks (footer-linked) |
+| `blog.html` · `blog-*.html` | Blog index and its posts (in the top nav and footer; listed on the home page under *From the blog*) |
 | `privacy.html` · `terms.html` · `contact.html` | Site pages |
 | `404.html` · `offline.html` | Fallbacks |
+
+## Adding a blog post
+
+Posts are hand-written static pages named `blog-<slug>.html`. Copy an existing
+one, then update the places that list posts: the cards in `blog.html`, the
+*From the blog* section in `index.html`, the *Guides* column of the footer (on
+every page), `sitemap.xml`, `feed.xml`, the `SHELL` list in `sw.js`, and the
+`blogPost` array in `blog.html`'s JSON-LD.
 
 ## Structure
 
 ```
 assets/style.css    design tokens + every component, light and dark
-assets/palette.js   generates the colour scheme — loaded in <head>
 assets/engine.js    pure text transforms, no DOM — exposes window.CF
 assets/app.js       shared page controller: chrome, generator UI, PWA
 sw.js               service worker
@@ -78,33 +88,23 @@ The choice is saved to `localStorage` under `cf.size`. If you add another place
 that renders converted text, multiply its font size by `var(--out-scale,1)` so it
 scales too.
 
-## The colour scheme is generated
+## Colour and theme
 
-`assets/palette.js` rolls a random hue on every page load and derives all ten
-colour tokens from it, for both themes, then writes them as inline custom
-properties on `:root`. The **Shuffle** button in the header re-rolls without a
-reload. The static palette in `style.css` is the fallback if the script never
-runs.
+The palette is fixed: the tokens at the top of `assets/style.css`, once for
+light and once for dark. Nothing generates or shuffles colours at runtime. The
+violet-to-coral gradient (`--grad`) is reserved for the wordmark, the scripted
+word in a hero title, the frame around the generator and small accents;
+`--grad-btn` is the primary button.
 
-Only the *hue* is random. Every lightness and chroma value is fixed in the
-`LIGHT` and `DARK` tables, which is what keeps the page legible: the tokens are
-built in OKLCH, where lightness is perceptually even, so a yellow accent and a
-blue one land at the same contrast against the same background.
-
-That claim is tested rather than assumed. The contrast suite sweeps all 360 hues
-in both themes and checks every foreground/background pair the stylesheet
-actually renders — body text ≥ 7:1, everything else ≥ 4.5:1. If you change a
-value in those tables, re-run it:
-
-```sh
-node scratch/contrast.js   # see "Tests" below
-```
-
-The one thing it does not enforce is the 3:1 UI-boundary ratio for hairline
-rules; those are decorative and sit near 1.5:1 by design, as they did before the
-palette was generated.
+The header toggle stores the choice in `localStorage` under `cf.theme`. A
+one-line inline script in each page's `<head>` applies it before first paint, so
+a visitor who picked the non-system theme does not see a flash of the other one.
 
 ## SEO
+
+Canonical URLs, `og:url`, JSON-LD, `sitemap.xml` and internal links all use the
+extensionless form, matching what the host serves with a 200. `feed.xml` is the
+blog's RSS feed. `404.html` and `offline.html` are `noindex`.
 
 Every indexable page carries a unique title, meta description, canonical URL,
 Open Graph and Twitter card tags, and a JSON-LD `@graph` (`WebPage` +
@@ -160,7 +160,6 @@ scratch directory). Copy them into `scratch/` if you want them in the repo:
 | Script | Checks |
 | --- | --- |
 | `verify.js` | all 62 styles transform, edge cases, glitch determinism |
-| `contrast.js` | WCAG contrast across all 360 hues, both themes |
 | `site-check.js` | internal links, shared chrome, page wiring, manifest, service worker |
 | `seo-check.js` | titles, descriptions, canonicals, OG, JSON-LD, sitemap parity |
 | `dom-test.js` | drives real clicks in jsdom: typing, filter, pinning, ornaments, theme, glitch knobs |

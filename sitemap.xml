@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace https://cursivee.app with your live origin before submitting this. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://cursivee.app/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image>
       <image:loc>https://cursivee.app/assets/cursive-font-generator-1200.jpg</image:loc>
       <image:title>Cursive Font Generator</image:title>
@@ -13,43 +12,73 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/small-text.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/small-text</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/glitch-text.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/glitch-text</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/cursed-text.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/cursed-text</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/weird-text.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/weird-text</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/about.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/blog</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/blog-cursive-text-instagram-bio</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/blog-cursive-alphabet-copy-paste</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/blog-fancy-text-boxes-question-marks</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/blog-fancy-text-accessibility</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/blog-what-is-zalgo-text</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cursivee.app/about</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/contact.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/contact</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/privacy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/privacy</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://cursivee.app/terms.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://cursivee.app/terms</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.2</priority>
   </url>
 </urlset>

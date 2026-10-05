@@ -16,6 +16,7 @@
   <title>Cursive Text Generator — Copy & Paste Cursive Fonts</title>
   <meta name="description"
     content="Free cursive text generator. Type once and copy 21 cursive font styles, from script to bold script and blackletter, into Instagram, TikTok or Discord bios.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://cursivee.app/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="cursivee.app">
@@ -34,16 +35,17 @@
     content="Free cursive text generator. Type once and copy 21 cursive font styles, from script to bold script and blackletter, into Instagram, TikTok or Discord bios.">
   <meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
   <meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+  <link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
   <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#E8ECF1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0F1219" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F5F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0A12" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-title" content="cursivee">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <script src="assets/palette.js"></script>
+  <script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -52,22 +54,22 @@
   <div class="sheet">
 
     <header class="site-head">
-      <a class="brand" href="index.html">cursivee.app</a>
-
-      <nav class="site-nav" aria-label="Generators">
+      <a class="brand" href="./">cursivee.app</a>
+      <nav class="site-nav" aria-label="Primary">
         <ul class="nav">
-          <li><a href="index.html" aria-current="page">Cursive</a></li>
-          <li><a href="small-text.html">Small</a></li>
-          <li><a href="glitch-text.html">Glitch</a></li>
-          <li><a href="cursed-text.html">Cursed</a></li>
-          <li><a href="weird-text.html">Weird</a></li>
+          <li><a href="./" aria-current="page">Cursive</a></li>
+          <li><a href="small-text">Small</a></li>
+          <li><a href="glitch-text">Glitch</a></li>
+          <li><a href="cursed-text">Cursed</a></li>
+          <li><a href="weird-text">Weird</a></li>
+          <li class="nav-sep"><a href="blog">Blog</a></li>
         </ul>
       </nav>
       <button class="btn" id="themeBtn" type="button">Dark</button>
     </header>
 
     <div class="masthead">
-      <h1 class="title"><span class="script">Cursive</span> generator</h1>
+      <h1 class="title"><span class="script">Cursive</span> text generator</h1>
       <p class="tagline">A free <strong>cursive text generator</strong> and <strong>cursive font
           generator</strong>: type once and get twenty-one alphabets — script, blackletter, bold, bubbles —
         that paste into any bio, caption, or username that only accepts plain text.</p>
@@ -107,22 +109,22 @@
     <section class="more">
       <h2 class="more-title">More generators</h2>
       <ul class="cards">
-        <li><a class="card" href="small-text.html">
+        <li><a class="card" href="small-text">
             <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
             <span class="card-name">Small text</span>
             <span class="card-note">Superscript, subscript, small caps</span>
           </a></li>
-        <li><a class="card" href="glitch-text.html">
+        <li><a class="card" href="glitch-text">
             <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
             <span class="card-name">Glitch text</span>
             <span class="card-note">Zalgo corruption with a dial</span>
           </a></li>
-        <li><a class="card" href="cursed-text.html">
+        <li><a class="card" href="cursed-text">
             <span class="card-sample">𝔠̷̬͎̈́ų̴̗̃ř̶̪s̸̰̈e̵̱̽d̴̜̏</span>
             <span class="card-name">Cursed text</span>
             <span class="card-note">Corrupted alphabets, dialled up</span>
           </a></li>
-        <li><a class="card" href="weird-text.html">
+        <li><a class="card" href="weird-text">
             <span class="card-sample">山乇丨尺ᗪ</span>
             <span class="card-name">Weird text</span>
             <span class="card-note">Runes, Cherokee, morse, mirrored</span>
@@ -170,11 +172,16 @@
     </section>
 
     <figure class="showcase">
-      <img src="assets/cursive-font-generator-1200.jpg"
-        srcset="assets/cursive-font-generator-800.jpg 800w, assets/cursive-font-generator-1200.jpg 1200w, assets/cursive-font-generator-1600.jpg 1600w"
-        sizes="(max-width: 940px) 100vw, 808px"
-        width="1200" height="800" loading="lazy" decoding="async"
-        alt="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen, with the words “Make it beautiful” converted into a cursive result">
+      <picture>
+        <source type="image/webp"
+          srcset="assets/cursive-font-generator-800.webp 800w, assets/cursive-font-generator-1200.webp 1200w, assets/cursive-font-generator-1600.webp 1600w"
+          sizes="(max-width: 1128px) 100vw, 1032px">
+        <img src="assets/cursive-font-generator-1200.jpg"
+          srcset="assets/cursive-font-generator-800.jpg 800w, assets/cursive-font-generator-1200.jpg 1200w, assets/cursive-font-generator-1600.jpg 1600w"
+          sizes="(max-width: 1128px) 100vw, 1032px"
+          width="1200" height="800" loading="lazy" decoding="async"
+          alt="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen, with the words “Make it beautiful” converted into a cursive result">
+      </picture>
       <figcaption>Type once and the <strong>cursive text generator</strong> converts instantly —
         twenty-one styles, nothing to install and nothing to sign up for.</figcaption>
     </figure>
@@ -256,11 +263,43 @@
           <summary>Is it free, and does it keep what I type?</summary>
           <div class="answer">
             <p>Free, with no account and no limit. Every conversion runs in your own browser — nothing you type is sent
-              anywhere, logged, or stored. Close the tab and it is gone. The <a href="privacy.html">privacy page</a>
+              anywhere, logged, or stored. Close the tab and it is gone. The <a href="privacy">privacy page</a>
               spells this out.</p>
           </div>
         </details>
       </div>
+    </section>
+
+    <section class="more" id="blog">
+      <h2 class="more-title">From the blog</h2>
+      <ul class="cards cards-wide">
+        <li><a class="card" href="blog-cursive-text-instagram-bio">
+            <span class="card-sample">𝓎ℴ𝓊𝓇 𝒷𝒾ℴ</span>
+            <span class="card-name">How to put cursive text in your Instagram bio</span>
+            <span class="card-note">Which fields accept cursive on Instagram, TikTok, Discord and X — and which strip it.</span>
+          </a></li>
+        <li><a class="card" href="blog-cursive-alphabet-copy-paste">
+            <span class="card-sample">𝒜 ℬ 𝒞</span>
+            <span class="card-name">The cursive alphabet, A to Z, to copy and paste</span>
+            <span class="card-note">All 52 letters in three styles, and the eleven that never quite match the rest.</span>
+          </a></li>
+        <li><a class="card" href="blog-fancy-text-boxes-question-marks">
+            <span class="card-sample">□□□ ?</span>
+            <span class="card-name">Why fancy text shows up as boxes or question marks</span>
+            <span class="card-note">Three different symptoms, three different causes, and which styles are safest.</span>
+          </a></li>
+        <li><a class="card" href="blog-fancy-text-accessibility">
+            <span class="card-sample">𝓱 ≠ h</span>
+            <span class="card-name">Can screen readers read fancy text?</span>
+            <span class="card-note">What cursive Unicode sounds like read aloud, and six rules for using it considerately.</span>
+          </a></li>
+        <li><a class="card" href="blog-what-is-zalgo-text">
+            <span class="card-sample">z̹̓a̘ͬĺ̘g͍͒o͉ͦ</span>
+            <span class="card-name">What is Zalgo text, and how does it work?</span>
+            <span class="card-note">The mechanics of glitch text, where the name came from, and how to strip it back out.</span>
+          </a></li>
+      </ul>
+      <p class="more-link"><a href="blog">All posts →</a></p>
     </section>
 
     <section class="pitch">
@@ -298,20 +337,31 @@
       <div>
         <p class="foot-head">Generators</p>
         <ul class="foot-list">
-          <li><a href="index.html">Cursive text</a></li>
-          <li><a href="small-text.html">Small text</a></li>
-          <li><a href="glitch-text.html">Glitch text</a></li>
-          <li><a href="cursed-text.html">Cursed text</a></li>
-          <li><a href="weird-text.html">Weird text</a></li>
+          <li><a href="./">Cursive text</a></li>
+          <li><a href="small-text">Small text</a></li>
+          <li><a href="glitch-text">Glitch text</a></li>
+          <li><a href="cursed-text">Cursed text</a></li>
+          <li><a href="weird-text">Weird text</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-head">Guides</p>
+        <ul class="foot-list">
+          <li><a href="blog-cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+          <li><a href="blog-cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+          <li><a href="blog-fancy-text-boxes-question-marks">Why text shows as boxes</a></li>
+          <li><a href="blog-fancy-text-accessibility">Fancy text and screen readers</a></li>
+          <li><a href="blog-what-is-zalgo-text">What is Zalgo text?</a></li>
+          <li><a href="blog">All posts</a></li>
         </ul>
       </div>
       <div>
         <p class="foot-head">Site</p>
         <ul class="foot-list">
-          <li><a href="about.html">About</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="privacy">Privacy</a></li>
+          <li><a href="terms">Terms</a></li>
         </ul>
       </div>
       <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
@@ -332,7 +382,7 @@
       "@id": "https://cursivee.app/#website",
       "url": "https://cursivee.app/",
       "name": "cursivee.app",
-      "description": "Free Unicode text generators: cursive, small, glitch and weird text you can copy and paste anywhere.",
+      "description": "Free Unicode text generators: cursive, small, glitch, cursed and weird text you can copy and paste anywhere.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://cursivee.app/#org"
