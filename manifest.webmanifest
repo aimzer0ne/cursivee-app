@@ -13,8 +13,8 @@
     "minimal-ui",
     "browser"
   ],
-  "background_color": "#F7F5F1",
-  "theme_color": "#F7F5F1",
+  "background_color": "#FBFAF7",
+  "theme_color": "#FBFAF7",
   "categories": [
     "utilities",
     "productivity",
