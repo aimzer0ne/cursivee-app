@@ -84,8 +84,12 @@ function copyText(text,label){
   /* Service workers need a real origin — opening the files directly
      over file:// is not an error, it just means no offline support. */
   if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
+    /* Resolved against this script, not the page, so posts under
+       /blog/ register the same root worker as everything else. */
+    var me=document.currentScript;
+    var sw=me&&me.src?new URL("../sw.js",me.src).href:"/sw.js";
     window.addEventListener("load",function(){
-      navigator.serviceWorker.register("sw.js").catch(function(){});
+      navigator.serviceWorker.register(sw).catch(function(){});
     });
   }
 

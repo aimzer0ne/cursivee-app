@@ -28,17 +28,23 @@ single page correctly, but the links between pages will 404.
 | `cursed-text.html` | Cursed generator — 11 styles: a substituted alphabet corrupted on top, with the same dial |
 | `weird-text.html` | Weird generator — 15 styles: strange alphabets, mirrored, lookalike, morse, braille, binary |
 | `about.html` | How it works and where it breaks (footer-linked) |
-| `blog.html` · `blog-*.html` | Blog index and its posts (in the top nav and footer; listed on the home page under *From the blog*) |
+| `blog.html` · `blog/*.html` | Blog index and its posts (in the top nav and footer; listed on the home page under *From the blog*) |
 | `privacy.html` · `terms.html` · `contact.html` | Site pages |
 | `404.html` · `offline.html` | Fallbacks |
 
 ## Adding a blog post
 
-Posts are hand-written static pages named `blog-<slug>.html`. Copy an existing
-one, then update the places that list posts: the cards in `blog.html`, the
-*From the blog* section in `index.html`, the *Guides* column of the footer (on
-every page), `sitemap.xml`, `feed.xml`, the `SHELL` list in `sw.js`, and the
-`blogPost` array in `blog.html`'s JSON-LD.
+Posts are hand-written static pages at `blog/<slug>.html`, served as
+`/blog/<slug>`. Copy an existing one, then update the places that list posts:
+the cards in `blog.html`, the *From the blog* section in `index.html`, the
+*Guides* column of the footer (on every page), `sitemap.xml`, `feed.xml`, the
+`SHELL` list in `sw.js`, and the `blogPost` array in `blog.html`'s JSON-LD.
+
+Posts sit one level down, so their links to the rest of the site start with
+`../` (`../assets/style.css`, `../about`) and links to other posts are bare
+slugs. `404.html` and `offline.html` can be shown at any depth, so theirs are
+root-absolute. `_redirects` sends the old `/blog-<slug>` addresses to the new
+ones.
 
 ## Structure
 
