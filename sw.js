@@ -5,7 +5,7 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v8";
+const CACHE = "cursivee-v9";
 
 /* Pages are listed without ".html": the host serves /about for
    about.html and redirects the long form, and a redirected response
@@ -31,6 +31,8 @@ const SHELL = [
   "./assets/style.css",
   "./assets/engine.js",
   "./assets/app.js",
+  "./favicon.ico",
+  "./assets/logo.svg",
   "./assets/favicon-32.png",
   "./assets/icon-192.png",
   "./assets/icon-512.png",

@@ -43,6 +43,8 @@ every page), `sitemap.xml`, `feed.xml`, the `SHELL` list in `sw.js`, and the
 ## Structure
 
 ```
+assets/logo.svg     the brand mark: header logo and SVG favicon (PNG icons and
+                    favicon.ico are rasterised from the same drawing)
 assets/style.css    design tokens + every component, light and dark
 assets/engine.js    pure text transforms, no DOM — exposes window.CF
 assets/app.js       shared page controller: chrome, generator UI, PWA
