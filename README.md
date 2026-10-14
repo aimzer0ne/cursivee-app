@@ -122,6 +122,12 @@ data generated *from* their visible FAQ markup, so the structured data can never
 drift from what a reader sees — which is Google's requirement for the rich
 result.
 
+After deploying, run `sh scripts/indexnow.sh` to ping Bing and the other
+IndexNow engines with every sitemap URL (or pass paths: `sh scripts/indexnow.sh
+/blog/new-post`). It depends on the key file `484cb0fe606f317f93480c5f1580d84f.txt`
+at the site root — don't delete or rename it. `_headers` sets HSTS and
+`X-Robots-Tag: noindex` on the fallback pages.
+
 `assets/og-image.png` (1200×630) is a generated placeholder: the brand mark on
 the ledger ground, with no wordmark, because these scripts have no text
 rasteriser. It is honest but plain — worth replacing with a properly set card if

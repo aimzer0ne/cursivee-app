@@ -1,0 +1,8 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+
+/404
+  X-Robots-Tag: noindex
+/offline
+  X-Robots-Tag: noindex
