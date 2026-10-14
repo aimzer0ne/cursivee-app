@@ -760,7 +760,7 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
   margin-top:120px;
   padding-top:48px;
   display:grid;
-  grid-template-columns:1.5fr 1fr 1.5fr .8fr;
+  grid-template-columns:1.4fr 1fr 1.4fr .8fr 1.1fr;
   gap:32px;
   border-top:1px solid var(--rule-soft);
 }
