@@ -541,6 +541,27 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
 .callout strong{color:var(--ink)}
 .prose .contact-address{font-size:1.3rem;font-weight:600}
 
+/* ── on-page guide (generator pages) ────────────────────── */
+/* One reading column under the generator: contents box, then H2 sections. */
+.guide .prose{max-width:720px}
+.more .prose h2{color:var(--ink)}
+.prose > h2:first-child,.toc + h2{margin-top:40px}
+.prose .callout{font-size:1.06rem;line-height:1.7}
+.toc{margin:0;padding:20px 24px;background:var(--wash);border-radius:var(--r-md)}
+.toc .toc-head{
+  margin:0 0 10px;
+  font-family:var(--f-mono);
+  font-size:.7rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:36px}
+.toc li{margin:0 0 6px;font-size:.96rem;break-inside:avoid}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+@media (max-width:640px){.toc ol{columns:1}}
+
 /* ── tables ─────────────────────────────────────────────── */
 .tablewrap{
   overflow-x:auto;

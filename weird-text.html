@@ -67,8 +67,7 @@
 
   <div class="masthead">
     <h1 class="title">Weird text generator</h1>
-    <p class="tagline">Type your text and rebuild it out of weird letters you can copy and paste: runes, Cherokee syllables, currency
-        symbols, mirrored and backwards writing, mocking caps, vaporwave, morse, braille and binary.</p>
+    <p class="tagline">Rebuild your text from weird letters you can copy and paste: runes, Cherokee, currency symbols, mirrored writing, mocking caps, vaporwave, morse, braille and binary. Fifteen styles, all free.</p>
     <ul class="badges" aria-label="Highlights">
       <li>15 weird styles</li>
       <li>Free, no sign-up</li>
@@ -102,20 +101,32 @@
     <p class="empty" id="empty" hidden>No style matches that name.</p>
   </main>
 
-  <section class="more" id="how">
-    <h2 class="more-title">How to make weird text you can copy and paste</h2>
+  <section class="more guide" id="guide">
     <div class="prose">
-      <p>This weird text generator returns different letters rather than a different font. Runes,
-        Cherokee syllables, currency symbols and CJK characters, all picked for one reason: they happen
-        to look like ours. Because they are real characters, the strange text pastes anywhere plain text is
-        allowed.</p>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-head">On this page</p>
+        <ol>
+          <li><a href="#how">How to use the generator</a></li>
+          <li><a href="#what">What is weird text?</a></li>
+          <li><a href="#styles">15 weird text styles</a></li>
+          <li><a href="#where">Where weird text works</a></li>
+          <li><a href="#tips">Tips and limits</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="how">How to use the weird text generator</h2>
       <ol>
-        <li><strong>Type or paste your text</strong> into the box at the top of the page.</li>
-        <li><strong>Scroll the fifteen styles</strong>, or filter the list by name — try “morse” or “mirrored”.</li>
-        <li><strong>Press Copy</strong> and paste the result into a bio, caption, message or post.</li>
+        <li><strong>Type your text.</strong> Enter it in the box at the top of the page. All fifteen styles update as you type.</li>
+        <li><strong>Find a style.</strong> Scroll the list, or filter it by name — try “morse” or “mirrored”.</li>
+        <li><strong>Copy and paste.</strong> Press Copy and paste the result into a bio, caption, message or post.</li>
       </ol>
 
-      <h3>The fifteen weird text styles</h3>
+      <h2 id="what">What is weird text?</h2>
+      <p class="callout"><strong>Weird text</strong> swaps your letters for characters from other writing systems that happen to look like ours — a Chinese 卂 for A, a rune ᚱ for R, a currency sign ₮ for T. Because they are real Unicode characters, not a font, they paste anywhere plain text is accepted.</p>
+      <p>None of these characters were made to stand in for Latin letters. ᚱ is a real Elder Futhark rune; Ꮢ comes from the Cherokee syllabary Sequoyah created in the 1820s. The page also rearranges your own letters (mirrored, mocking caps, vaporwave) and encodes them (morse, braille, binary).</p>
+
+      <h2 id="styles">15 weird text styles to copy and paste</h2>
       <div class="tablewrap">
         <table>
           <thead>
@@ -130,20 +141,21 @@
         </table>
       </div>
 
-      <h3>Where weird text works</h3>
-      <p>Captions, bios, comments and chat messages on Instagram, TikTok, Discord, X and most other apps accept
-        these characters. The novelty styles are the safest, since mocking caps and spaced-out text are still
-        ordinary letters. The borrowed alphabets depend on the fonts of whoever is reading, and usernames
-        often reject them outright. For decorative lettering rather than strange lettering, try the
-        <a href="./">cursive text generator</a>; to damage the text instead, the
-        <a href="glitch-text">glitch</a> and <a href="cursed-text">cursed</a> generators are next door.</p>
+      <h2 id="where">Where weird text works</h2>
+      <ul>
+        <li><strong>Works everywhere:</strong> the novelty styles. Mocking caps and spaced-out text are still ordinary letters.</li>
+        <li><strong>Usually works:</strong> the strange alphabets in captions, bios, comments and chats on Instagram, TikTok, Discord and X. How they look depends on the reader's fonts.</li>
+        <li><strong>Avoid:</strong> lookalike letters in usernames and handles. Mixing scripts is the trick behind spoofed accounts, so platforms block it.</li>
+      </ul>
+      <p>For decorative rather than strange lettering, try the <a href="./">cursive text generator</a>. To damage your text instead, the <a href="glitch-text">glitch</a> and <a href="cursed-text">cursed</a> generators are next door.</p>
 
-      <h3>What it is not</h3>
-      <p>It is not a translator. A translator converts meaning between languages; this only borrows the
-        shapes, so a Cherokee reader will not read your sentence as Cherokee. The same applies to the
-        braille output, which gives you the dot patterns rather than a contracted braille translation.
-        And the lookalike letters deserve care — mixing scripts is the trick behind spoofed usernames, so
-        keep it out of anything that identifies you.</p>
+      <h2 id="tips">Tips and limits</h2>
+      <ul>
+        <li><strong>It is not a translator.</strong> It borrows shapes, not meaning — a Cherokee reader will not read your sentence as Cherokee.</li>
+        <li><strong>Codes run one way.</strong> Morse and binary are written, not decoded. Morse drops any character it has no signal for rather than guessing.</li>
+        <li><strong>Braille is visual only.</strong> The output is Unicode braille patterns, not a contracted braille translation, so treat it as an effect rather than an accessibility feature.</li>
+        <li><strong>Some letters stay unchanged.</strong> If no character looks close enough, the letter is left alone instead of faked — Q and V are the usual holdouts.</li>
+      </ul>
     </div>
   </section>
 
@@ -153,25 +165,25 @@
       <details>
         <summary>How do I make weird text?</summary>
         <div class="answer">
-          <p>Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it wherever plain text is accepted.</p>
+          <p>Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it anywhere plain text is accepted.</p>
         </div>
       </details>
       <details>
         <summary>Is weird text a font?</summary>
         <div class="answer">
-          <p>No. Every style here is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it can be pasted into apps with no font settings, and also why it looks slightly different from one device to the next.</p>
+          <p>No. Every style is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it pastes into apps with no font settings, and why it looks slightly different from one device to the next.</p>
         </div>
       </details>
       <details>
         <summary>Why do some letters come through unchanged?</summary>
         <div class="answer">
-          <p>Because no character in that script resembles them closely enough to be worth faking. Rather than substitute something from an unrelated alphabet — which is how text ends up as boxes or with its word order scrambled — the letter is left alone. Q and V are the usual holdouts.</p>
+          <p>Because no character in that script looks close enough to be worth using. Rather than substitute something from an unrelated alphabet — which leads to boxes or scrambled text — the letter is left alone. Q and V are the usual holdouts.</p>
         </div>
       </details>
       <details>
         <summary>Is lookalike text safe to use?</summary>
         <div class="answer">
-          <p>For a caption, yes. For anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the exact technique behind spoofed domains and impersonated usernames, so platforms block it and security tools flag it. Fun in a post; a bad idea in a handle.</p>
+          <p>In a caption, yes. In anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the technique behind spoofed web addresses and impersonated usernames, so platforms block it and security tools flag it.</p>
         </div>
       </details>
       <details>
@@ -183,41 +195,26 @@
       <details>
         <summary>Why does morse drop some of my characters?</summary>
         <div class="answer">
-          <p>Because International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at — a wrong signal would be worse than a missing one.</p>
+          <p>International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at, because a wrong signal is worse than a missing one.</p>
         </div>
       </details>
       <details>
-        <summary>Will a blind person be able to read the braille output?</summary>
+        <summary>Can a blind person read the braille output?</summary>
         <div class="answer">
-          <p>Not as fluent braille. These are Unicode braille <em>patterns</em> — the dot shapes themselves — not a contracted braille translation, and they are not connected to a refreshable display. Treat it as a visual effect, not an accessibility feature.</p>
+          <p>Not as fluent braille. These are Unicode braille <em>patterns</em> — the dot shapes — not a contracted braille translation, and they are not sent to a braille display. Treat it as a visual effect, not an accessibility feature.</p>
         </div>
       </details>
       <details>
         <summary>Why does my weird text show up as boxes?</summary>
         <div class="answer">
-          <p>The device displaying it has no font for that script. Runes and Cherokee syllables are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to <a href="blog/fancy-text-boxes-question-marks">fancy text showing as boxes</a> explains the rest.</p>
+          <p>The device displaying it has no font for that script. Runes and Cherokee are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to <a href="blog/fancy-text-boxes-question-marks">fancy text showing as boxes</a> explains the rest.</p>
         </div>
       </details>
     </div>
   </section>
 
-  <section class="pitch">
-    <span class="kicker">The long way round</span>
-    <h2>🙃 A page built entirely on coincidence</h2>
-
-    <p class="lede">卂 isn't an A. 🌍 It's a Chinese character with its own meaning, its own pronunciation, and a few thousand years of history that have nothing whatsoever to do with our alphabet. It just happens to look a bit like one. That's the only reason it ever ended up in your caption.</p>
-
-    <p>Almost everything here works that way. ᚱ is a real Elder Futhark rune. Ꮢ comes from the Cherokee syllabary, which Sequoyah invented in the 1820s. ₮ is a currency symbol. None of them were designed to stand in for our letters — they got picked, centuries later, by people who spotted a resemblance and had a use for it. 🎲</p>
-
-    <p>Then there's the other half of the page: morse, braille, binary. 📻 Those aren't decoration at all. They're real encodings, each one built so a message could survive something that couldn't carry letters — a telegraph wire, a fingertip, a switch that's either on or off. Putting them next to vaporwave is a bit silly, but online they get used for the same reason: to make a sentence take the scenic route.</p>
-
-    <p>One thing here does deserve care. ⚠️ The lookalike letters — the Greek and Cyrillic ones that pass for Latin — are exactly what people use to fake domain names and copy usernames. Lovely in a caption. In a handle it's the move that gets accounts suspended, and the systems watching for it don't much care that you meant it playfully.</p>
-
-    <p>The rest is harmless. 🎈 Mirror a sentence, put it in mocking caps, rebuild it out of runes, send it as dots and dashes. Nothing on this page has ever had to justify itself, which is honestly the best thing about it. All of it sits at <strong>cursivee.app</strong>, waiting for a sentence to mangle.</p>
-  </section>
-
-  <section class="more">
-    <h2 class="more-title">More generators</h2>
+  <section class="more" id="generators">
+    <h2 class="more-title">More free text generators</h2>
     <ul class="cards">
       <li><a class="card" href="./">
         <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
@@ -233,6 +230,11 @@
         <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
         <span class="card-name">Glitch text</span>
         <span class="card-note">Zalgo corruption with a dial</span>
+      </a></li>
+      <li><a class="card" href="cursed-text">
+        <span class="card-sample">𝔠̷̬͎̈́ų̴̗̃ř̶̪s̸̰̈e̵̱̽d̴̜̏</span>
+        <span class="card-name">Cursed text</span>
+        <span class="card-note">Corrupted alphabets, dialled up</span>
       </a></li>
     </ul>
   </section>
@@ -256,7 +258,7 @@
         <span class="card-note">All 52 letters in three styles, and the eleven that never quite match the rest.</span>
       </a></li>
     </ul>
-    <p class="more-link"><a href="blog">All posts →</a></p>
+    <p class="more-link"><a href="blog">All guides →</a></p>
   </section>
 
   <footer class="site-foot">
@@ -327,7 +329,7 @@
       "breadcrumb": {
         "@id": "https://cursivee.app/weird-text#breadcrumb"
       },
-      "dateModified": "2026-10-09"
+      "dateModified": "2026-10-16"
     },
     {
       "@type": "BreadcrumbList",
@@ -374,7 +376,7 @@
           "name": "How do I make weird text?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it wherever plain text is accepted."
+            "text": "Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it anywhere plain text is accepted."
           }
         },
         {
@@ -382,7 +384,7 @@
           "name": "Is weird text a font?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Every style here is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it can be pasted into apps with no font settings, and also why it looks slightly different from one device to the next."
+            "text": "No. Every style is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it pastes into apps with no font settings, and why it looks slightly different from one device to the next."
           }
         },
         {
@@ -390,7 +392,7 @@
           "name": "Why do some letters come through unchanged?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because no character in that script resembles them closely enough to be worth faking. Rather than substitute something from an unrelated alphabet — which is how text ends up as boxes or with its word order scrambled — the letter is left alone. Q and V are the usual holdouts."
+            "text": "Because no character in that script looks close enough to be worth using. Rather than substitute something from an unrelated alphabet — which leads to boxes or scrambled text — the letter is left alone. Q and V are the usual holdouts."
           }
         },
         {
@@ -398,7 +400,7 @@
           "name": "Is lookalike text safe to use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For a caption, yes. For anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the exact technique behind spoofed domains and impersonated usernames, so platforms block it and security tools flag it. Fun in a post; a bad idea in a handle."
+            "text": "In a caption, yes. In anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the technique behind spoofed web addresses and impersonated usernames, so platforms block it and security tools flag it."
           }
         },
         {
@@ -414,15 +416,15 @@
           "name": "Why does morse drop some of my characters?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at — a wrong signal would be worse than a missing one."
+            "text": "International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at, because a wrong signal is worse than a missing one."
           }
         },
         {
           "@type": "Question",
-          "name": "Will a blind person be able to read the braille output?",
+          "name": "Can a blind person read the braille output?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not as fluent braille. These are Unicode braille patterns — the dot shapes themselves — not a contracted braille translation, and they are not connected to a refreshable display. Treat it as a visual effect, not an accessibility feature."
+            "text": "Not as fluent braille. These are Unicode braille patterns — the dot shapes — not a contracted braille translation, and they are not sent to a braille display. Treat it as a visual effect, not an accessibility feature."
           }
         },
         {
@@ -430,7 +432,7 @@
           "name": "Why does my weird text show up as boxes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The device displaying it has no font for that script. Runes and Cherokee syllables are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to fancy text showing as boxes explains the rest."
+            "text": "The device displaying it has no font for that script. Runes and Cherokee are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to fancy text showing as boxes explains the rest."
           }
         }
       ]

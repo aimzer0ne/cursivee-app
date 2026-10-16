@@ -67,45 +67,47 @@
 
   <div class="masthead">
     <p class="eyebrow">About</p>
-    <h1 class="title">Letters, not fonts</h1>
-    <p class="tagline">Why text copied from this site keeps its shape when it lands somewhere that has never heard of typography.</p>
+    <h1 class="title">About cursivee.app</h1>
+    <p class="tagline">Five free text generators that turn your words into cursive, small, glitch, cursed and weird Unicode letters — and an honest account of how they work and where they break.</p>
   </div>
 
   <main id="main" class="prose">
-    <h2>The short version</h2>
-    <p>A font is a set of drawings your device applies to text. Change the app and the drawing changes with it — which is why you cannot make your Instagram bio italic by choosing a typeface. There is no typeface to choose. <a href="./">cursivee.app</a> is the whole of it — five generators, one stylesheet, no server.</p>
-    <p>Unicode is different. It assigns a permanent number to every character, and over the years it has been given whole parallel alphabets: a mathematical script set, a blackletter set, fullwidth forms borrowed from Japanese typesetting, circled letters from Japanese and Chinese standards, phonetic small capitals. These were added for mathematicians, linguists and typesetters, not for social media — but they are ordinary characters, so they travel with the text itself.</p>
-    <p>That is all this site does. It swaps each letter you type for its counterpart in one of those sets. Nothing is styled; the characters are simply different characters.</p>
+    <h2>What cursivee.app is</h2>
+    <p>cursivee.app is a set of five free text generators. Type something and each one rewrites it in a different family of Unicode characters that you can copy and paste into a bio, caption, username or chat — anywhere that only accepts plain text.</p>
+    <p>There is no account, nothing to install and no server doing the work. Every conversion happens in your browser as you type, and the site keeps working offline once it has loaded.</p>
+
+    <h2>Letters, not fonts</h2>
+    <p>A font is a set of drawings your device applies to text. Change the app and the drawing changes with it, which is why you cannot make your Instagram bio italic by choosing a typeface — there is no typeface to choose.</p>
+    <p>Unicode works differently. It gives every character a permanent number, and over the years it has gained whole parallel alphabets: mathematical script and blackletter, fullwidth forms from Japanese typesetting, circled letters from East Asian standards, phonetic small capitals. They were added for mathematicians, linguists and typesetters, not for social media, but they are ordinary characters, so they travel with the text.</p>
+    <p class="callout">That is all this site does: it swaps each letter you type for its counterpart in one of those sets. Nothing is styled — the characters are simply different characters.</p>
 
     <h2>The five generators</h2>
     <div class="tablewrap">
       <table>
         <thead>
-          <tr><th>Page</th><th>What it draws on</th></tr>
+          <tr><th>Generator</th><th>What it uses</th></tr>
         </thead>
         <tbody>
           <tr><td><a href="./">Cursive text</a></td><td>Mathematical alphanumeric symbols — script, blackletter, double-struck, bold, monospace — plus enclosed and fullwidth forms.</td></tr>
           <tr><td><a href="small-text">Small text</a></td><td>Superscript and subscript modifiers, and the small-capital letters from the phonetic extensions.</td></tr>
           <tr><td><a href="glitch-text">Glitch text</a></td><td>Combining diacritical marks, stacked far past their intended depth.</td></tr>
-          <tr><td><a href="cursed-text">Cursed text</a></td><td>A substituted alphabet such as blackletter or script, with combining marks stacked on top.</td></tr>
-          <tr><td><a href="weird-text">Weird text</a></td><td>Rotated and reflected lookalikes, cross-script substitutions, and plain encodings like morse and braille.</td></tr>
+          <tr><td><a href="cursed-text">Cursed text</a></td><td>Recast letters — small caps, mirrored forms, alternating case — with combining marks stacked on top.</td></tr>
+          <tr><td><a href="weird-text">Weird text</a></td><td>Lookalike letters from other scripts, mirrored and reversed text, and encodings such as morse, braille and binary.</td></tr>
         </tbody>
       </table>
     </div>
 
     <h2>Where it breaks</h2>
-    <p>Being honest about the limits is more useful than pretending there are none.</p>
+    <p>Being clear about the limits is more useful than pretending there are none.</p>
     <ul>
-      <li><strong>Screen readers.</strong> This is the real cost. A screen reader may read 𝓱𝓮𝓵𝓵𝓸 as a string of mathematical symbol names, or skip it in silence. Keep your actual name and anything important in plain letters.</li>
-      <li><strong>Missing letters.</strong> Some sets are incomplete — there is no superscript <em>q</em>, no small-capital <em>x</em>. Those letters come through unchanged, and no tool can fix it.</li>
-      <li><strong>Platform rules.</strong> Some services strip these characters from usernames, some normalise them back to plain text, and some flag mixed scripts as a spoofing risk. Test with a short paste before committing.</li>
-      <li><strong>Old software.</strong> If a device lacks a font covering the range, you get empty boxes. This is rarer than it used to be, but it still happens on older Android and in some desktop apps.</li>
+      <li><strong>Screen readers.</strong> This is the real cost. A screen reader may read 𝓱𝓮𝓵𝓵𝓸 as a string of maths symbol names, or skip it entirely. Keep your name and anything important in plain letters.</li>
+      <li><strong>Missing letters.</strong> Some sets are incomplete — there is no superscript <em>q</em> and no small-capital <em>x</em>. Those letters come through unchanged, and no tool can supply them.</li>
+      <li><strong>Platform rules.</strong> Some services strip these characters from usernames, convert them back to plain text, or flag mixed scripts as a spoofing risk. Test with a short paste first.</li>
+      <li><strong>Older devices.</strong> If a device has no font for a character, it shows an empty box. This is rarer than it used to be, but still happens on older Android phones and some desktop apps.</li>
     </ul>
 
-    <h2>How the site is built</h2>
-    <p>Static HTML, one stylesheet, a few small scripts. Every conversion happens in your browser as you type — there is no server doing the work and no account. The only thing loaded from
-      elsewhere is Google Analytics, which counts visits and nothing more. What you type stays on your device. The <a href="privacy">privacy page</a> covers this in full.</p>
-    <p>Your theme choice and pinned styles are kept in your browser's local storage so the site remembers them. Clearing site data removes them.</p>
+    <h2>Privacy and how the site is built</h2>
+    <p>The site is static HTML, one stylesheet and a few small scripts. What you type never leaves your device. The only thing loaded from elsewhere is Google Analytics, which counts visits. Your theme and pinned styles are saved in your browser's local storage so the site remembers them; clearing site data removes them. The <a href="privacy">privacy policy</a> covers this in full.</p>
 
     <hr>
     <p class="stamp">Questions or corrections → <a href="contact">Contact</a></p>

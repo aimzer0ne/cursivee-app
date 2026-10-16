@@ -67,8 +67,7 @@
 
   <div class="masthead">
     <h1 class="title">Glitch text generator</h1>
-    <p class="tagline">Type your text and turn it into glitchy Zalgo text you can copy and paste. Ten styles, with an intensity dial that
-        goes from a faint tremor to full corruption.</p>
+    <p class="tagline">Turn your text into glitchy Zalgo text you can copy and paste. Ten styles and an intensity dial take it from a faint flicker to full corruption.</p>
     <ul class="badges" aria-label="Highlights">
       <li>10 glitch styles</li>
       <li>Free, no sign-up</li>
@@ -104,53 +103,61 @@
     <p class="empty" id="empty" hidden>No style matches that name.</p>
   </main>
 
-  <section class="more" id="how">
-    <h2 class="more-title">How to make glitch text you can copy and paste</h2>
+  <section class="more guide" id="guide">
     <div class="prose">
-      <p>This glitch text generator involves no font. It hangs combining accent marks off each letter,
-        dozens deep, until the word breaks out of its own line — the effect usually called Zalgo text. Because
-        the result is made of characters, it pastes anywhere plain text is allowed.</p>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-head">On this page</p>
+        <ol>
+          <li><a href="#how">How to use the generator</a></li>
+          <li><a href="#what">What is glitch text?</a></li>
+          <li><a href="#styles">10 glitch text styles</a></li>
+          <li><a href="#where">Where glitch text works</a></li>
+          <li><a href="#tips">Tips and limits</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="how">How to use the glitch text generator</h2>
       <ol>
-        <li><strong>Type or paste your text</strong> into the box at the top of the page.</li>
-        <li><strong>Set the damage.</strong> Drag the intensity dial, and switch the zones on or off to put the
-          marks above the letters, through them, or below.</li>
-        <li><strong>Press Copy</strong> on the style you want and paste it into a caption, message or post. Press
-          Re-scramble first if you want a different roll of the same settings.</li>
+        <li><strong>Type your text.</strong> Enter it in the box at the top of the page. All ten styles update as you type.</li>
+        <li><strong>Set the damage.</strong> Drag the Intensity dial, and use the Zones toggles to put the marks above the letters, through them, or below.</li>
+        <li><strong>Copy and paste.</strong> Press Copy on the style you want and paste it into a caption, message or post. Press Re-scramble first for a different version with the same settings.</li>
       </ol>
 
-      <h3>The ten glitch text styles</h3>
+      <h2 id="what">What is glitch text?</h2>
+      <p class="callout"><strong>Glitch text</strong> — also called <strong>Zalgo text</strong> — is normal text with combining accent marks stacked on each letter, dozens deep, until they spill above and below the line. It is made entirely of Unicode characters, so it pastes anywhere plain text is allowed.</p>
+      <p>The marks are the same ones that build á, ñ and ç. Unicode lets a letter carry accent marks but never says how many, so the generator adds far more than anyone intended. Because the marks have no width, the text grows up and down instead of sideways — which is what makes it look broken.</p>
+
+      <h2 id="styles">10 glitch text styles to copy and paste</h2>
       <div class="tablewrap">
         <table>
           <thead>
             <tr><th>Group</th><th>Styles</th><th>Example</th></tr>
           </thead>
           <tbody>
-            <tr><td>Corruption</td><td>Light, medium, heavy and maximum: marks stacked above and below, deeper at each step</td><td class="g">g̹̓l̘ͬí̘t͍͒c͉ͦh͚̿</td></tr>
-            <tr><td>Directional</td><td>Rising climbs upwards only, sinking drips downwards only, crossed out runs through the letters</td><td class="g">g̛͢͡͡l̵͞͡͝i̶̛͜͡t̷̶̶͟c̸̷̴͝h̶̷̕͟</td></tr>
+            <tr><td>Corruption</td><td>Light, medium, heavy and maximum: marks stacked above and below, deeper at each step</td><td class="g">g̹̓l̘ͬí̘t͍͒c͉ͦh͚̿</td></tr>
+            <tr><td>Directional</td><td>Rising climbs upwards only, sinking drips downwards only, crossed out runs through the letters</td><td class="g">g̛͢͡͡l̵͞͡͝i̶̛͜͡t̷̶̶͟c̸̷̴͝h̶̷̕͟</td></tr>
             <tr><td>Static</td><td>Scratched, buzzing and shattered: flatter interference that stays inside the line</td><td class="g">g̶̵l̶̵i̶̵t̶̵c̶̵h̶̵ · g̴͓l̴͓i̴͓t̴͓c̴͓h̴͓</td></tr>
           </tbody>
         </table>
       </div>
+      <p><strong>Choosing an intensity:</strong> a low setting reads as unease, medium reads as damage, and maximum is the setting most likely to be clipped, filtered or flattened back into plain text.</p>
 
-      <h3>From unease to damage</h3>
-      <p>The intensity dial decides how corrupted the result looks: a low setting reads as unease, a high
-        one reads as damage. The zone toggles choose whether the marks pile up above the letters, run
-        through them, or hang below.</p>
+      <h2 id="where">Where glitch text works</h2>
+      <ul>
+        <li><strong>Works well:</strong> light and medium styles in Instagram and TikTok captions, Discord messages, posts on X and most chat apps.</li>
+        <li><strong>Test first:</strong> bios and display names. Use the static styles there — they stay inside the line.</li>
+        <li><strong>Avoid:</strong> maximum intensity in usernames or anywhere with a character limit. Some apps clip anything that overflows the line, and others strip combining marks altogether.</li>
+      </ul>
+      <p>Want the letters themselves changed before they are corrupted? Use the <a href="cursed-text">cursed text generator</a>. For the background, read <a href="blog/what-is-zalgo-text">what Zalgo text is and how it works</a>.</p>
 
-      <h3>Where glitch text works, and where it gets stripped</h3>
-      <p>Light and medium glitch text usually survive in Instagram and TikTok captions, Discord messages, posts
-        on X and most chat apps. Heavier settings are another matter: some apps clip anything that overflows the
-        line, others remove combining marks altogether, and every mark counts against a character limit. The
-        static styles stay inside the line, so they are the safer choice for a bio or a display name. If you
-        want the letters themselves changed before they are corrupted, use the
-        <a href="cursed-text">cursed text generator</a>; for the background, read
-        <a href="blog/what-is-zalgo-text">what Zalgo text is and how it works</a>.</p>
-
-      <h3>What it is not</h3>
-      <p>It is not a visual effect. Glitch art made as a picture or a video — datamoshing, scan lines,
-        RGB shift — does not survive being pasted as text. This produces characters, so it travels
-        anywhere plain text is allowed, but it cannot be animated, coloured, or turned into an image. If
-        you need a moving glitch effect, you need a video tool, not this page.</p>
+      <h2 id="tips">Tips and limits</h2>
+      <ul>
+        <li><strong>Every mark counts as a character.</strong> At maximum intensity one letter can cost thirty characters, so a short bio can pass a 150-character limit while looking no longer.</li>
+        <li><strong>It holds still while you type.</strong> The randomness is seeded so the text does not reshuffle on every keystroke. Re-scramble gives you a new version.</li>
+        <li><strong>Hard on screen readers.</strong> Zalgo is read aloud as a stream of accent names with your word buried inside. Fine in a caption; keep it out of anything people need to read.</li>
+        <li><strong>Text, not a visual effect.</strong> It cannot be animated, coloured or turned into an image. For moving glitch art — scan lines, RGB shift, datamoshing — you need a video tool.</li>
+      </ul>
     </div>
   </section>
 
@@ -160,71 +167,56 @@
       <details>
         <summary>How do I make glitch text?</summary>
         <div class="answer">
-          <p>Type in the box at the top of the page and the glitch text appears underneath in ten styles. Use the intensity dial and the zone toggles to tune it, press Copy, and paste. Nothing is installed: the effect is built entirely from Unicode characters.</p>
+          <p>Type in the box at the top of the page and the glitch text appears underneath in ten styles. Tune it with the Intensity dial and the Zones toggles, press Copy, and paste. Nothing is installed — the effect is made entirely of Unicode characters.</p>
         </div>
       </details>
       <details>
-        <summary>What is zalgo text?</summary>
+        <summary>What is Zalgo text?</summary>
         <div class="answer">
-          <p>It is ordinary text with combining accent marks stacked on it far past any sane depth. The marks are the same ones that build á, ñ and ç — there are just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode.</p>
+          <p>Ordinary text with combining accent marks stacked far past any normal depth. The marks are the same ones that build á, ñ and ç — just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode.</p>
         </div>
       </details>
       <details>
         <summary>Is glitch text the same as Zalgo text?</summary>
         <div class="answer">
-          <p>In practice, yes. Zalgo is the original name for text corrupted with stacked combining marks; glitch text, glitchy text and corrupted text are the names most people search for now. This page makes all of them, and adds flatter static styles that are not classic Zalgo.</p>
+          <p>In practice, yes. Zalgo is the original name; glitch text, glitchy text and corrupted text are the names most people search for now. This page makes all of them, plus flatter static styles that are not classic Zalgo.</p>
         </div>
       </details>
       <details>
         <summary>Why does my glitch text get cut off or flattened?</summary>
         <div class="answer">
-          <p>Two different causes. Some apps clip anything overflowing the line box, so the marks are still there but hidden. Others actively strip combining characters, which permanently flattens the text. <strong>Light</strong> and <strong>Medium</strong> survive far more places than <strong>Maximum</strong>.</p>
+          <p>There are two causes. Some apps clip anything that overflows the line, so the marks are still there but hidden. Others strip combining characters, which flattens the text for good. <strong>Light</strong> and <strong>Medium</strong> survive in far more places than <strong>Maximum</strong>.</p>
         </div>
       </details>
       <details>
         <summary>Does glitch text count as more characters?</summary>
         <div class="answer">
-          <p>Yes, and dramatically so. Every mark is a real character. At maximum intensity a single letter can cost thirty of them, so a short bio can blow past a 150-character limit while looking no longer on screen.</p>
+          <p>Yes, a lot more. Every mark is a real character. At maximum intensity a single letter can cost thirty, so a short bio can pass a 150-character limit while looking no longer on screen.</p>
         </div>
       </details>
       <details>
         <summary>Why does it look the same every time I type?</summary>
         <div class="answer">
-          <p>Deliberately. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press <strong>Re-scramble</strong> for a different roll of the same settings.</p>
+          <p>On purpose. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press <strong>Re-scramble</strong> for a different version with the same settings.</p>
         </div>
       </details>
       <details>
         <summary>Is glitch text harmful to my phone or account?</summary>
         <div class="answer">
-          <p>No. It is plain Unicode text and cannot carry anything harmful. The practical risks are social: heavy glitch text overlaps neighbouring lines, gets removed by filters, and is close to unreadable for anyone using a screen reader. Keep it light anywhere other people need to read you.</p>
+          <p>No. It is plain Unicode text and cannot carry anything harmful. The practical risks are social: heavy glitch text overlaps nearby lines, gets removed by filters, and is close to unreadable with a screen reader.</p>
         </div>
       </details>
       <details>
         <summary>Can glitch text be removed again?</summary>
         <div class="answer">
-          <p>Yes, because the original letters are still underneath the marks. The guide to <a href="blog/what-is-zalgo-text">Zalgo text</a> covers how to strip it back out. This page only converts in one direction.</p>
+          <p>Yes, because the original letters are still underneath the marks. The guide to <a href="blog/what-is-zalgo-text">Zalgo text</a> explains how to strip it back out. This page only converts in one direction.</p>
         </div>
       </details>
     </div>
   </section>
 
-  <section class="pitch">
-    <span class="kicker">The long way round</span>
-    <h2>⚡ It looks broken. It isn't.</h2>
-
-    <p class="lede">Glitch text looks like something's gone wrong with your screen. 👁️ Nothing has. Every one of those marks crawling over the letters is a completely normal character, doing exactly what it's meant to do — attaching itself to the letter in front of it.</p>
-
-    <p>That's what makes it different from a corrupted file. This isn't a failure, it's the rules being followed a little too enthusiastically. 🧩 Unicode says a letter can carry accent marks. It never says how many, because nobody imagined anyone would ask for forty. So your browser adds forty, politely, and the result climbs out of its line and into the sentence above.</p>
-
-    <p>It's also why it misbehaves out in the wild. 🚧 The marks have no width, so the text grows up and down instead of sideways. It overlaps other lines, wrecks the spacing in a comment thread, and makes moderators twitchy. A lot of platforms just strip it, and it's hard to blame them.</p>
-
-    <p>So use the slider. 🎚️ Everyone's first instinct is to shove it to maximum, and maximum is the setting that gets filtered, cut off, or quietly flattened back into plain text. A light setting reads as unease. Medium reads as damage. Full corruption mostly reads as "why is my bio over the character limit".</p>
-
-    <p>And spare a thought for screen readers. 🔇 Zalgo is about the worst thing you can hand one: a stream of accent names with a word buried somewhere in the middle. Great in a caption. Genuinely rough anywhere people need to actually read you. The dial, and every other generator, is at <strong>cursivee.app</strong>.</p>
-  </section>
-
-  <section class="more">
-    <h2 class="more-title">More generators</h2>
+  <section class="more" id="generators">
+    <h2 class="more-title">More free text generators</h2>
     <ul class="cards">
       <li><a class="card" href="./">
         <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
@@ -253,7 +245,7 @@
     <h2 class="more-title">Related guides</h2>
     <ul class="cards">
       <li><a class="card" href="blog/what-is-zalgo-text">
-        <span class="card-sample">z̹̓a̘ͬĺ̘g͍͒o͉ͦ</span>
+        <span class="card-sample">z̹̓a̘ͬĺ̘g͍͒o͉ͦ</span>
         <span class="card-name">What is Zalgo text, and how does it work?</span>
         <span class="card-note">The mechanics of glitch text, where the name came from, and how to strip it back out.</span>
       </a></li>
@@ -268,7 +260,7 @@
         <span class="card-note">Three different symptoms, three different causes, and which styles are safest.</span>
       </a></li>
     </ul>
-    <p class="more-link"><a href="blog">All posts →</a></p>
+    <p class="more-link"><a href="blog">All guides →</a></p>
   </section>
 
   <footer class="site-foot">
@@ -339,7 +331,7 @@
       "breadcrumb": {
         "@id": "https://cursivee.app/glitch-text#breadcrumb"
       },
-      "dateModified": "2026-10-09"
+      "dateModified": "2026-10-16"
     },
     {
       "@type": "BreadcrumbList",
@@ -386,15 +378,15 @@
           "name": "How do I make glitch text?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Type in the box at the top of the page and the glitch text appears underneath in ten styles. Use the intensity dial and the zone toggles to tune it, press Copy, and paste. Nothing is installed: the effect is built entirely from Unicode characters."
+            "text": "Type in the box at the top of the page and the glitch text appears underneath in ten styles. Tune it with the Intensity dial and the Zones toggles, press Copy, and paste. Nothing is installed — the effect is made entirely of Unicode characters."
           }
         },
         {
           "@type": "Question",
-          "name": "What is zalgo text?",
+          "name": "What is Zalgo text?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is ordinary text with combining accent marks stacked on it far past any sane depth. The marks are the same ones that build á, ñ and ç — there are just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode."
+            "text": "Ordinary text with combining accent marks stacked far past any normal depth. The marks are the same ones that build á, ñ and ç — just dozens per letter instead of one, so they pile up and spill over the line. The name comes from a 2000s internet horror meme; the technique is pure Unicode."
           }
         },
         {
@@ -402,7 +394,7 @@
           "name": "Is glitch text the same as Zalgo text?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In practice, yes. Zalgo is the original name for text corrupted with stacked combining marks; glitch text, glitchy text and corrupted text are the names most people search for now. This page makes all of them, and adds flatter static styles that are not classic Zalgo."
+            "text": "In practice, yes. Zalgo is the original name; glitch text, glitchy text and corrupted text are the names most people search for now. This page makes all of them, plus flatter static styles that are not classic Zalgo."
           }
         },
         {
@@ -410,7 +402,7 @@
           "name": "Why does my glitch text get cut off or flattened?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two different causes. Some apps clip anything overflowing the line box, so the marks are still there but hidden. Others actively strip combining characters, which permanently flattens the text. Light and Medium survive far more places than Maximum."
+            "text": "There are two causes. Some apps clip anything that overflows the line, so the marks are still there but hidden. Others strip combining characters, which flattens the text for good. Light and Medium survive in far more places than Maximum."
           }
         },
         {
@@ -418,7 +410,7 @@
           "name": "Does glitch text count as more characters?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, and dramatically so. Every mark is a real character. At maximum intensity a single letter can cost thirty of them, so a short bio can blow past a 150-character limit while looking no longer on screen."
+            "text": "Yes, a lot more. Every mark is a real character. At maximum intensity a single letter can cost thirty, so a short bio can pass a 150-character limit while looking no longer on screen."
           }
         },
         {
@@ -426,7 +418,7 @@
           "name": "Why does it look the same every time I type?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Deliberately. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press Re-scramble for a different roll of the same settings."
+            "text": "On purpose. The randomness is seeded, so the corruption holds still while you edit instead of reshuffling on every keystroke. Press Re-scramble for a different version with the same settings."
           }
         },
         {
@@ -434,7 +426,7 @@
           "name": "Is glitch text harmful to my phone or account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. It is plain Unicode text and cannot carry anything harmful. The practical risks are social: heavy glitch text overlaps neighbouring lines, gets removed by filters, and is close to unreadable for anyone using a screen reader. Keep it light anywhere other people need to read you."
+            "text": "No. It is plain Unicode text and cannot carry anything harmful. The practical risks are social: heavy glitch text overlaps nearby lines, gets removed by filters, and is close to unreadable with a screen reader."
           }
         },
         {
@@ -442,7 +434,7 @@
           "name": "Can glitch text be removed again?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, because the original letters are still underneath the marks. The guide to Zalgo text covers how to strip it back out. This page only converts in one direction."
+            "text": "Yes, because the original letters are still underneath the marks. The guide to Zalgo text explains how to strip it back out. This page only converts in one direction."
           }
         }
       ]
