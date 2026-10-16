@@ -1,0 +1,18 @@
+{
+  // Static site served from Workers Static Assets. Committed so Cloudflare's
+  // Git builds stop generating a default config, which re-enables the
+  // workers.dev URL and preview URLs on every deploy.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cursivee-app",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "cursivee.app", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
