@@ -88,6 +88,10 @@ not contiguous — use `·` as a placeholder for "no such character exists, leav
 the letter alone". For non-alphabet styles pass any `fn(text, opts)`, or use the
 `combiner`, `flipper`, `separated` and `wrap` helpers.
 
+After changing a cursive style, run `node scripts/prerender.js`. It writes the
+cursive output into `index.html` as static HTML (between the `prerender:`
+markers) so search engines see it; `app.js` replaces it on load.
+
 ## Preview size
 
 The four **Size** pills in the controls bar set `--out-scale` on `:root`, and the

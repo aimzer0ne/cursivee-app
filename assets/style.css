@@ -672,6 +672,7 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
 }
 .glyphs-tall{padding-block:36px;line-height:2.4}
 .prose td.g{font-family:var(--f-out);font-size:1.35rem;line-height:1.3;white-space:nowrap}
+.prose p.g{font-family:var(--f-out);font-size:1.35rem;line-height:1.5;overflow-wrap:anywhere}
 .prose code{
   padding:.2em .45em;
   background:var(--wash);
