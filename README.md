@@ -28,7 +28,7 @@ single page correctly, but the links between pages will 404.
 | `cursed-text.html` | Cursed generator — 11 styles: a substituted alphabet corrupted on top, with the same dial |
 | `weird-text.html` | Weird generator — 15 styles: strange alphabets, mirrored, lookalike, morse, braille, binary |
 | `about.html` | How it works and where it breaks (footer-linked) |
-| `blog.html` · `blog/*.html` | Blog index and its posts (in the top nav and footer; listed on the home page under *From the blog*) |
+| `blog.html` · `blog/*.html` | Blog index and its posts (in the top nav and footer; cursive posts are listed on the home page under *Cursive guides*) |
 | `privacy.html` · `terms.html` · `contact.html` | Site pages |
 | `404.html` · `offline.html` | Fallbacks |
 
@@ -36,9 +36,22 @@ single page correctly, but the links between pages will 404.
 
 Posts are hand-written static pages at `blog/<slug>.html`, served as
 `/blog/<slug>`. Copy an existing one, then update the places that list posts:
-the cards in `blog.html`, the *From the blog* section in `index.html`, the
-*Guides* column of the footer (on every page), `sitemap.xml`, `feed.xml`, the
-`SHELL` list in `sw.js`, and the `blogPost` array in `blog.html`'s JSON-LD.
+the cards in `blog.html`, `sitemap.xml`, `feed.xml`, the `SHELL` list in
+`sw.js`, and the `blogPost` array in `blog.html`'s JSON-LD. If the post is about
+cursive, also add it to the *Cursive guides* section of `index.html` and the
+*Cursive guides* column of the footer (on every page) — both deliberately list
+only cursive posts, so the home page and every footer point at the cluster of
+pages that supports the main "cursive generator" keyword.
+
+Every post should link back to the home page early on, with a varied anchor
+("cursive generator", "cursive text generator", "cursive font generator")
+rather than "click here" or the same phrase every time.
+
+Ready-made converted text in a post goes in `.glyphs` (one line per box),
+`<ul class="copylist">` (a list of lines) or a table cell with `class="g"`.
+`app.js` makes all of them tap-to-copy, so no per-post script is needed. Add
+`letters` to a `.glyphs` line of spaced single letters so one letter can still
+be selected on its own.
 
 Posts sit one level down, so their links to the rest of the site start with
 `../` (`../assets/style.css`, `../about`) and links to other posts are bare
@@ -124,7 +137,22 @@ Open Graph and Twitter card tags, and a JSON-LD `@graph` (`WebPage` +
 `Organization` on the home page). The five generator pages also emit `FAQPage`
 data generated *from* their visible FAQ markup, so the structured data can never
 drift from what a reader sees — which is Google's requirement for the rich
-result.
+result. If you edit a visible FAQ answer, make the same edit in the JSON-LD.
+
+The home page is the page that ranks for "cursive generator", "cursive text
+generator" and "cursive font generator". Its `<title>` leads with the exact
+phrase "Cursive Generator", the H1 is "Cursive text generator", and the
+`WebApplication` lists the other two names as `alternateName`. Keep those
+phrases where they are, and don't create a second page targeting the same
+phrases — a separate "cursive font generator" page would compete with the home
+page instead of helping it. Supporting posts target neighbouring searches
+(cursive alphabet, name in cursive, bio ideas, cursive fonts in Docs) and link
+back.
+
+`assets/cursive-fonts-google-docs-1200.{webp,jpg}` is a specimen of the Google
+fonts named in that post, rendered once from Google Fonts. It is a static image
+on purpose: loading the fonts live would add a third-party request the privacy
+page says the site does not make.
 
 After deploying, run `sh scripts/indexnow.sh` to ping Bing and the other
 IndexNow engines with every sitemap URL (or pass paths: `sh scripts/indexnow.sh

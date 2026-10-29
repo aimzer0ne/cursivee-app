@@ -4,9 +4,37 @@
     <title>cursivee.app blog</title>
     <link>https://cursivee.app/blog</link>
     <atom:link href="https://cursivee.app/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>Practical guides to cursive, glitch and fancy Unicode text.</description>
+    <description>Practical guides to cursive text and other fancy Unicode text: names, bios, the cursive alphabet, fonts and how it all works.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>How to write your name in cursive</title>
+      <link>https://cursivee.app/blog/name-in-cursive</link>
+      <guid isPermaLink="true">https://cursivee.app/blog/name-in-cursive</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Type your name once and copy it in cursive: which style suits the letters your name has, popular names already converted, and where a cursive name will and won't paste.</description>
+    </item>
+    <item>
+      <title>Cursive bio ideas to copy and paste</title>
+      <link>https://cursivee.app/blog/cursive-bio-ideas</link>
+      <guid isPermaLink="true">https://cursivee.app/blog/cursive-bio-ideas</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Forty-eight short bio lines already in cursive — aesthetic, minimal, funny, love and birthday — plus the layout rules that keep a cursive bio readable.</description>
+    </item>
+    <item>
+      <title>Cursive fonts in Google Docs, Word and Canva</title>
+      <link>https://cursivee.app/blog/cursive-fonts-google-docs-word</link>
+      <guid isPermaLink="true">https://cursivee.app/blog/cursive-fonts-google-docs-word</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Documents have real font menus. Where to find cursive fonts in Google Docs, Word and Canva, which ones read well, and when to use a generator instead.</description>
+    </item>
+    <item>
+      <title>How a cursive generator actually works</title>
+      <link>https://cursivee.app/blog/how-cursive-generators-work</link>
+      <guid isPermaLink="true">https://cursivee.app/blog/how-cursive-generators-work</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>A cursive generator never touches your font. The Unicode block behind it, the eleven missing letters, and why cursive text counts double and hides from search.</description>
+    </item>
     <item>
       <title>How to put cursive text in your Instagram bio</title>
       <link>https://cursivee.app/blog/cursive-text-instagram-bio</link>

@@ -127,6 +127,23 @@ function copyText(text,label){
   });
 })();
 
+/* ── tap to copy: ready-made text in guides and articles ─────
+   A tap copies the whole line. A drag or double-click that picks
+   out part of it is left alone, so one letter can still be copied
+   by hand. */
+(function tapToCopy(){
+  var COPYABLE=".glyphs,.copylist li,.prose td.g,.prose p.g";
+  function flat(s){ return s.replace(/\s+/g," ").trim(); }
+  document.addEventListener("click",function(e){
+    var el=e.target.closest?e.target.closest(COPYABLE):null;
+    if(!el||e.target.closest("a")) return;
+    var text=(el.innerText||el.textContent).trim();
+    var sel=window.getSelection?flat(String(window.getSelection())):"";
+    if(sel&&sel!==flat(text)) return;
+    copyText(text,"to clipboard");
+  });
+})();
+
 /* ── generator ──────────────────────────────────────────── */
 var cfg=window.PAGE_CONFIG;
 var src=document.getElementById("src");

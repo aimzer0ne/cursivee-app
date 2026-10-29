@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Cursive Generators Work: Unicode Script Letters Explained</title>
+<meta name="description" content="A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://cursivee.app/blog/how-cursive-generators-work">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/blog/how-cursive-generators-work">
+<meta property="og:title" content="How Cursive Generators Work: Unicode Script Letters Explained">
+<meta property="og:description" content="A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.">
+<meta property="og:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<meta property="article:published_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Cursive Generators Work: Unicode Script Letters Explained">
+<meta name="twitter:description" content="A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="../feed.xml">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="../"><img class="brand-mark" src="../assets/logo.svg" alt="" width="30" height="30">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="../">Cursive</a></li>
+        <li><a href="../small-text">Small</a></li>
+        <li><a href="../glitch-text">Glitch</a></li>
+        <li><a href="../cursed-text">Cursed</a></li>
+        <li><a href="../weird-text">Weird</a></li>
+        <li class="nav-sep"><a href="../blog" aria-current="true">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <p class="eyebrow"><a href="../blog">Blog</a> · <time datetime="2026-10-29">29 October 2026</time> · 6 min read</p>
+    <h1 class="title">How a cursive generator actually works</h1>
+    <p class="tagline">No fonts, no images, no server — just a lookup table from one set of characters to another, and a few quirks of history that explain everything odd about the result.</p>
+  </div>
+
+  <main id="main">
+    <article class="prose">
+    <p>Type “hello” into a <a href="../">cursive generator</a> and you get 𝒽ℯ𝓁𝓁ℴ. It looks like the same word in a different font, but nothing about the font has changed. Every letter has been replaced by a different character — one whose standard shape happens to be script. This page explains where those characters come from, and why that one fact accounts for everything strange about cursive text: the mismatched letters, the missing numbers, the character limits, and the searches that never find you.</p>
+
+    <h2>Characters, not fonts</h2>
+    <p>Every character a phone can display has a number in Unicode, the standard that keeps text consistent across devices. The plain capital A is U+0041. When you change the font in a word processor, the number stays U+0041 and only the drawing changes — and the drawing stays behind when you copy the text somewhere else.</p>
+    <p>A cursive generator works one level down. It does not ask for a different drawing of U+0041; it swaps in a different character altogether: 𝒜, the <em>mathematical script capital A</em>, U+1D49C. The app you paste into does not need a font setting, because it has not been asked to style anything. It has been handed a character whose shape is script.</p>
+
+    <h2>Where the cursive letters come from</h2>
+    <p>In 2001, Unicode 3.1 added a block called <em>Mathematical Alphanumeric Symbols</em>, running from U+1D400 to U+1D7FF. Mathematicians use letter styles as meaning — a bold <strong>v</strong> is a vector, a script ℒ might name a function, a blackletter 𝔤 a Lie algebra — and encoding the styles as separate characters lets an equation keep its meaning when it is copied between programs.</p>
+    <p>The block holds thirteen Latin alphabets, each a run of 52 code points: capitals first, then lowercase. A generator only needs to know where each run starts:</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Style</th><th>Capital A</th><th>Code point</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bold</td><td class="g">𝐀</td><td><code>U+1D400</code></td></tr>
+          <tr><td>Italic</td><td class="g">𝐴</td><td><code>U+1D434</code></td></tr>
+          <tr><td>Bold italic</td><td class="g">𝑨</td><td><code>U+1D468</code></td></tr>
+          <tr><td>Script</td><td class="g">𝒜</td><td><code>U+1D49C</code></td></tr>
+          <tr><td>Bold script</td><td class="g">𝓐</td><td><code>U+1D4D0</code></td></tr>
+          <tr><td>Fraktur (Old English)</td><td class="g">𝔄</td><td><code>U+1D504</code></td></tr>
+          <tr><td>Double-struck</td><td class="g">𝔸</td><td><code>U+1D538</code></td></tr>
+          <tr><td>Bold Fraktur (bold gothic)</td><td class="g">𝕬</td><td><code>U+1D56C</code></td></tr>
+          <tr><td>Sans-serif</td><td class="g">𝖠</td><td><code>U+1D5A0</code></td></tr>
+          <tr><td>Sans-serif bold</td><td class="g">𝗔</td><td><code>U+1D5D4</code></td></tr>
+          <tr><td>Sans-serif italic</td><td class="g">𝘈</td><td><code>U+1D608</code></td></tr>
+          <tr><td>Sans-serif bold italic</td><td class="g">𝘼</td><td><code>U+1D63C</code></td></tr>
+          <tr><td>Monospace</td><td class="g">𝙰</td><td><code>U+1D670</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>To convert a letter, the generator adds its position in the alphabet to the start of the run. Lowercase script b is the 28th character in the script run — 26 capitals, then a, then b — so it lives at U+1D49C + 27 = U+1D4B7: 𝒷. That is the entire trick. Bubbles (Ⓐ), squares (🄰) and wide letters (Ａ) work the same way with runs from other blocks, and the strikethrough and underline styles add a combining mark after each letter instead.</p>
+
+    <h2>The eleven missing letters</h2>
+    <p>Look closely at the script run and it has holes. U+1D49D, where script capital B should be, is empty. So are the slots for E, F, H, I, L, M and R, and for lowercase e, g and o. Those eleven letters already existed: mathematicians and physicists had been writing ℬ, ℋ and ℒ as symbols for decades, and Unicode had encoded them in the early 1990s in a block called <em>Letterlike Symbols</em>. Rather than encode them twice, the new block left gaps and pointed back to the old characters.</p>
+    <p>So a generator cannot just add offsets. It needs an exceptions table — when the letter is B, use ℬ (U+212C) instead of the empty slot. The engine behind this site's generator has exactly that line:</p>
+    <pre><code>ex:{B:"ℬ",E:"ℰ",F:"ℱ",H:"ℋ",I:"ℐ",L:"ℒ",M:"ℳ",R:"ℛ",e:"ℯ",g:"ℊ",o:"ℴ"}</code></pre>
+    <p>The visible consequence: those eleven letters live in a different block from their neighbours, and a device may draw the two blocks with two different fonts. That is why the light script style sometimes has letters that look like cousins rather than siblings. Fraktur has the same problem with five capitals (ℭ ℌ ℑ ℜ ℨ), double-struck with seven (ℂ ℍ ℕ ℙ ℚ ℝ ℤ), and italic with one: its lowercase h is ℎ, the physicists' Planck constant. Bold script has no gaps at all, which is why it is the most consistent cursive style. The <a href="cursive-alphabet-copy-paste">cursive alphabet</a> shows every letter side by side.</p>
+
+    <h2>Why there are no cursive numbers</h2>
+    <p>The block includes digits in five styles — bold (𝟎𝟏𝟐𝟑), double-struck (𝟘𝟙𝟚𝟛), sans-serif (𝟢𝟣𝟤𝟥), sans-serif bold (𝟬𝟭𝟮𝟯) and monospace (𝟶𝟷𝟸𝟹) — but none in script, italic or Fraktur. Mathematicians had no use for script digits, so none were encoded, and a generator can only leave numbers plain. Accented letters are missing for the same reason: there is no script é anywhere in Unicode.</p>
+
+    <h2>Why cursive text can count as two characters</h2>
+    <p>Unicode numbers run up to U+10FFFF, but a lot of software stores text as UTF-16, built from 16-bit units that only reach U+FFFF. Anything above that — emoji, and the whole mathematical alphanumeric block — is stored as a <em>surrogate pair</em> of two units. A plain letter takes one unit; 𝒜 takes two.</p>
+    <p>Whether that matters depends on how an app counts. Some count what you see, so 𝒽ℯ𝓁𝓁ℴ is five characters. Others count storage units, and the same word becomes eight: the three letters from the 2001 block take two units each, while ℯ and ℴ, from the older block, take one. On X, characters outside the most common ranges count double towards the limit, and cursive letters are among them. If a bio or post is rejected as too long when it looks short, this is almost always why.</p>
+
+    <h2>Why search cannot always find cursive text</h2>
+    <p>Search matches characters, and 𝒜 is not A. Unicode does define a fallback — <em>compatibility normalisation</em>, usually called NFKC — under which 𝒜, 𝓐, 𝔄 and Ⓐ all fold back to a plain A. Some platforms apply it when they index names and posts, so a cursive display name is still found by an ordinary search. Many do not. The safe assumption is that anything written in cursive is invisible to search, so keep the words you want to be found by — your name, your business, your hashtags — in plain letters.</p>
+    <p>The same folding explains why some apps seem to undo cursive when you press save: they normalise the field on the way in, and your 𝓷𝓪𝓶𝓮 comes back as name.</p>
+
+    <h2>Why it looks different on every device</h2>
+    <p>Unicode defines what a character is, not exactly how it looks. Apple, Google, Microsoft and the open-source font projects each drew their own mathematical alphabets, so the same bio has slightly different letterforms on an iPhone, a Pixel and a Windows laptop. If a device has no font containing a character at all, it draws an empty box instead. That is rarer than it used to be, and covered in <a href="fancy-text-boxes-question-marks">why fancy text shows up as boxes</a>.</p>
+
+    <h2>What it costs: accessibility</h2>
+    <p>A screen reader sees characters, not shapes. Some announce 𝒽ℯ𝓁𝓁ℴ as a string of names like “mathematical script small h”; others skip the characters entirely. A plain-text alternative is the only real fix, which is why cursive text works best for decoration and worst for anything people need to understand. <a href="fancy-text-accessibility">Can screen readers read fancy text?</a> goes into detail.</p>
+
+    <h2>What happens inside this generator</h2>
+    <p>The cursive generator on this site is a few hundred lines of JavaScript that run entirely in your browser. For each style it builds a map from plain letters to their counterparts — the offset runs plus the exceptions table — then rewrites your text one character at a time as you type. Characters with no counterpart, such as digits in the script styles, punctuation and accented letters, pass through untouched. Nothing is sent to a server, which is also why it keeps working offline.</p>
+    <p>That is all there is to it. The real decisions are which alphabets to include and how to present them; the conversion itself is a lookup table, and Unicode did the hard part in 2001.</p>
+    <p class="cta"><a class="btn btn-primary" href="../">Open the cursive generator</a></p>
+
+    <hr>
+    <p class="stamp"><a href="../blog">← All posts</a></p>
+    </article>
+  </main>
+
+  <section class="more">
+    <h2 class="more-title">Keep reading</h2>
+    <ul class="cards">
+      <li><a class="card" href="cursive-alphabet-copy-paste">
+          <span class="card-sample">𝒜 ℬ 𝒞</span>
+          <span class="card-name">The cursive alphabet, A to Z, to copy and paste</span>
+          <span class="card-note">All 52 letters in three styles, and the eleven that never quite match the rest.</span>
+        </a></li>
+      <li><a class="card" href="fancy-text-boxes-question-marks">
+          <span class="card-sample">□□□ ?</span>
+          <span class="card-name">Why fancy text shows up as boxes or question marks</span>
+          <span class="card-note">Three different symptoms, three different causes, and which styles are safest.</span>
+        </a></li>
+    </ul>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">A free cursive text generator, plus small, glitch, cursed and weird text. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="../">Cursive text generator</a></li>
+        <li><a href="../small-text">Small text</a></li>
+        <li><a href="../glitch-text">Glitch text</a></li>
+        <li><a href="../cursed-text">Cursed text</a></li>
+        <li><a href="../weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Cursive guides</p>
+      <ul class="foot-list">
+        <li><a href="cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="name-in-cursive">Your name in cursive</a></li>
+        <li><a href="cursive-bio-ideas">Cursive bio ideas</a></li>
+        <li><a href="cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="cursive-fonts-google-docs-word">Cursive fonts for Docs &amp; Word</a></li>
+        <li><a href="how-cursive-generators-work">How cursive generators work</a></li>
+        <li><a href="../blog">All guides</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="../about">About</a></li>
+        <li><a href="../contact">Contact</a></li>
+        <li><a href="../privacy">Privacy</a></li>
+        <li><a href="../terms">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">More free tools</p>
+      <ul class="foot-list">
+        <li><a href="https://reelsdl.net/" rel="noopener">Instagram Reels downloader</a></li>
+        <li><a href="https://vatculator.com/" rel="noopener">VAT calculator</a></li>
+        <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://cursivee.app/blog/how-cursive-generators-work#article",
+      "headline": "How a cursive generator actually works",
+      "description": "A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.",
+      "url": "https://cursivee.app/blog/how-cursive-generators-work",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "inLanguage": "en",
+      "image": "https://cursivee.app/assets/og-cursive-font-generator.jpg",
+      "wordCount": 1322,
+      "author": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://cursivee.app/blog/how-cursive-generators-work#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://cursivee.app/blog#blog"
+      },
+      "about": {
+        "@id": "https://cursivee.app/#app"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/blog/how-cursive-generators-work#webpage",
+      "url": "https://cursivee.app/blog/how-cursive-generators-work",
+      "name": "How Cursive Generators Work: Unicode Script Letters Explained",
+      "description": "A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/blog/how-cursive-generators-work#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/blog/how-cursive-generators-work#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cursivee.app/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How cursive generators work",
+          "item": "https://cursivee.app/blog/how-cursive-generators-work"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

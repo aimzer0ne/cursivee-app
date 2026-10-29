@@ -18,9 +18,11 @@ const CF = globalThis.CF;
 
 const SAMPLE = "Cursive Text";
 const EXAMPLES = [
-  "Love", "Good vibes only", "Happy birthday", "Best friends",
-  "Queen", "Angel", "Dream big", "Thank you"
+  "Hello", "Love", "Good vibes only", "Happy birthday", "Best friends",
+  "Queen", "Princess", "Angel", "Baby", "Forever", "Dream big",
+  "Blessed", "Good morning", "Thank you"
 ];
+const ALPHABETS = ["Script", "Bold script", "Old English"];
 const UP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LO = "abcdefghijklmnopqrstuvwxyz";
 
@@ -59,11 +61,17 @@ function examples() {
 ${rows}
             </tbody>
           </table>
-        </div>
-        <p>The full cursive alphabet in script, uppercase and lowercase:</p>
-        <p class="callout g">${run("Script", UP)}<br>${run("Script", LO)}</p>
-        <p>And in bold script:</p>
-        <p class="callout g">${run("Bold script", UP)}<br>${run("Bold script", LO)}</p>`;
+        </div>`;
+}
+
+/* Letters are spaced so a single one can be picked out by hand. */
+function alphabet() {
+  const spaced = (name, s) => Array.from(style(name).run(s, {})).map(esc).join(" ");
+  return ALPHABETS.map(name =>
+    `        <h3>${esc(name)}</h3>\n` +
+    `        <p class="glyphs letters">${spaced(name, UP)}</p>\n` +
+    `        <p class="glyphs letters">${spaced(name, LO)}</p>`
+  ).join("\n");
 }
 
 function inject(html, name, body) {
@@ -76,6 +84,7 @@ const file = path.join(root, "index.html");
 let html = fs.readFileSync(file, "utf8");
 html = inject(html, "sheet", sheet());
 html = inject(html, "examples", examples());
+html = inject(html, "alphabet", alphabet());
 html = html.replace(/(<span class="exemplar-out" id="heroOut">)[^<]*(<\/span>)/, `$1${run(styles[0].name, SAMPLE)}$2`);
 html = html.replace(/(<textarea id="src"[^>]*>)[^<]*(<\/textarea>)/, `$1${esc(SAMPLE)}$2`);
 fs.writeFileSync(file, html);

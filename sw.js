@@ -5,7 +5,7 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v13";
+const CACHE = "cursivee-v14";
 
 /* Pages are listed without ".html": the host serves /about for
    about.html and redirects the long form, and a redirected response
@@ -22,6 +22,10 @@ const SHELL = [
   "./blog/fancy-text-boxes-question-marks",
   "./blog/fancy-text-accessibility",
   "./blog/what-is-zalgo-text",
+  "./blog/name-in-cursive",
+  "./blog/cursive-bio-ideas",
+  "./blog/cursive-fonts-google-docs-word",
+  "./blog/how-cursive-generators-work",
   "./about",
   "./privacy",
   "./terms",

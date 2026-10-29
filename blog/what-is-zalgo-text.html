@@ -120,7 +120,7 @@
     <p>Because the original letters are still there underneath, the damage is reversible: delete the combining marks and the plain text comes back. In JavaScript, one line does it:</p>
     <p><code>text.normalize("NFD").replace(/\p{M}/gu, "")</code></p>
     <p>This splits every character into its base letter and its marks, then removes all the marks. Be aware that it does not distinguish vandalism from spelling: it turns <em>café</em> into <em>cafe</em> as well. For text in English that is usually acceptable. For names and other languages it is not, and a gentler approach — allowing one or two marks per letter and removing the rest — is the better filter.</p>
-    <p>If you would rather add marks than remove them, the <a href="../glitch-text">glitch generator</a> is one click away.</p>
+    <p>If you would rather add marks than remove them, the <a href="../glitch-text">glitch generator</a> is one click away. And if what you actually wanted was decoration people can still read, the <a href="../">cursive generator</a> restyles each letter without stacking anything on top of it.</p>
 
     <hr>
     <p class="stamp"><a href="../blog">← All posts</a></p>
@@ -146,7 +146,7 @@
   <footer class="site-foot">
     <div class="foot-brand">
       <p class="foot-mark">cursivee.app</p>
-      <p class="foot-note">Free cursive, small, glitch, cursed and weird text generators. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+      <p class="foot-note">A free cursive text generator, plus small, glitch, cursed and weird text. Unicode alphabets you can paste anywhere plain text is allowed.</p>
     </div>
     <div>
       <p class="foot-head">Generators</p>
@@ -159,14 +159,15 @@
       </ul>
     </div>
     <div>
-      <p class="foot-head">Guides</p>
+      <p class="foot-head">Cursive guides</p>
       <ul class="foot-list">
-        <li><a href="cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
         <li><a href="cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
-        <li><a href="fancy-text-boxes-question-marks">Why text shows as boxes</a></li>
-        <li><a href="fancy-text-accessibility">Fancy text and screen readers</a></li>
-        <li><a href="what-is-zalgo-text">What is Zalgo text?</a></li>
-        <li><a href="../blog">All posts</a></li>
+        <li><a href="name-in-cursive">Your name in cursive</a></li>
+        <li><a href="cursive-bio-ideas">Cursive bio ideas</a></li>
+        <li><a href="cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="cursive-fonts-google-docs-word">Cursive fonts for Docs &amp; Word</a></li>
+        <li><a href="how-cursive-generators-work">How cursive generators work</a></li>
+        <li><a href="../blog">All guides</a></li>
       </ul>
     </div>
     <div>
@@ -183,7 +184,7 @@
       <ul class="foot-list">
         <li><a href="https://reelsdl.net/" rel="noopener">Instagram Reels downloader</a></li>
         <li><a href="https://vatculator.com/" rel="noopener">VAT calculator</a></li>
-          <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
+        <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
       </ul>
     </div>
     <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
