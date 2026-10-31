@@ -1,6 +1,7 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
+  Content-Language: en-US
 
 /404
   X-Robots-Tag: noindex

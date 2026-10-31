@@ -149,6 +149,14 @@ page instead of helping it. Supporting posts target neighbouring searches
 (cursive alphabet, name in cursive, bio ideas, cursive fonts in Docs) and link
 back.
 
+The site targets a US audience. `.app` is a generic TLD with no country attached,
+so the target is stated explicitly: `lang="en-US"`, a self-referencing
+`hreflang="en-us"` beside each canonical, `inLanguage` in the JSON-LD, the
+`Content-Language` header in `_headers`, and the language in `feed.xml` and the
+manifest. Write visible copy in American English with US-style dates (October 31,
+2026). Keep every page open to every country, and leave `geo.*` meta tags out:
+Google ignores them.
+
 `assets/cursive-fonts-google-docs-1200.{webp,jpg}` is a specimen of the Google
 fonts named in that post, rendered once from Google Fonts. It is a static image
 on purpose: loading the fonts live would add a third-party request the privacy

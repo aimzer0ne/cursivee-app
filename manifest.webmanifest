@@ -2,7 +2,7 @@
   "name": "cursivee.app — Cursive & Unicode Text Generator",
   "short_name": "cursivee",
   "description": "Turn what you type into script, small, glitch, cursed and weird Unicode alphabets you can paste anywhere plain text is allowed.",
-  "lang": "en",
+  "lang": "en-US",
   "dir": "ltr",
   "start_url": "./",
   "scope": "./",

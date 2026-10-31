@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
@@ -16,6 +16,7 @@
 <meta name="description" content="A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://cursivee.app/blog/how-cursive-generators-work">
+<link rel="alternate" hreflang="en-us" href="https://cursivee.app/blog/how-cursive-generators-work">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="cursivee.app">
 <meta property="og:locale" content="en_US">
@@ -67,7 +68,7 @@
   </header>
 
   <div class="masthead">
-    <p class="eyebrow"><a href="../blog">Blog</a> · <time datetime="2026-10-29">29 October 2026</time> · 6 min read</p>
+    <p class="eyebrow"><a href="../blog">Blog</a> · <time datetime="2026-10-29">October 29, 2026</time> · 6 min read</p>
     <h1 class="title">How a cursive generator actually works</h1>
     <p class="tagline">No fonts, no images, no server — just a lookup table from one set of characters to another, and a few quirks of history that explain everything odd about the result.</p>
   </div>
@@ -111,18 +112,18 @@
     <p>Look closely at the script run and it has holes. U+1D49D, where script capital B should be, is empty. So are the slots for E, F, H, I, L, M and R, and for lowercase e, g and o. Those eleven letters already existed: mathematicians and physicists had been writing ℬ, ℋ and ℒ as symbols for decades, and Unicode had encoded them in the early 1990s in a block called <em>Letterlike Symbols</em>. Rather than encode them twice, the new block left gaps and pointed back to the old characters.</p>
     <p>So a generator cannot just add offsets. It needs an exceptions table — when the letter is B, use ℬ (U+212C) instead of the empty slot. The engine behind this site's generator has exactly that line:</p>
     <pre><code>ex:{B:"ℬ",E:"ℰ",F:"ℱ",H:"ℋ",I:"ℐ",L:"ℒ",M:"ℳ",R:"ℛ",e:"ℯ",g:"ℊ",o:"ℴ"}</code></pre>
-    <p>The visible consequence: those eleven letters live in a different block from their neighbours, and a device may draw the two blocks with two different fonts. That is why the light script style sometimes has letters that look like cousins rather than siblings. Fraktur has the same problem with five capitals (ℭ ℌ ℑ ℜ ℨ), double-struck with seven (ℂ ℍ ℕ ℙ ℚ ℝ ℤ), and italic with one: its lowercase h is ℎ, the physicists' Planck constant. Bold script has no gaps at all, which is why it is the most consistent cursive style. The <a href="cursive-alphabet-copy-paste">cursive alphabet</a> shows every letter side by side.</p>
+    <p>The visible consequence: those eleven letters live in a different block from their neighbors, and a device may draw the two blocks with two different fonts. That is why the light script style sometimes has letters that look like cousins rather than siblings. Fraktur has the same problem with five capitals (ℭ ℌ ℑ ℜ ℨ), double-struck with seven (ℂ ℍ ℕ ℙ ℚ ℝ ℤ), and italic with one: its lowercase h is ℎ, the physicists' Planck constant. Bold script has no gaps at all, which is why it is the most consistent cursive style. The <a href="cursive-alphabet-copy-paste">cursive alphabet</a> shows every letter side by side.</p>
 
     <h2>Why there are no cursive numbers</h2>
     <p>The block includes digits in five styles — bold (𝟎𝟏𝟐𝟑), double-struck (𝟘𝟙𝟚𝟛), sans-serif (𝟢𝟣𝟤𝟥), sans-serif bold (𝟬𝟭𝟮𝟯) and monospace (𝟶𝟷𝟸𝟹) — but none in script, italic or Fraktur. Mathematicians had no use for script digits, so none were encoded, and a generator can only leave numbers plain. Accented letters are missing for the same reason: there is no script é anywhere in Unicode.</p>
 
     <h2>Why cursive text can count as two characters</h2>
     <p>Unicode numbers run up to U+10FFFF, but a lot of software stores text as UTF-16, built from 16-bit units that only reach U+FFFF. Anything above that — emoji, and the whole mathematical alphanumeric block — is stored as a <em>surrogate pair</em> of two units. A plain letter takes one unit; 𝒜 takes two.</p>
-    <p>Whether that matters depends on how an app counts. Some count what you see, so 𝒽ℯ𝓁𝓁ℴ is five characters. Others count storage units, and the same word becomes eight: the three letters from the 2001 block take two units each, while ℯ and ℴ, from the older block, take one. On X, characters outside the most common ranges count double towards the limit, and cursive letters are among them. If a bio or post is rejected as too long when it looks short, this is almost always why.</p>
+    <p>Whether that matters depends on how an app counts. Some count what you see, so 𝒽ℯ𝓁𝓁ℴ is five characters. Others count storage units, and the same word becomes eight: the three letters from the 2001 block take two units each, while ℯ and ℴ, from the older block, take one. On X, characters outside the most common ranges count double toward the limit, and cursive letters are among them. If a bio or post is rejected as too long when it looks short, this is almost always why.</p>
 
     <h2>Why search cannot always find cursive text</h2>
-    <p>Search matches characters, and 𝒜 is not A. Unicode does define a fallback — <em>compatibility normalisation</em>, usually called NFKC — under which 𝒜, 𝓐, 𝔄 and Ⓐ all fold back to a plain A. Some platforms apply it when they index names and posts, so a cursive display name is still found by an ordinary search. Many do not. The safe assumption is that anything written in cursive is invisible to search, so keep the words you want to be found by — your name, your business, your hashtags — in plain letters.</p>
-    <p>The same folding explains why some apps seem to undo cursive when you press save: they normalise the field on the way in, and your 𝓷𝓪𝓶𝓮 comes back as name.</p>
+    <p>Search matches characters, and 𝒜 is not A. Unicode does define a fallback — <em>compatibility normalization</em>, usually called NFKC — under which 𝒜, 𝓐, 𝔄 and Ⓐ all fold back to a plain A. Some platforms apply it when they index names and posts, so a cursive display name is still found by an ordinary search. Many do not. The safe assumption is that anything written in cursive is invisible to search, so keep the words you want to be found by — your name, your business, your hashtags — in plain letters.</p>
+    <p>The same folding explains why some apps seem to undo cursive when you press save: they normalize the field on the way in, and your 𝓷𝓪𝓶𝓮 comes back as name.</p>
 
     <h2>Why it looks different on every device</h2>
     <p>Unicode defines what a character is, not exactly how it looks. Apple, Google, Microsoft and the open-source font projects each drew their own mathematical alphabets, so the same bio has slightly different letterforms on an iPhone, a Pixel and a Windows laptop. If a device has no font containing a character at all, it draws an empty box instead. That is rarer than it used to be, and covered in <a href="fancy-text-boxes-question-marks">why fancy text shows up as boxes</a>.</p>
@@ -218,7 +219,7 @@
       "url": "https://cursivee.app/blog/how-cursive-generators-work",
       "datePublished": "2026-10-29",
       "dateModified": "2026-10-29",
-      "inLanguage": "en",
+      "inLanguage": "en-US",
       "image": "https://cursivee.app/assets/og-cursive-font-generator.jpg",
       "wordCount": 1322,
       "author": {
@@ -243,7 +244,7 @@
       "url": "https://cursivee.app/blog/how-cursive-generators-work",
       "name": "How Cursive Generators Work: Unicode Script Letters Explained",
       "description": "A cursive generator doesn't change your font: it swaps each letter for a Unicode script character. Here are the code points, the gaps, and the side effects.",
-      "inLanguage": "en",
+      "inLanguage": "en-US",
       "isPartOf": {
         "@id": "https://cursivee.app/#website"
       },

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://cursivee.app/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image>
       <image:loc>https://cursivee.app/assets/cursive-font-generator-1200.jpg</image:loc>
       <image:title>Cursive Font Generator</image:title>
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://cursivee.app/blog</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://cursivee.app/blog/cursive-alphabet-copy-paste</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.7</priority>
   </url>
   <url>

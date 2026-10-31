@@ -5,7 +5,7 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v14";
+const CACHE = "cursivee-v15";
 
 /* Pages are listed without ".html": the host serves /about for
    about.html and redirects the long form, and a redirected response

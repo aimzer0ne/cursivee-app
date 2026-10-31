@@ -5,8 +5,8 @@
     <link>https://cursivee.app/blog</link>
     <atom:link href="https://cursivee.app/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides to cursive text and other fancy Unicode text: names, bios, the cursive alphabet, fonts and how it all works.</description>
-    <language>en</language>
-    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Oct 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>How to write your name in cursive</title>
       <link>https://cursivee.app/blog/name-in-cursive</link>
@@ -61,7 +61,7 @@
       <link>https://cursivee.app/blog/fancy-text-accessibility</link>
       <guid isPermaLink="true">https://cursivee.app/blog/fancy-text-accessibility</guid>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Mostly no. Screen readers announce cursive Unicode as maths symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.</description>
+      <description>Mostly no. Screen readers announce cursive Unicode as math symbols or skip it entirely. What that sounds like, who else it affects, and how to use it well.</description>
     </item>
     <item>
       <title>What is Zalgo text, and how does it work?</title>
