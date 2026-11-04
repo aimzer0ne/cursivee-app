@@ -314,12 +314,29 @@ var ORNAMENTS=[
   {id:"leaf",label:"❃ ❃",pre:"❃ ",post:" ❃"}
 ];
 
+/* ── code point label ───────────────────────────────────────
+   The first non-ASCII character a style makes of "A" (or "a",
+   for sets with no capitals), as {letter, code:"U+1D49C"}. Null
+   when the style leaves both letters plain, as morse does. */
+function codePoint(style){
+  var letters=["A","a"];
+  for(var i=0;i<letters.length;i++){
+    var chars=Array.from(style.run(letters[i],{intensity:1,zones:{up:true,mid:true,down:true}}));
+    for(var j=0;j<chars.length;j++){
+      var cp=chars[j].codePointAt(0);
+      if(cp>0x7F) return {letter:letters[i],code:"U+"+cp.toString(16).toUpperCase().padStart(4,"0")};
+    }
+  }
+  return null;
+}
+
 global.CF={
   styles:STYLES,
   ornaments:ORNAMENTS,
   byPage:function(page){
     return STYLES.filter(function(s){ return s.page===page; });
   },
+  codePoint:codePoint,
   reseed:reseed
 };
 

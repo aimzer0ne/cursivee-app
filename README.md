@@ -103,7 +103,9 @@ the letter alone". For non-alphabet styles pass any `fn(text, opts)`, or use the
 
 After changing a cursive style, run `node scripts/prerender.js`. It writes the
 cursive output into `index.html` as static HTML (between the `prerender:`
-markers) so search engines see it; `app.js` replaces it on load.
+markers) so search engines see it; `app.js` replaces it on load. Both build the
+row's margin label (`.row-cp`, e.g. U+1D49C) from `CF.codePoint` in the engine,
+so the static and live rows match.
 
 ## Preview size
 
@@ -113,13 +115,44 @@ The choice is saved to `localStorage` under `cf.size`. If you add another place
 that renders converted text, multiply its font size by `var(--out-scale,1)` so it
 scales too.
 
-## Colour and theme
+## Design: penmanship paper
+
+The site is drawn as American handwriting paper. The generator is a punched
+sheet with a double red margin, and every style is written on its own ruled line
+(dashed midline, red baseline) with its name and the code point of its "A" as a
+margin note. Generator titles sit on full-width ruling, links are index cards, a
+copy lands as a rubber-stamp toast, and the footer is a signature. Light mode is
+cream paper; dark mode is midnight ink.
+
+Two conventions hold everywhere:
+
+- **Blue (`--nib`) means converted text you can copy**: the hero preview, glyph
+  slips, `.g` cells, copy lists, card samples. Body text is blue-black `--ink`.
+- **Red is the margin and the baseline.** It is decorative (`--red`); use
+  `--red-ink` wherever red has to be read as text.
 
 The palette is fixed: the tokens at the top of `assets/style.css`, once for
-light and once for dark. Nothing generates or shuffles colours at runtime. The
-violet-to-coral gradient (`--grad`) is reserved for the wordmark, the scripted
-word in a hero title, the frame around the generator and small accents;
-`--grad-btn` is the primary button.
+light and once for dark. Nothing generates or shuffles colours at runtime.
+
+**Ruling.** Any element in the selector list under `── ruling ──` gets one set of
+lines per line of text, computed from `--lh` (its unitless line height) and the
+line-box font's metrics (`--asc`, `--cap`, `--xh`). The defaults suit `--f-out`;
+the ruled titles override them for the display serif. A ruled element must set
+its line height through `--lh`, not `line-height`, or the lines drift off the
+text. Vertical space around ruled text should be a border or margin, not padding
+(see `.glyphs`): the ruling repeats into padding.
+
+**Display face.** `"Ruled Serif"` is a `local()`-only `@font-face` over the
+system's Palatino (Palatino Linotype on Windows, then Book Antiqua, P052, Noto
+Serif, Georgia), with `ascent-override`/`descent-override` pinned to the Mac cut
+so every platform puts its baseline where the ruling expects. Nothing is
+downloaded, which keeps the privacy page's "no third parties but Analytics" true.
+
+**Full-bleed pieces** (ruled titles, the letterhead rule, the footer band) reach
+the viewport edge and are clipped by `overflow-x:clip` on `body`. That only works
+because `html` has an overflow of its own: without it, body's value is handed to
+the viewport and phones lay the page out wider than the screen. For the same
+reason the header stays `position:relative` on phones rather than `static`.
 
 The header toggle stores the choice in `localStorage` under `cf.theme`. A
 one-line inline script in each page's `<head>` applies it before first paint, so

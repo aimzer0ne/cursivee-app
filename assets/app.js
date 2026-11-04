@@ -41,9 +41,9 @@ function legacyCopy(text){
   document.body.removeChild(ta);
   return ok;
 }
-function copyText(text,label){
+function copyText(text,label,onCopied){
   if(!text){ toast("Nothing to copy yet — write something first."); return; }
-  var done=function(){ toast("Copied "+label); };
+  var done=function(){ toast("Copied "+label); if(onCopied) onCopied(); };
   var failed=function(){
     if(legacyCopy(text)) done();
     else toast("Couldn’t reach the clipboard — select the text and copy manually.");
@@ -144,6 +144,20 @@ function copyText(text,label){
   });
 })();
 
+/* ── copied state: the button itself says it worked ─────── */
+function flasher(btn){
+  var timer,label=btn.textContent;
+  return function(){
+    clearTimeout(timer);
+    btn.classList.add("is-done");
+    btn.textContent="Copied";
+    timer=setTimeout(function(){
+      btn.classList.remove("is-done");
+      btn.textContent=label;
+    },1400);
+  };
+}
+
 /* ── generator ──────────────────────────────────────────── */
 var cfg=window.PAGE_CONFIG;
 var src=document.getElementById("src");
@@ -228,6 +242,17 @@ function build(){
       head.appendChild(star);
       head.appendChild(name);
 
+      /* Glitch marks are random, so their code point would mean nothing. */
+      var cp=cfg.knobs?null:window.CF.codePoint(style);
+      if(cp){
+        var code=document.createElement("span");
+        code.className="row-cp";
+        code.textContent=cp.code;
+        code.title="“"+cp.letter+"” in this style is Unicode "+cp.code;
+        code.setAttribute("aria-hidden","true");
+        head.appendChild(code);
+      }
+
       var out=document.createElement("div");
       out.className="row-out";
       out.setAttribute("role","button");
@@ -239,7 +264,8 @@ function build(){
       copy.type="button";
       copy.textContent="Copy";
 
-      function doCopy(){ copyText(out.textContent,style.name); }
+      var copied=flasher(copy);
+      function doCopy(){ copyText(out.textContent,style.name,copied); }
       out.addEventListener("click",doCopy);
       out.addEventListener("keydown",function(e){
         if(e.key==="Enter"||e.key===" "){ e.preventDefault(); doCopy(); }
@@ -421,8 +447,9 @@ if(filterEl) filterEl.addEventListener("input",applyFilter);
 if(heroCopy){
   /* The visible label is just "Copy" — say what it copies for screen readers. */
   heroCopy.setAttribute("aria-label","Copy the "+heroStyle.name+" version");
+  var heroCopied=flasher(heroCopy);
   heroCopy.addEventListener("click",function(){
-    copyText(heroOut.textContent,heroStyle.name);
+    copyText(heroOut.textContent,heroStyle.name,heroCopied);
   });
 }
 

@@ -31,6 +31,12 @@ const styles = CF.byPage("cursive");
 const style = name => styles.find(s => s.name === name);
 const run = (name, text) => esc(style(name).run(text, {}));
 
+/* Same margin label app.js adds: the code point of the style's "A". */
+function codeLabel(s) {
+  const cp = CF.codePoint(s);
+  return cp ? `<span class="row-cp" title="“${cp.letter}” in this style is Unicode ${cp.code}" aria-hidden="true">${cp.code}</span>` : "";
+}
+
 function sheet() {
   const groups = [];
   styles.forEach(s => {
@@ -41,7 +47,7 @@ function sheet() {
   return groups.map(g =>
     `        <section class="group">\n          <h2 class="group-title">${esc(g.name)}</h2>\n` +
     g.items.map(s =>
-      `          <article class="row"><div class="row-head"><button class="star" type="button" aria-pressed="false" aria-label="Pin ${esc(s.name)}">★</button><span class="row-name">${esc(s.name)}</span></div>` +
+      `          <article class="row"><div class="row-head"><button class="star" type="button" aria-pressed="false" aria-label="Pin ${esc(s.name)}">★</button><span class="row-name">${esc(s.name)}</span>${codeLabel(s)}</div>` +
       `<div class="row-out">${esc(s.run(SAMPLE, {}))}</div><button class="btn copy" type="button">Copy</button></article>`
     ).join("\n") +
     `\n        </section>`
