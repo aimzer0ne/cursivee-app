@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cursivee.app/</loc>
     <lastmod>2026-10-31</lastmod>
-    <image:image>
-      <image:loc>https://cursivee.app/assets/cursive-font-generator-1200.jpg</image:loc>
-      <image:title>Cursive Font Generator</image:title>
-      <image:caption>Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen</image:caption>
-    </image:image>
     <priority>1.0</priority>
   </url>
   <url>
@@ -49,11 +43,6 @@
   <url>
     <loc>https://cursivee.app/blog/cursive-fonts-google-docs-word</loc>
     <lastmod>2026-10-29</lastmod>
-    <image:image>
-      <image:loc>https://cursivee.app/assets/cursive-fonts-google-docs-1200.jpg</image:loc>
-      <image:title>Cursive fonts in Google Docs</image:title>
-      <image:caption>Ten cursive fonts available in Google Docs, each writing “Sincerely, Charlotte”</image:caption>
-    </image:image>
     <priority>0.8</priority>
   </url>
   <url>

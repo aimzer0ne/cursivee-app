@@ -1037,16 +1037,6 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
 .prose .copylist li:hover{background:color-mix(in srgb,var(--hl) 22%,transparent)}
 .prose .cta{margin:28px 0 32px}
 .prose .cta a{color:var(--on-nib)}
-.prose figure{margin:8px 0 26px}
-.prose figure img{
-  display:block;
-  width:100%;
-  height:auto;              /* with width/height on the tag, reserves space and avoids layout shift */
-  border:8px solid var(--sheet);
-  border-radius:3px;
-  box-shadow:var(--lift-sm);
-}
-.prose figcaption{margin-top:12px;font-size:.88rem;line-height:1.5;color:var(--ink-faint)}
 .prose code{
   padding:.2em .45em;
   background:var(--wash);
@@ -1064,43 +1054,6 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
   line-height:1.6;
 }
 .prose pre code{padding:0;background:none;font-size:.84rem;overflow-wrap:normal}
-
-/* ── showcase image ─────────────────────────────────────── */
-/* A print taped to the desk: white border, a slight tilt and two
-   strips of tape across the top corners. */
-.showcase{position:relative;margin:96px 0 0}
-.showcase picture{
-  display:block;
-  padding:12px;
-  background:var(--sheet);
-  border-radius:2px;
-  box-shadow:var(--lift);
-  transform:rotate(-.6deg);
-}
-.showcase img{display:block;width:100%;height:auto} /* width/height on the tag reserve space and avoid layout shift */
-.showcase::before,.showcase::after{
-  content:"";
-  position:absolute;
-  z-index:1;
-  top:-14px;
-  width:124px;
-  height:30px;
-  background:color-mix(in srgb,var(--hl) 55%,transparent);
-  box-shadow:0 1px 2px rgba(20,27,51,.12);
-}
-.showcase::before{left:5%;transform:rotate(-5deg)}
-.showcase::after{right:5%;transform:rotate(4deg)}
-.showcase figcaption{
-  margin-top:20px;
-  max-width:62ch;
-  font-size:.9rem;
-  color:var(--ink-faint);
-}
-@media (max-width:640px){
-  .showcase{margin-top:72px}
-  .showcase picture{padding:7px}
-  .showcase::before,.showcase::after{width:76px;height:22px;top:-10px}
-}
 
 /* ── FAQ ────────────────────────────────────────────────── */
 .faq{counter-reset:q;border-bottom:1px solid var(--rule)}

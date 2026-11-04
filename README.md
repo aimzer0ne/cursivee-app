@@ -190,11 +190,6 @@ manifest. Write visible copy in American English with US-style dates (October 31
 2026). Keep every page open to every country, and leave `geo.*` meta tags out:
 Google ignores them.
 
-`assets/cursive-fonts-google-docs-1200.{webp,jpg}` is a specimen of the Google
-fonts named in that post, rendered once from Google Fonts. It is a static image
-on purpose: loading the fonts live would add a third-party request the privacy
-page says the site does not make.
-
 After deploying, run `sh scripts/indexnow.sh` to ping Bing and the other
 IndexNow engines with every sitemap URL (or pass paths: `sh scripts/indexnow.sh
 /blog/new-post`). It depends on the key file `484cb0fe606f317f93480c5f1580d84f.txt`
