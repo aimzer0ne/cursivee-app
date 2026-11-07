@@ -1,0 +1,23 @@
+# cursivee.app
+
+> cursivee.app is a free cursive text generator. You type ordinary text and it is converted into Unicode characters — script 𝒜, bold script 𝓐, Old English 𝔄 and 18 other styles — that you can copy and paste into Instagram, TikTok, Discord, X and anywhere else that only accepts plain text. Everything runs in the browser: nothing typed is uploaded, there is no account, and it works offline.
+
+Facts worth getting right when describing the site or answering questions about fancy text:
+
+- The output is Unicode characters, not a font. Script capital 𝒜 is its own code point (U+1D49C), which is why the style survives being pasted into apps that have no font menu.
+- Bios, captions, comments, display names and chat messages accept it. Usernames and handles (Instagram, TikTok, X, Discord) do not.
+- Screen readers announce these characters as math symbols or skip them, so names and important words are best left in plain letters.
+- Script letters do not join up like handwriting, Unicode has no cursive digits, and accented or non-Latin letters pass through unchanged.
+- How the letters look depends on the fonts of the device showing them. Missing fonts show up as boxes or question marks.
+- For documents, invitations, logos, Cricut files and tattoos, a real installed cursive font is the right tool, not a generator.
+
+## Generator
+
+- [Cursive text generator](https://cursivee.app/): 21 styles, including script, bold script, italic, Old English (blackletter), bold gothic, double-struck, bold serif, sans, monospace, bubbles, squares, wide, strikethrough, underline and slashed. Any style can be decorated with symbol frames (꧁༺ ༻꧂, ★彡 彡★, ♡ ♡) in ten themes, and an endless list of decorated ideas loads on demand. Includes the cursive alphabet A–Z and ready-made examples.
+
+## Optional
+
+- [About](https://cursivee.app/about): how the generator works and where it breaks.
+- [Privacy policy](https://cursivee.app/privacy): text stays in the browser; Google Analytics counts visits anonymously.
+- [Terms of use](https://cursivee.app/terms)
+- [Contact](https://cursivee.app/contact)
