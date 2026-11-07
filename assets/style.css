@@ -583,7 +583,10 @@ main:has(> .prose) ~ .more{max-width:720px;margin-inline:auto}
 .prose .contact-address{font-family:var(--f-display);font-size:1.4rem}
 
 /* ── on-page guide (generator pages) ────────────────────── */
-.guide .prose{max-width:720px}
+.guide .prose,.story .prose{max-width:720px}
+.story .prose{color:var(--ink-soft)}
+.story{margin-top:64px}
+.story .more-title{font-size:clamp(1.5rem,3vw,2rem)}
 .more .prose h2{color:var(--ink)}
 .prose > h2:first-child,.toc + h2{margin-top:44px}
 .prose .callout{font-size:1.02rem;line-height:1.7}

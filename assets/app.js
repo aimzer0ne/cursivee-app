@@ -687,7 +687,8 @@ function openDeco(style){
 /* ── decorated ideas: endless ───────────────────────────── */
 function buildIdeas(){
   if(!window.CF.randomDecoration) return;
-  var anchor=emptyEl||sheetBody;
+  /* Last thing in <main>, after the font list and anything under it. */
+  var main=sheetBody.parentNode;
   var sec=document.createElement("section");
   sec.className="ideas";
   sec.setAttribute("aria-labelledby","ideasTitle");
@@ -696,7 +697,7 @@ function buildIdeas(){
     '<div class="ideas-list"></div>'+
     '<div class="ideas-sentinel" aria-hidden="true"></div>'+
     '<button class="btn load-more" type="button">Load more</button>';
-  anchor.parentNode.insertBefore(sec,anchor.nextSibling);
+  main.appendChild(sec);
   var list=sec.querySelector(".ideas-list");
   var more=sec.querySelector(".load-more");
   var seen={};
