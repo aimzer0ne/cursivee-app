@@ -110,9 +110,8 @@ pack has curated `frames` plus `before`/`after` tags and `accents` that are
 recombined from a seed: `CF.decorations(pack, 0)` is the curated page, any other
 seed a fresh one, so there is no last page.
 
-- **Tapping a font** (its text, or ✦) opens a `<dialog>` picker for that style,
-  as in nickstyle; the row's Copy button still copies the plain version
-  directly. The picker's first entry is the undecorated text, and its list
+- **Tapping a font's text**, like its Copy button, copies the plain version;
+  **✦** opens a `<dialog>` picker for that style, as in nickstyle. The picker's first entry is the undecorated text, and its list
   loads another page whenever its end scrolls into view (an
   `IntersectionObserver` on a sentinel inside the list), skipping frames
   already shown. While the dialog is open the toast and the copy fallback move

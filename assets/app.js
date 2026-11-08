@@ -240,7 +240,7 @@ function groupSection(title){
   return sec;
 }
 
-/* One font: name and length, the text (tap to decorate), ✦, Copy.
+/* One font: name and length, the text (tap to copy), ✦, Copy.
    left/right are a decoration frame, empty for a plain font. */
 function makeRow(sec,style,left,right){
   var row=document.createElement("article");
@@ -268,12 +268,10 @@ function makeRow(sec,style,left,right){
   out.className="row-out";
   out.setAttribute("role","button");
   out.setAttribute("tabindex","0");
-  /* As in nickstyle: tapping a font opens its decorations; the
-     plain version is the first entry there, and Copy copies it
-     straight away. */
+  /* Tapping a font copies it, like Copy; ✦ opens its decorations. */
   var canDecorate=!!window.CF.decorations;
-  out.title=canDecorate?"Click to decorate":"Click to copy";
-  out.setAttribute("aria-label",(canDecorate?"Decorate ":"Copy ")+style.name);
+  out.title="Click to copy";
+  out.setAttribute("aria-label","Copy "+style.name);
 
   var copy=document.createElement("button");
   copy.className="btn copy";
@@ -288,10 +286,9 @@ function makeRow(sec,style,left,right){
       remember(style,left,right,row,inRecent);
     });
   }
-  function onOut(){ if(canDecorate) openDeco(style); else doCopy(); }
-  out.addEventListener("click",onOut);
+  out.addEventListener("click",doCopy);
   out.addEventListener("keydown",function(e){
-    if(e.key==="Enter"||e.key===" "){ e.preventDefault(); onOut(); }
+    if(e.key==="Enter"||e.key===" "){ e.preventDefault(); doCopy(); }
   });
   copy.addEventListener("click",doCopy);
 
