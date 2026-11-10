@@ -32,9 +32,10 @@
 <meta name="twitter:description" content="These are Unicode characters, not fonts — which is why they survive a copy-paste into apps that never let you change typefaces. How it works and where it breaks.">
 <meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
 <meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1014" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F1E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1120" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -53,32 +54,62 @@
 
   <header class="site-head">
     <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="30" height="30">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="./">Cursive</a></li>
+        <li><a href="small-text">Small</a></li>
+        <li><a href="glitch-text">Glitch</a></li>
+        <li><a href="cursed-text">Cursed</a></li>
+        <li><a href="weird-text">Weird</a></li>
+        <li class="nav-sep"><a href="blog">Blog</a></li>
+      </ul>
+    </nav>
     <button class="btn" id="themeBtn" type="button">Dark</button>
   </header>
 
   <div class="masthead">
     <p class="eyebrow">About</p>
     <h1 class="title">About cursivee.app</h1>
-    <p class="tagline">A free cursive text generator.</p>
+    <p class="tagline">Five free text generators that turn your words into cursive, small, glitch, cursed and weird Unicode letters — and an honest account of how they work and where they break.</p>
   </div>
 
   <main id="main" class="prose">
-    <h2>What it is</h2>
-    <p>cursivee.app is a free <a href="./">cursive text generator</a> — and decorated cursive nicknames. No account, nothing to install, and it works offline.</p>
+    <h2>What cursivee.app is</h2>
+    <p>cursivee.app is a free <a href="./">cursive text generator</a>, with four more generators beside it for small, glitch, cursed and weird text. Type something and each one rewrites it in a different family of Unicode characters that you can copy and paste into a bio, caption, username or chat — anywhere that only accepts plain text.</p>
+    <p>There is no account, nothing to install and no server doing the work. Every conversion happens in your browser as you type, and the site keeps working offline once it has loaded.</p>
 
     <h2>Letters, not fonts</h2>
-    <p>Unicode includes whole alphabets of script, blackletter, bold and circled letters. This site swaps each letter you type for its counterpart in one of them — they are real characters, so the style survives copy and paste.</p>
+    <p>A font is a set of drawings your device applies to text. Change the app and the drawing changes with it, which is why you cannot make your Instagram bio italic by choosing a typeface — there is no typeface to choose.</p>
+    <p>Unicode works differently. It gives every character a permanent number, and over the years it has gained whole parallel alphabets: mathematical script and blackletter, fullwidth forms from Japanese typesetting, circled letters from East Asian standards, phonetic small capitals. They were added for mathematicians, linguists and typesetters, not for social media, but they are ordinary characters, so they travel with the text.</p>
+    <p class="callout">That is all this site does: it swaps each letter you type for its counterpart in one of those sets. Nothing is styled — the characters are simply different characters.</p>
 
-    <h2>Limits</h2>
+    <h2>The five generators</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Generator</th><th>What it uses</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="./">Cursive generator</a></td><td>Mathematical alphanumeric symbols — script, blackletter, double-struck, bold, monospace — plus enclosed and fullwidth forms.</td></tr>
+          <tr><td><a href="small-text">Small text</a></td><td>Superscript and subscript modifiers, and the small-capital letters from the phonetic extensions.</td></tr>
+          <tr><td><a href="glitch-text">Glitch text</a></td><td>Combining diacritical marks, stacked far past their intended depth.</td></tr>
+          <tr><td><a href="cursed-text">Cursed text</a></td><td>Recast letters — small caps, mirrored forms, alternating case — with combining marks stacked on top.</td></tr>
+          <tr><td><a href="weird-text">Weird text</a></td><td>Lookalike letters from other scripts, mirrored and reversed text, and encodings such as morse, braille and binary.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Where it breaks</h2>
+    <p>Being clear about the limits is more useful than pretending there are none.</p>
     <ul>
-      <li><strong>Screen readers</strong> may read these letters as symbols or skip them. Keep important words plain.</li>
-      <li><strong>Missing letters</strong> come through unchanged — some sets are incomplete.</li>
-      <li><strong>Usernames</strong> on most platforms reject them.</li>
-      <li><strong>Older devices</strong> may show empty boxes.</li>
+      <li><strong>Screen readers.</strong> This is the real cost. A screen reader may read 𝓱𝓮𝓵𝓵𝓸 as a string of math symbol names, or skip it entirely. Keep your name and anything important in plain letters.</li>
+      <li><strong>Missing letters.</strong> Some sets are incomplete — there is no superscript <em>q</em> and no small-capital <em>x</em>. Those letters come through unchanged, and no tool can supply them.</li>
+      <li><strong>Platform rules.</strong> Some services strip these characters from usernames, convert them back to plain text, or flag mixed scripts as a spoofing risk. Test with a short paste first.</li>
+      <li><strong>Older devices.</strong> If a device has no font for a character, it shows an empty box. This is rarer than it used to be, but still happens on older Android phones and some desktop apps.</li>
     </ul>
 
-    <h2>Privacy</h2>
-    <p>What you type never leaves your device. The only third party is Google Analytics. See the <a href="privacy">privacy policy</a>.</p>
+    <h2>Privacy and how the site is built</h2>
+    <p>The site is static HTML, one stylesheet and a few small scripts. What you type never leaves your device. The only thing loaded from elsewhere is Google Analytics, which counts visits. Your theme and pinned styles are saved in your browser's local storage so the site remembers them; clearing site data removes them. The <a href="privacy">privacy policy</a> covers this in full.</p>
 
     <hr>
     <p class="stamp">Questions or corrections → <a href="contact">Contact</a></p>
@@ -87,6 +118,29 @@
   <footer class="site-foot">
     <div class="foot-brand">
       <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">A free cursive text generator, plus small, glitch, cursed and weird text. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="./">Cursive text generator</a></li>
+        <li><a href="small-text">Small text</a></li>
+        <li><a href="glitch-text">Glitch text</a></li>
+        <li><a href="cursed-text">Cursed text</a></li>
+        <li><a href="weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Cursive guides</p>
+      <ul class="foot-list">
+        <li><a href="blog/cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="blog/name-in-cursive">Your name in cursive</a></li>
+        <li><a href="blog/cursive-bio-ideas">Cursive bio ideas</a></li>
+        <li><a href="blog/cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="blog/cursive-fonts-google-docs-word">Cursive fonts for Docs &amp; Word</a></li>
+        <li><a href="blog/how-cursive-generators-work">How cursive generators work</a></li>
+        <li><a href="blog">All guides</a></li>
+      </ul>
     </div>
     <div>
       <p class="foot-head">Site</p>
@@ -105,7 +159,7 @@
         <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
       </ul>
     </div>
-    <p class="fine">© 2026 cursivee.app</p>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
   </footer>
 </div>
 

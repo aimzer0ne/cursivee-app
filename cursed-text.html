@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cursed Text Generator — Creepy, Scary Text to Copy &amp; Paste</title>
+<meta name="description" content="Free cursed text generator. Turn your words into creepy, corrupted text in 11 styles, from lightly cursed to unspeakable, then copy and paste it anywhere.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://cursivee.app/cursed-text">
+<link rel="alternate" hreflang="en-us" href="https://cursivee.app/cursed-text">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/cursed-text">
+<meta property="og:title" content="Cursed Text Generator — Creepy, Scary Text to Copy &amp; Paste">
+<meta property="og:description" content="Free cursed text generator. Turn your words into creepy, corrupted text in 11 styles, from lightly cursed to unspeakable, then copy and paste it anywhere.">
+<meta property="og:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cursed Text Generator — Creepy, Scary Text to Copy &amp; Paste">
+<meta name="twitter:description" content="Free cursed text generator. Turn your words into creepy, corrupted text in 11 styles, from lightly cursed to unspeakable, then copy and paste it anywhere.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F6F1E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1120" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4227221684379341" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the generator</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="30" height="30">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="./">Cursive</a></li>
+        <li><a href="small-text">Small</a></li>
+        <li><a href="glitch-text">Glitch</a></li>
+        <li><a href="cursed-text" aria-current="page">Cursed</a></li>
+        <li><a href="weird-text">Weird</a></li>
+        <li class="nav-sep"><a href="blog">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <h1 class="title">Cursed text generator</h1>
+    <p class="tagline">Make your words look cursed: creepy, corrupted text you can copy and paste. Eleven styles in three tiers, from slightly unsettling to completely unreadable.</p>
+    <ul class="badges" aria-label="Highlights">
+      <li>11 cursed styles</li>
+      <li>Free, no sign-up</li>
+      <li>One-click copy</li>
+      <li>Works offline</li>
+    </ul>
+  </div>
+
+  <main id="main">
+    <section class="desk">
+      <div class="desk-in">
+        <label class="label" for="src">Your text</label>
+        <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">do not read this aloud</textarea>
+      </div>
+      <div class="exemplar">
+        <span class="exemplar-out" id="heroOut"></span>
+      </div>
+      <div class="desk-foot">
+        <span class="count" id="count"></span>
+        <span class="spacer"></span>
+        <button class="btn btn-primary btn-lg" id="heroCopy" type="button">Copy</button>
+      </div>
+    </section>
+
+    <div class="knobs" id="knobs"></div>
+
+    <section class="controls">
+      <input id="filter" type="search" placeholder="Filter styles — try “eldritch”" aria-label="Filter styles">
+      <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+    </section>
+
+    <div id="sheetBody"></div>
+    <p class="empty" id="empty" hidden>No style matches that name.</p>
+  </main>
+
+  <section class="more guide" id="guide">
+    <div class="prose">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-head">On this page</p>
+        <ol>
+          <li><a href="#how">How to use the generator</a></li>
+          <li><a href="#what">What is cursed text?</a></li>
+          <li><a href="#styles">11 cursed text styles</a></li>
+          <li><a href="#where">Where cursed text works</a></li>
+          <li><a href="#tips">Tips and limits</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="how">How to use the cursed text generator</h2>
+      <ol>
+        <li><strong>Type your text.</strong> Enter it in the box at the top of the page. All eleven styles update as you type.</li>
+        <li><strong>Choose how cursed.</strong> Pick a tier, then use the Intensity dial and the Zones toggles to push the marks above, through or below the letters.</li>
+        <li><strong>Copy and paste.</strong> Press Copy and paste it into a caption, message or post. Keep a plain copy of your text first — the conversion only runs one way.</li>
+      </ol>
+
+      <h2 id="what">What is cursed text?</h2>
+      <p class="callout"><strong>Cursed text</strong> is text that looks deliberately damaged. It combines two Unicode effects: the letters are first swapped for an unusual form — small caps, mirrored letters or alternating case — and then buried under stacked combining marks. It is also called creepy text, scary text, demonic text or corrupted text.</p>
+      <p><strong>Cursed text vs glitch text:</strong> glitch text stacks marks on your original letters. Cursed text changes the letters first, and that second layer is what makes it read as cursed rather than just broken. If you want your own letters left intact underneath, use the <a href="glitch-text">glitch text generator</a>; for lettering that is decorative but still readable, use the <a href="./">cursive generator</a>.</p>
+
+      <h2 id="styles">11 cursed text styles in three tiers</h2>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Tier</th><th>Styles</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lightly cursed</td><td>Whispers, unsettled, wrong: a caption that feels slightly off</td><td class="g">ᴄ̲̉ᴜ̣̓ʀ͎ͮꜱ͚̃ᴇ̺̂ᴅ̘̈́</td></tr>
+            <tr><td>Properly cursed</td><td>Cursed, eldritch, haunted, possessed: clearly damaged, still readable</td><td class="g">ç̱̣͊ͪͧ͟Ų̷̻͉͗̎͐r̳͙̼͑ͦ̋͞S̸̢̼͚͂̑ͭe̴̼͍͍ͧ́͌D̦͕̣̍́̐͢</td></tr>
+            <tr><td>Beyond saving</td><td>Rotting, ascending, damned, unspeakable: marks that leave the line entirely</td><td class="g">c̴̤̞͚̪̤̫͔̠̪͜u̵͔̥̩͕̝̘͇̜͡ͅr̸͚͚͖̭̪̻̗̠̚͡ş̶̵̧͉͙̙͓̹̰̚ę̞͓̟̹͙̲̚͟͝ͅd̨̨̹͈͎̭̪̹̻͢͢</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Choosing a tier:</strong> lightly cursed is a mood. Beyond saving is a statement — and the kind that tends to be cut off or flattened when it arrives.</p>
+
+      <h2 id="where">Where cursed text works</h2>
+      <ul>
+        <li><strong>Works well:</strong> the lightly cursed styles in Instagram and TikTok captions, Discord messages, posts on X and most chat apps — ideal for spooky captions, horror stories and Halloween posts.</li>
+        <li><strong>Test first:</strong> bios. The lighter styles usually survive there.</li>
+        <li><strong>Avoid:</strong> usernames, which reject most of it, and the heavier tiers anywhere with a character limit. They are long, overlap nearby lines and are often clipped or stripped.</li>
+      </ul>
+
+      <h2 id="tips">Tips and limits</h2>
+      <ul>
+        <li><strong>It only works one way.</strong> Nothing here turns cursed text back into plain letters, so copy your original somewhere safe first.</li>
+        <li><strong>Boxes mean missing fonts.</strong> These styles combine an uncommon alphabet with deep mark stacking, so they reach the limits of a device's fonts sooner. Try a lighter style if you see empty boxes.</li>
+        <li><strong>Harmless, but hard to read.</strong> It is ordinary text and cannot damage a phone or account. To a screen reader, though, it is a long list of accent names, so keep it out of anything people need to read.</li>
+        <li><strong>Not a font file.</strong> Nothing on this page produces a font you can install — only characters you paste.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="more" id="faq">
+    <h2 class="more-title">Cursed text generator FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I make cursed text?</summary>
+        <div class="answer">
+          <p>Type in the box at the top of the page. Your words appear underneath in eleven cursed styles, from Whispers to Unspeakable. Adjust the Intensity dial for more or less corruption, press Copy, and paste it anywhere plain text is accepted.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What is cursed text?</summary>
+        <div class="answer">
+          <p>Text that looks like it has been through something. It is two effects at once: the letters are swapped for an unusual Unicode form, then combining marks are stacked on top. The result reads as deliberately damaged rather than as a font choice or a display fault.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What is the difference between cursed text and glitch text?</summary>
+        <div class="answer">
+          <p>Glitch text stacks marks on plain letters. Cursed text changes the letters first — small caps, mirrored forms, alternating case — and then stacks the marks. Use the <a href="glitch-text">glitch text generator</a> if you want your original letters intact underneath.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Will cursed text work in my bio or username?</summary>
+        <div class="answer">
+          <p>In bios and captions the lighter styles usually survive. Usernames are much stricter and often reject or flatten it. Treat anything from <strong>Beyond saving</strong> as a post, not a name — it is long, overlaps nearby lines, and moderation systems notice it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does it sometimes show empty boxes?</summary>
+        <div class="answer">
+          <p>Your device has no font for that character. These styles combine an uncommon alphabet with deep mark stacking, so they hit the limits of font coverage sooner than anything else here. Try a lighter style.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is cursed text dangerous?</summary>
+        <div class="answer">
+          <p>No. Despite the name it is ordinary Unicode text and cannot carry anything harmful. The worst it does is overlap nearby lines, use up a character limit, or get removed by a filter. It is also very hard for screen readers, so keep it out of anything people need to read.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can cursed text be undone?</summary>
+        <div class="answer">
+          <p>Not on this site. The conversion only runs one way, and once you paste the result the original is gone unless you kept it. Save your plain text first if you will need it again.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="more" id="generators">
+    <h2 class="more-title">More free text generators</h2>
+    <ul class="cards">
+      <li><a class="card" href="./">
+        <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+        <span class="card-name">Cursive text</span>
+        <span class="card-note">Script, blackletter, bubbles</span>
+      </a></li>
+      <li><a class="card" href="small-text">
+        <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
+        <span class="card-name">Small text</span>
+        <span class="card-note">Superscript, subscript, small caps</span>
+      </a></li>
+      <li><a class="card" href="glitch-text">
+        <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
+        <span class="card-name">Glitch text</span>
+        <span class="card-note">Zalgo corruption with a dial</span>
+      </a></li>
+      <li><a class="card" href="weird-text">
+        <span class="card-sample">山乇丨尺ᗪ</span>
+        <span class="card-name">Weird text</span>
+        <span class="card-note">Runes, Cherokee, morse, mirrored</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="more" id="guides">
+    <h2 class="more-title">Related guides</h2>
+    <ul class="cards">
+      <li><a class="card" href="blog/what-is-zalgo-text">
+        <span class="card-sample">z̹̓a̘ͬĺ̘g͍͒o͉ͦ</span>
+        <span class="card-name">What is Zalgo text, and how does it work?</span>
+        <span class="card-note">The mechanics of glitch text, where the name came from, and how to strip it back out.</span>
+      </a></li>
+      <li><a class="card" href="blog/fancy-text-boxes-question-marks">
+        <span class="card-sample">□□□ ?</span>
+        <span class="card-name">Why fancy text shows up as boxes or question marks</span>
+        <span class="card-note">Three different symptoms, three different causes, and which styles are safest.</span>
+      </a></li>
+      <li><a class="card" href="blog/fancy-text-accessibility">
+        <span class="card-sample">𝓱 ≠ h</span>
+        <span class="card-name">Can screen readers read fancy text?</span>
+        <span class="card-note">What cursive Unicode sounds like read aloud, and six rules for using it considerately.</span>
+      </a></li>
+    </ul>
+    <p class="more-link"><a href="blog">All guides →</a></p>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">A free cursive text generator, plus small, glitch, cursed and weird text. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="./">Cursive text generator</a></li>
+        <li><a href="small-text">Small text</a></li>
+        <li><a href="glitch-text">Glitch text</a></li>
+        <li><a href="cursed-text">Cursed text</a></li>
+        <li><a href="weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Cursive guides</p>
+      <ul class="foot-list">
+        <li><a href="blog/cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="blog/name-in-cursive">Your name in cursive</a></li>
+        <li><a href="blog/cursive-bio-ideas">Cursive bio ideas</a></li>
+        <li><a href="blog/cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="blog/cursive-fonts-google-docs-word">Cursive fonts for Docs &amp; Word</a></li>
+        <li><a href="blog/how-cursive-generators-work">How cursive generators work</a></li>
+        <li><a href="blog">All guides</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="privacy">Privacy</a></li>
+        <li><a href="terms">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">More free tools</p>
+      <ul class="foot-list">
+        <li><a href="https://reelsdl.net/" rel="noopener">Instagram Reels downloader</a></li>
+        <li><a href="https://vatculator.com/" rel="noopener">VAT calculator</a></li>
+        <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/engine.js"></script>
+<script>window.PAGE_CONFIG={page:"cursed",knobs:true};</script>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/cursed-text#webpage",
+      "url": "https://cursivee.app/cursed-text",
+      "name": "Cursed Text Generator — Creepy, Scary Text to Copy & Paste",
+      "description": "Free cursed text generator. Turn your words into creepy, corrupted text in 11 styles, from lightly cursed to unspeakable, then copy and paste it anywhere.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/cursed-text#breadcrumb"
+      },
+      "dateModified": "2026-10-16"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/cursed-text#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cursed text generator",
+          "item": "https://cursivee.app/cursed-text"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/cursed-text#app",
+      "name": "Cursed Text Generator",
+      "url": "https://cursivee.app/cursed-text",
+      "description": "Free cursed text generator. Turn your words into creepy, corrupted text in 11 styles, from lightly cursed to unspeakable, then copy and paste it anywhere.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I make cursed text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Type in the box at the top of the page. Your words appear underneath in eleven cursed styles, from Whispers to Unspeakable. Adjust the Intensity dial for more or less corruption, press Copy, and paste it anywhere plain text is accepted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is cursed text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Text that looks like it has been through something. It is two effects at once: the letters are swapped for an unusual Unicode form, then combining marks are stacked on top. The result reads as deliberately damaged rather than as a font choice or a display fault."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between cursed text and glitch text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Glitch text stacks marks on plain letters. Cursed text changes the letters first — small caps, mirrored forms, alternating case — and then stacks the marks. Use the glitch text generator if you want your original letters intact underneath."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will cursed text work in my bio or username?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In bios and captions the lighter styles usually survive. Usernames are much stricter and often reject or flatten it. Treat anything from Beyond saving as a post, not a name — it is long, overlaps nearby lines, and moderation systems notice it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does it sometimes show empty boxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your device has no font for that character. These styles combine an uncommon alphabet with deep mark stacking, so they hit the limits of font coverage sooner than anything else here. Try a lighter style."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is cursed text dangerous?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Despite the name it is ordinary Unicode text and cannot carry anything harmful. The worst it does is overlap nearby lines, use up a character limit, or get removed by a filter. It is also very hard for screen readers, so keep it out of anything people need to read."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can cursed text be undone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on this site. The conversion only runs one way, and once you paste the result the original is gone unless you kept it. Save your plain text first if you will need it again."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

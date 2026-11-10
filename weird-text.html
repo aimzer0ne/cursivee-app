@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6FF33ZJ0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D6FF33ZJ0D');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weird Text Generator — Weird Fonts &amp; Letters, Copy &amp; Paste</title>
+<meta name="description" content="Free weird text generator. Rewrite your words in 15 strange styles, including runes, mirrored, vaporwave, morse, braille and binary, then copy and paste.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://cursivee.app/weird-text">
+<link rel="alternate" hreflang="en-us" href="https://cursivee.app/weird-text">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cursivee.app">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://cursivee.app/weird-text">
+<meta property="og:title" content="Weird Text Generator — Weird Fonts &amp; Letters, Copy &amp; Paste">
+<meta property="og:description" content="Free weird text generator. Rewrite your words in 15 strange styles, including runes, mirrored, vaporwave, morse, braille and binary, then copy and paste.">
+<meta property="og:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weird Text Generator — Weird Fonts &amp; Letters, Copy &amp; Paste">
+<meta name="twitter:description" content="Free weird text generator. Rewrite your words in 15 strange styles, including runes, mirrored, vaporwave, morse, braille and binary, then copy and paste.">
+<meta name="twitter:image" content="https://cursivee.app/assets/og-cursive-font-generator.jpg">
+<meta name="twitter:image:alt" content="Cursive font generator turning typed text into flowing cursive script, beside an ink bottle and fountain pen">
+<link rel="alternate" type="application/rss+xml" title="cursivee.app blog" href="feed.xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F6F1E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1120" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="cursivee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>try{var t=JSON.parse(localStorage.getItem("cf.theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4227221684379341" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the generator</a>
+<div class="sheet">
+
+  <header class="site-head">
+    <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="30" height="30">cursivee.app</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav">
+        <li><a href="./">Cursive</a></li>
+        <li><a href="small-text">Small</a></li>
+        <li><a href="glitch-text">Glitch</a></li>
+        <li><a href="cursed-text">Cursed</a></li>
+        <li><a href="weird-text" aria-current="page">Weird</a></li>
+        <li class="nav-sep"><a href="blog">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="btn" id="themeBtn" type="button">Dark</button>
+  </header>
+
+  <div class="masthead">
+    <h1 class="title">Weird text generator</h1>
+    <p class="tagline">Rebuild your text from weird letters you can copy and paste: runes, Cherokee, currency symbols, mirrored writing, mocking caps, vaporwave, morse, braille and binary. Fifteen styles, all free.</p>
+    <ul class="badges" aria-label="Highlights">
+      <li>15 weird styles</li>
+      <li>Free, no sign-up</li>
+      <li>One-click copy</li>
+      <li>Works offline</li>
+    </ul>
+  </div>
+
+  <main id="main">
+    <section class="desk">
+      <div class="desk-in">
+        <label class="label" for="src">Your text</label>
+        <textarea id="src" rows="2" spellcheck="false" placeholder="Write something…">read this sideways</textarea>
+      </div>
+      <div class="exemplar">
+        <span class="exemplar-out" id="heroOut"></span>
+      </div>
+      <div class="desk-foot">
+        <span class="count" id="count"></span>
+        <span class="spacer"></span>
+        <button class="btn btn-primary btn-lg" id="heroCopy" type="button">Copy</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input id="filter" type="search" placeholder="Filter styles — try “morse”" aria-label="Filter styles">
+      <div class="pillbar" id="orn" role="group" aria-label="Ornament"></div>
+    </section>
+
+    <div id="sheetBody"></div>
+    <p class="empty" id="empty" hidden>No style matches that name.</p>
+  </main>
+
+  <section class="more guide" id="guide">
+    <div class="prose">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-head">On this page</p>
+        <ol>
+          <li><a href="#how">How to use the generator</a></li>
+          <li><a href="#what">What is weird text?</a></li>
+          <li><a href="#styles">15 weird text styles</a></li>
+          <li><a href="#where">Where weird text works</a></li>
+          <li><a href="#tips">Tips and limits</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="how">How to use the weird text generator</h2>
+      <ol>
+        <li><strong>Type your text.</strong> Enter it in the box at the top of the page. All fifteen styles update as you type.</li>
+        <li><strong>Find a style.</strong> Scroll the list, or filter it by name — try “morse” or “mirrored”.</li>
+        <li><strong>Copy and paste.</strong> Press Copy and paste the result into a bio, caption, message or post.</li>
+      </ol>
+
+      <h2 id="what">What is weird text?</h2>
+      <p class="callout"><strong>Weird text</strong> swaps your letters for characters from other writing systems that happen to look like ours — a Chinese 卂 for A, a rune ᚱ for R, a currency sign ₮ for T. Because they are real Unicode characters, not a font, they paste anywhere plain text is accepted.</p>
+      <p>None of these characters were made to stand in for Latin letters. ᚱ is a real Elder Futhark rune; Ꮢ comes from the Cherokee syllabary Sequoyah created in the 1820s. The page also rearranges your own letters (mirrored, mocking caps, vaporwave) and encodes them (morse, braille, binary).</p>
+
+      <h2 id="styles">15 weird text styles to copy and paste</h2>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Group</th><th>Styles</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Strange alphabets</td><td>Asian style, runic, Cherokee, currency, lookalike</td><td class="g">山乇丨尺ᗪ · ᚹᛖᛁᚱᛞ</td></tr>
+            <tr><td>Flipped &amp; reversed</td><td>Mirrored writing and plain backwards text</td><td class="g">bɿiɘw</td></tr>
+            <tr><td>Novelty</td><td>Alternating (mocking) caps, spaced out, dot separated, vaporwave, bracketed</td><td class="g">wEiRd TeXt</td></tr>
+            <tr><td>Codes</td><td>Morse code, braille patterns, binary</td><td class="g">.... .. · ⠓⠊</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="where">Where weird text works</h2>
+      <ul>
+        <li><strong>Works everywhere:</strong> the novelty styles. Mocking caps and spaced-out text are still ordinary letters.</li>
+        <li><strong>Usually works:</strong> the strange alphabets in captions, bios, comments and chats on Instagram, TikTok, Discord and X. How they look depends on the reader's fonts.</li>
+        <li><strong>Avoid:</strong> lookalike letters in usernames and handles. Mixing scripts is the trick behind spoofed accounts, so platforms block it.</li>
+      </ul>
+      <p>For decorative rather than strange lettering, try the <a href="./">cursive text generator</a>. To damage your text instead, the <a href="glitch-text">glitch</a> and <a href="cursed-text">cursed</a> generators are next door.</p>
+
+      <h2 id="tips">Tips and limits</h2>
+      <ul>
+        <li><strong>It is not a translator.</strong> It borrows shapes, not meaning — a Cherokee reader will not read your sentence as Cherokee.</li>
+        <li><strong>Codes run one way.</strong> Morse and binary are written, not decoded. Morse drops any character it has no signal for rather than guessing.</li>
+        <li><strong>Braille is visual only.</strong> The output is Unicode braille patterns, not a contracted braille translation, so treat it as an effect rather than an accessibility feature.</li>
+        <li><strong>Some letters stay unchanged.</strong> If no character looks close enough, the letter is left alone instead of faked — Q and V are the usual holdouts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="more" id="faq">
+    <h2 class="more-title">Weird text generator FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I make weird text?</summary>
+        <div class="answer">
+          <p>Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it anywhere plain text is accepted.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is weird text a font?</summary>
+        <div class="answer">
+          <p>No. Every style is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it pastes into apps with no font settings, and why it looks slightly different from one device to the next.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why do some letters come through unchanged?</summary>
+        <div class="answer">
+          <p>Because no character in that script looks close enough to be worth using. Rather than substitute something from an unrelated alphabet — which leads to boxes or scrambled text — the letter is left alone. Q and V are the usual holdouts.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is lookalike text safe to use?</summary>
+        <div class="answer">
+          <p>In a caption, yes. In anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the technique behind spoofed web addresses and impersonated usernames, so platforms block it and security tools flag it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I convert text to morse code or binary here?</summary>
+        <div class="answer">
+          <p>Yes, in one direction. The Morse style writes your text as dots and dashes with a slash between words, and the Binary style writes each letter as eight bits. The page does not decode morse or binary back into letters.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does morse drop some of my characters?</summary>
+        <div class="answer">
+          <p>International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at, because a wrong signal is worse than a missing one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can a blind person read the braille output?</summary>
+        <div class="answer">
+          <p>Not as fluent braille. These are Unicode braille <em>patterns</em> — the dot shapes — not a contracted braille translation, and they are not sent to a braille display. Treat it as a visual effect, not an accessibility feature.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why does my weird text show up as boxes?</summary>
+        <div class="answer">
+          <p>The device displaying it has no font for that script. Runes and Cherokee are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to <a href="blog/fancy-text-boxes-question-marks">fancy text showing as boxes</a> explains the rest.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="more" id="generators">
+    <h2 class="more-title">More free text generators</h2>
+    <ul class="cards">
+      <li><a class="card" href="./">
+        <span class="card-sample">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+        <span class="card-name">Cursive text</span>
+        <span class="card-note">Script, blackletter, bubbles</span>
+      </a></li>
+      <li><a class="card" href="small-text">
+        <span class="card-sample">ˢᵐᵃˡˡ ᵗᵉˣᵗ</span>
+        <span class="card-name">Small text</span>
+        <span class="card-note">Superscript, subscript, small caps</span>
+      </a></li>
+      <li><a class="card" href="glitch-text">
+        <span class="card-sample">g̸l̷i̶t̴c̵h̷</span>
+        <span class="card-name">Glitch text</span>
+        <span class="card-note">Zalgo corruption with a dial</span>
+      </a></li>
+      <li><a class="card" href="cursed-text">
+        <span class="card-sample">𝔠̷̬͎̈́ų̴̗̃ř̶̪s̸̰̈e̵̱̽d̴̜̏</span>
+        <span class="card-name">Cursed text</span>
+        <span class="card-note">Corrupted alphabets, dialed up</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="more" id="guides">
+    <h2 class="more-title">Related guides</h2>
+    <ul class="cards">
+      <li><a class="card" href="blog/fancy-text-accessibility">
+        <span class="card-sample">𝓱 ≠ h</span>
+        <span class="card-name">Can screen readers read fancy text?</span>
+        <span class="card-note">What cursive Unicode sounds like read aloud, and six rules for using it considerately.</span>
+      </a></li>
+      <li><a class="card" href="blog/fancy-text-boxes-question-marks">
+        <span class="card-sample">□□□ ?</span>
+        <span class="card-name">Why fancy text shows up as boxes or question marks</span>
+        <span class="card-note">Three different symptoms, three different causes, and which styles are safest.</span>
+      </a></li>
+      <li><a class="card" href="blog/cursive-alphabet-copy-paste">
+        <span class="card-sample">𝒜 ℬ 𝒞</span>
+        <span class="card-name">The cursive alphabet, A to Z, to copy and paste</span>
+        <span class="card-note">All 52 letters in three styles, and the eleven that never quite match the rest.</span>
+      </a></li>
+    </ul>
+    <p class="more-link"><a href="blog">All guides →</a></p>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <p class="foot-mark">cursivee.app</p>
+      <p class="foot-note">A free cursive text generator, plus small, glitch, cursed and weird text. Unicode alphabets you can paste anywhere plain text is allowed.</p>
+    </div>
+    <div>
+      <p class="foot-head">Generators</p>
+      <ul class="foot-list">
+        <li><a href="./">Cursive text generator</a></li>
+        <li><a href="small-text">Small text</a></li>
+        <li><a href="glitch-text">Glitch text</a></li>
+        <li><a href="cursed-text">Cursed text</a></li>
+        <li><a href="weird-text">Weird text</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Cursive guides</p>
+      <ul class="foot-list">
+        <li><a href="blog/cursive-alphabet-copy-paste">Cursive alphabet A–Z</a></li>
+        <li><a href="blog/name-in-cursive">Your name in cursive</a></li>
+        <li><a href="blog/cursive-bio-ideas">Cursive bio ideas</a></li>
+        <li><a href="blog/cursive-text-instagram-bio">Cursive in your Instagram bio</a></li>
+        <li><a href="blog/cursive-fonts-google-docs-word">Cursive fonts for Docs &amp; Word</a></li>
+        <li><a href="blog/how-cursive-generators-work">How cursive generators work</a></li>
+        <li><a href="blog">All guides</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">Site</p>
+      <ul class="foot-list">
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="privacy">Privacy</a></li>
+        <li><a href="terms">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-head">More free tools</p>
+      <ul class="foot-list">
+        <li><a href="https://reelsdl.net/" rel="noopener">Instagram Reels downloader</a></li>
+        <li><a href="https://vatculator.com/" rel="noopener">VAT calculator</a></li>
+        <li><a href="https://capcutx.app/" rel="noopener">CapCut APK guide</a></li>
+      </ul>
+    </div>
+    <p class="fine">© 2026 cursivee.app. Everything runs in your browser — nothing you type is sent anywhere.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/engine.js"></script>
+<script>window.PAGE_CONFIG={page:"weird"};</script>
+<script src="assets/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cursivee.app/weird-text#webpage",
+      "url": "https://cursivee.app/weird-text",
+      "name": "Weird Text Generator — Weird Fonts & Letters, Copy & Paste",
+      "description": "Free weird text generator. Rewrite your words in 15 strange styles, including runes, mirrored, vaporwave, morse, braille and binary, then copy and paste.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://cursivee.app/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://cursivee.app/weird-text#breadcrumb"
+      },
+      "dateModified": "2026-10-16"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cursivee.app/weird-text#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cursivee.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Weird text generator",
+          "item": "https://cursivee.app/weird-text"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://cursivee.app/weird-text#app",
+      "name": "Weird Text Generator",
+      "url": "https://cursivee.app/weird-text",
+      "description": "Free weird text generator. Rewrite your words in 15 strange styles, including runes, mirrored, vaporwave, morse, braille and binary, then copy and paste.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://cursivee.app/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I make weird text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Type in the box at the top of the page. Your words are rebuilt underneath in fifteen weird styles at once, from runes to binary. Press Copy on the one you like and paste it anywhere plain text is accepted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is weird text a font?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every style is made of real Unicode characters borrowed from other scripts and symbol sets, or of your own letters rearranged. That is why it pastes into apps with no font settings, and why it looks slightly different from one device to the next."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do some letters come through unchanged?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because no character in that script looks close enough to be worth using. Rather than substitute something from an unrelated alphabet — which leads to boxes or scrambled text — the letter is left alone. Q and V are the usual holdouts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is lookalike text safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In a caption, yes. In anything that identifies you, no. Mixing Greek, Cyrillic and Latin letters is the technique behind spoofed web addresses and impersonated usernames, so platforms block it and security tools flag it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert text to morse code or binary here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in one direction. The Morse style writes your text as dots and dashes with a slash between words, and the Binary style writes each letter as eight bits. The page does not decode morse or binary back into letters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does morse drop some of my characters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "International Morse only defines letters, digits and a short list of punctuation. Anything outside that set is dropped rather than guessed at, because a wrong signal is worse than a missing one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a blind person read the braille output?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not as fluent braille. These are Unicode braille patterns — the dot shapes — not a contracted braille translation, and they are not sent to a braille display. Treat it as a visual effect, not an accessibility feature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my weird text show up as boxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The device displaying it has no font for that script. Runes and Cherokee are less widely supported than everyday letters, especially on older phones. The novelty styles never have this problem; the guide to fancy text showing as boxes explains the rest."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

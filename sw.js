@@ -5,13 +5,27 @@
    visit; assets are cache-first because they are versioned by
    this file's CACHE name. Bump CACHE after changing any asset.
    ═══════════════════════════════════════════════════════════ */
-const CACHE = "cursivee-v29";
+const CACHE = "cursivee-v17";
 
 /* Pages are listed without ".html": the host serves /about for
    about.html and redirects the long form, and a redirected response
    cannot be replayed for a navigation. */
 const SHELL = [
   "./",
+  "./small-text",
+  "./glitch-text",
+  "./cursed-text",
+  "./weird-text",
+  "./blog",
+  "./blog/cursive-text-instagram-bio",
+  "./blog/cursive-alphabet-copy-paste",
+  "./blog/fancy-text-boxes-question-marks",
+  "./blog/fancy-text-accessibility",
+  "./blog/what-is-zalgo-text",
+  "./blog/name-in-cursive",
+  "./blog/cursive-bio-ideas",
+  "./blog/cursive-fonts-google-docs-word",
+  "./blog/how-cursive-generators-work",
   "./about",
   "./privacy",
   "./terms",
@@ -20,7 +34,6 @@ const SHELL = [
   "./manifest.webmanifest",
   "./assets/style.css",
   "./assets/engine.js",
-  "./assets/deco.js",
   "./assets/app.js",
   "./favicon.ico",
   "./assets/logo.svg",

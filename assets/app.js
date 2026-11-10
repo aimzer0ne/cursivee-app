@@ -20,15 +20,8 @@ function save(key,value){
 /* ── toast ──────────────────────────────────────────────── */
 var toastEl=document.getElementById("toast");
 var toastTimer;
-/* An open modal puts everything else under it and makes it inert, so
-   the toast and the copy helper move into the dialog while it is open. */
-function host(){
-  var d=document.querySelector("dialog[open]");
-  return d||document.body;
-}
 function toast(msg){
   if(!toastEl) return;
-  if(toastEl.parentNode!==host()) host().appendChild(toastEl);
   toastEl.textContent=msg;
   toastEl.classList.add("show");
   clearTimeout(toastTimer);
@@ -41,12 +34,11 @@ function legacyCopy(text){
   ta.value=text;
   ta.setAttribute("readonly","");
   ta.style.cssText="position:fixed;top:0;left:0;opacity:0";
-  var box=host();
-  box.appendChild(ta);
+  document.body.appendChild(ta);
   ta.select();
   var ok=false;
   try{ ok=document.execCommand("copy"); }catch(e){ ok=false; }
-  box.removeChild(ta);
+  document.body.removeChild(ta);
   return ok;
 }
 function copyText(text,label,onCopied){
@@ -171,11 +163,6 @@ var cfg=window.PAGE_CONFIG;
 var src=document.getElementById("src");
 if(!cfg||!src||!window.CF) return;
 
-/* With the box empty, every style shows the page's sample text
-   instead, so the list is never blank. */
-var SAMPLE=cfg.sample||"";
-function current(){ return src.value||SAMPLE; }
-
 var heroOut=document.getElementById("heroOut");
 var heroCopy=document.getElementById("heroCopy");
 var countEl=document.getElementById("count");
@@ -189,19 +176,10 @@ var styles=window.CF.byPage(cfg.page);
 var heroStyle=styles[0];
 var ornament=window.CF.ornaments[0];
 var opts={intensity:1,zones:{up:true,mid:true,down:true}};
-/* Recent: the last three fonts copied, decorated or not, shown in
-   their own group above the rest. Stored as {name,left,right}. */
-var RECENT_MAX=3;
-var recentKey="cf.recent."+cfg.page;
-var recent=load(recentKey,[]);
-if(!Array.isArray(recent)) recent=[];
-recent=recent.filter(function(r){ return r&&byName(r.name); }).slice(0,RECENT_MAX);
+var favKey="cf.fav."+cfg.page;
+var favorites=load(favKey,[]);
+if(!Array.isArray(favorites)) favorites=[];
 var rows=[];
-
-function byName(name){
-  for(var i=0;i<styles.length;i++) if(styles[i].name===name) return styles[i];
-  return null;
-}
 
 function decorate(text){
   return text?ornament.pre+text+ornament.post:"";
@@ -218,154 +196,99 @@ function build(){
 
   var groups=[],index={};
   styles.forEach(function(style){
-    if(!index[style.group]){ index[style.group]={name:style.group,items:[]}; groups.push(index[style.group]); }
-    index[style.group].items.push(style);
+    var key=favorites.indexOf(style.name)>-1?"Pinned":style.group;
+    if(!index[key]){ index[key]={name:key,items:[]}; groups.push(index[key]); }
+    index[key].items.push(style);
+  });
+  groups.sort(function(a,b){
+    return (a.name==="Pinned"?0:1)-(b.name==="Pinned"?0:1);
   });
 
   groups.forEach(function(group){
-    var sec=groupSection(group.name);
-    group.items.forEach(function(style){ makeRow(sec,style,"",""); });
+    var sec=document.createElement("section");
+    sec.className="group";
+
+    var h=document.createElement("h2");
+    h.className="group-title";
+    h.textContent=group.name;
+    sec.appendChild(h);
+
+    group.items.forEach(function(style){
+      var row=document.createElement("article");
+      row.className="row";
+
+      var head=document.createElement("div");
+      head.className="row-head";
+
+      var pinned=favorites.indexOf(style.name)>-1;
+      var star=document.createElement("button");
+      star.className="star";
+      star.type="button";
+      star.textContent="★";
+      star.setAttribute("aria-pressed",pinned?"true":"false");
+      star.setAttribute("aria-label",(pinned?"Unpin ":"Pin ")+style.name);
+      star.addEventListener("click",function(){
+        var i=favorites.indexOf(style.name);
+        if(i>-1) favorites.splice(i,1); else favorites.push(style.name);
+        save(favKey,favorites);
+        build();
+        update();
+      });
+
+      var name=document.createElement("span");
+      name.className="row-name";
+      name.textContent=style.name;
+
+      head.appendChild(star);
+      head.appendChild(name);
+
+      /* Glitch marks are random, so their code point would mean nothing. */
+      var cp=cfg.knobs?null:window.CF.codePoint(style);
+      if(cp){
+        var code=document.createElement("span");
+        code.className="row-cp";
+        code.textContent=cp.code;
+        code.title="“"+cp.letter+"” in this style is Unicode "+cp.code;
+        code.setAttribute("aria-hidden","true");
+        head.appendChild(code);
+      }
+
+      var out=document.createElement("div");
+      out.className="row-out";
+      out.setAttribute("role","button");
+      out.setAttribute("tabindex","0");
+      out.title="Click to copy";
+
+      var copy=document.createElement("button");
+      copy.className="btn copy";
+      copy.type="button";
+      copy.textContent="Copy";
+
+      var copied=flasher(copy);
+      function doCopy(){ copyText(out.textContent,style.name,copied); }
+      out.addEventListener("click",doCopy);
+      out.addEventListener("keydown",function(e){
+        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); doCopy(); }
+      });
+      copy.addEventListener("click",doCopy);
+
+      row.appendChild(head);
+      row.appendChild(out);
+      row.appendChild(copy);
+      sec.appendChild(row);
+      rows.push({style:style,el:row,out:out,section:sec});
+    });
+
     sheetBody.appendChild(sec);
   });
-  buildRecent();
-}
-
-function groupSection(title){
-  var sec=document.createElement("section");
-  sec.className="group";
-  var h=document.createElement("h2");
-  h.className="group-title";
-  h.textContent=title;
-  sec.appendChild(h);
-  return sec;
-}
-
-/* One font: name and length, the text (tap to copy), ✦, Copy.
-   left/right are a decoration frame, empty for a plain font. */
-function makeRow(sec,style,left,right){
-  var row=document.createElement("article");
-  row.className="row";
-
-  var head=document.createElement("div");
-  head.className="row-head";
-  var name=document.createElement("span");
-  name.className="row-name";
-  name.textContent=style.name+(left||right?" · decorated":"");
-  head.appendChild(name);
-  var len=lengthLabel();
-  head.appendChild(len);
-
-  var cp=left||right?null:window.CF.codePoint(style);
-  if(cp){
-    var code=document.createElement("span");
-    code.className="row-cp";
-    code.textContent=cp.code;
-    code.setAttribute("aria-hidden","true");
-    head.appendChild(code);
-  }
-
-  var out=document.createElement("div");
-  out.className="row-out";
-  out.setAttribute("role","button");
-  out.setAttribute("tabindex","0");
-  /* Tapping a font copies it, like Copy; ✦ opens its decorations. */
-  var canDecorate=!!window.CF.decorations;
-  out.title="Click to copy";
-  out.setAttribute("aria-label","Copy "+style.name);
-
-  var copy=document.createElement("button");
-  copy.className="btn copy";
-  copy.type="button";
-  copy.textContent="Copy";
-
-  var copied=flasher(copy);
-  var inRecent=sec.classList.contains("recent");
-  function doCopy(){
-    copyText(out.textContent,style.name,function(){
-      copied();
-      remember(style,left,right,row,inRecent);
-    });
-  }
-  out.addEventListener("click",doCopy);
-  out.addEventListener("keydown",function(e){
-    if(e.key==="Enter"||e.key===" "){ e.preventDefault(); doCopy(); }
-  });
-  copy.addEventListener("click",doCopy);
-
-  row.appendChild(head);
-  row.appendChild(out);
-  if(canDecorate) row.appendChild(decoButton(style));
-  row.appendChild(copy);
-  sec.appendChild(row);
-  var rec={style:style,left:left,right:right,el:row,out:out,len:len,section:sec};
-  rows.push(rec);
-  return rec;
-}
-
-/* ── recent ─────────────────────────────────────────────── */
-function buildRecent(){
-  var old=sheetBody.querySelector(".group.recent");
-  if(old){
-    rows=rows.filter(function(r){ return r.section!==old; });
-    old.parentNode.removeChild(old);
-  }
-  if(!recent.length) return;
-  var sec=groupSection("Recent");
-  sec.classList.add("recent");
-  var text=current();
-  recent.forEach(function(r){
-    var rec=makeRow(sec,byName(r.name),r.left||"",r.right||"");
-    rec.out.textContent=framed(rec.style,rec.left,rec.right,text);
-    setLength(rec.len,rec.out.textContent);
-  });
-  sheetBody.insertBefore(sec,sheetBody.firstChild);
-}
-
-/* Put a copied font at the top of Recent. A copy made from Recent
-   itself only reorders storage, so nothing jumps under the pointer;
-   any other copy redraws Recent while keeping `anchor` where it was
-   on screen. */
-function remember(style,left,right,anchor,fromRecent){
-  left=left||""; right=right||"";
-  recent=[{name:style.name,left:left,right:right}].concat(recent.filter(function(r){
-    return !(r.name===style.name&&(r.left||"")===left&&(r.right||"")===right);
-  })).slice(0,RECENT_MAX);
-  save(recentKey,recent);
-  if(fromRecent) return;
-  var before=anchor&&anchor.isConnected?anchor.getBoundingClientRect().top:null;
-  buildRecent();
-  if(before!==null&&anchor.isConnected){
-    var shift=anchor.getBoundingClientRect().top-before;
-    if(shift) window.scrollBy(0,shift);
-  }
-}
-
-/* Character count of a style's output, as apps with a limit count
-   it (one per code point, so 𝓐 is one, not two UTF-16 units). */
-function lengthLabel(){
-  var el=document.createElement("span");
-  el.className="row-len";
-  return el;
-}
-function setLength(el,text){
-  var n=Array.from(text).length;
-  el.textContent=n?n+(n===1?" char":" chars"):"";
 }
 
 function update(){
-  var text=current();
+  var text=src.value;
   var n=Array.from(text).length;
   if(countEl) countEl.textContent=n+(n===1?" character":" characters");
   if(heroOut) heroOut.textContent=render(heroStyle,text);
-  rows.forEach(function(r){
-    r.out.textContent=framed(r.style,r.left,r.right,text);
-    setLength(r.len,r.out.textContent);
-  });
-  ideas.forEach(function(r){
-    r.out.textContent=framed(r.style,r.left,r.right,text);
-    setLength(r.len,r.out.textContent);
-  });
-  if(decoDialog&&decoDialog.open) drawDeco();
+  rows.forEach(function(r){ r.out.textContent=render(r.style,text); });
   applyFilter();
 }
 
@@ -518,266 +441,6 @@ if(knobsEl&&cfg.knobs){
   knobsEl.appendChild(shuffle);
 }
 
-/* ── decorations ────────────────────────────────────────
-   Tapping a font (or ✦ on any row) opens a picker of symbol frames for that style,
-   grouped in themed packs. The picker loads another page of
-   recombined frames whenever its end scrolls into view, so it
-   never runs out. Below the styles, "Decorated ideas" pairs a
-   random pack frame with a random style; it loads more as you
-   scroll, and Load more keeps going for as long as anyone presses it. */
-var ideas=[];
-var decoDialog=null;
-var deco={style:null,pack:load("cf.pack","trending"),items:[],seen:{},seed:0};
-var DECO_PAGE=16, IDEAS_PAGE=24, IDEAS_AUTO=4;
-
-function framed(style,left,right,text){
-  return text?left+style.run(text,opts)+right:"";
-}
-function charCount(s){ return Array.from(s).length; }
-
-function decoButton(style){
-  var b=document.createElement("button");
-  b.className="btn deco-btn";
-  b.type="button";
-  b.textContent="✦";
-  b.title="Decorate";
-  b.setAttribute("aria-label","Decorate "+style.name);
-  b.addEventListener("click",function(){ openDeco(style); });
-  return b;
-}
-
-function buildDecoDialog(){
-  if(decoDialog) return decoDialog;
-  var d=document.createElement("dialog");
-  d.className="deco";
-  d.setAttribute("aria-labelledby","decoTitle");
-  d.innerHTML=
-    '<div class="deco-panel">'+
-      '<header class="deco-head">'+
-        '<div class="deco-heading"><h2 id="decoTitle">Decorate</h2><p class="deco-sub" id="decoSub"></p></div>'+
-        '<button class="btn deco-close" type="button" aria-label="Close">✕</button>'+
-      '</header>'+
-      '<div class="pillbar deco-packs" role="group" aria-label="Decoration theme"></div>'+
-      '<div class="deco-list" id="decoList"></div>'+
-    '</div>';
-  document.body.appendChild(d);
-
-  var packs=d.querySelector(".deco-packs");
-  if(!window.CF.packs.some(function(p){ return p.id===deco.pack; })) deco.pack=window.CF.packs[0].id;
-  window.CF.packs.forEach(function(p){
-    var b=document.createElement("button");
-    b.className="pill";
-    b.type="button";
-    b.textContent=p.icon+" "+p.name;
-    b.dataset.pack=p.id;
-    b.setAttribute("aria-pressed",p.id===deco.pack?"true":"false");
-    b.addEventListener("click",function(){
-      deco.pack=p.id;
-      save("cf.pack",p.id);
-      Array.prototype.forEach.call(packs.children,function(el){
-        el.setAttribute("aria-pressed",el===b?"true":"false");
-      });
-      resetDeco();
-    });
-    packs.appendChild(b);
-  });
-
-  d.querySelector(".deco-close").addEventListener("click",function(){ d.close(); });
-  /* A click on the backdrop closes it; a drag that started inside does not. */
-  var downOnBackdrop=false;
-  d.addEventListener("pointerdown",function(e){ downOnBackdrop=e.target===d; });
-  d.addEventListener("click",function(e){ if(downOnBackdrop&&e.target===d) d.close(); });
-  d.addEventListener("close",function(){
-    if(toastEl&&toastEl.parentNode!==document.body) document.body.appendChild(toastEl);
-  });
-
-  var list=d.querySelector(".deco-list");
-  list.addEventListener("click",function(e){
-    var item=e.target.closest(".deco-item");
-    if(!item) return;
-    var text=item.querySelector(".deco-text").textContent;
-    var rec=deco.items.filter(function(r){ return r.el===item; })[0];
-    copyText(text,"decorated "+deco.style.name,function(){
-      if(rec) remember(deco.style,rec.left,rec.right,deco.opener,false);
-      item.classList.add("is-done");
-      setTimeout(function(){ item.classList.remove("is-done"); },1400);
-    });
-  });
-
-  /* Endless: load the next page when the bottom of the list shows. */
-  deco.sentinel=document.createElement("div");
-  deco.sentinel.className="deco-sentinel";
-  deco.sentinel.setAttribute("aria-hidden","true");
-  if("IntersectionObserver" in window){
-    new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting&&d.open) moreDeco();
-    },{root:list,rootMargin:"0px 0px 240px 0px"}).observe(deco.sentinel);
-  }else{
-    list.addEventListener("scroll",function(){
-      if(list.scrollTop+list.clientHeight>list.scrollHeight-240) moreDeco();
-    });
-  }
-
-  decoDialog=d;
-  return d;
-}
-
-function resetDeco(){
-  var list=document.getElementById("decoList");
-  deco.items=[]; deco.seen={}; deco.seed=0;
-  list.textContent="";
-  list.appendChild(deco.sentinel);
-  list.scrollTop=0;
-  addDecoItems([{left:"",right:""}]);
-  moreDeco();
-  moreDeco();
-}
-
-/* Seed 0 is the pack's curated page; every later page is a fresh
-   random recombination, skipping frames already on screen. */
-function moreDeco(){
-  var batch=window.CF.decorations(deco.pack,deco.seed,DECO_PAGE);
-  deco.seed=window.CF.randomSeed();
-  addDecoItems(batch);
-}
-function addDecoItems(batch){
-  var list=document.getElementById("decoList");
-  var text=current();
-  batch.forEach(function(f){
-    var key=f.left+"\u0000"+f.right;
-    if(deco.seen[key]) return;
-    deco.seen[key]=1;
-    var item=document.createElement("button");
-    item.className="deco-item";
-    item.type="button";
-    item.innerHTML='<span class="deco-text"></span><span class="deco-len"></span>';
-    var rec={el:item,left:f.left,right:f.right,
-      out:item.querySelector(".deco-text"),len:item.querySelector(".deco-len")};
-    drawDecoItem(rec,text);
-    deco.items.push(rec);
-    list.insertBefore(item,deco.sentinel);
-  });
-}
-function drawDecoItem(rec,text){
-  var out=framed(deco.style,rec.left,rec.right,text);
-  rec.out.textContent=out||"—";
-  rec.len.textContent=out?charCount(out)+" chars":"";
-  rec.el.setAttribute("aria-label","Copy "+(out||"decoration"));
-}
-function drawDeco(){
-  var text=current();
-  document.getElementById("decoSub").textContent=text?deco.style.run(text,opts):deco.style.name;
-  deco.items.forEach(function(rec){ drawDecoItem(rec,text); });
-}
-
-function openDeco(style){
-  var d=buildDecoDialog();
-  deco.style=style;
-  deco.opener=document.activeElement&&document.activeElement.closest?document.activeElement.closest(".row"):null;
-  resetDeco();
-  drawDeco();
-  if(!d.open) d.showModal();
-  var on=d.querySelector('.deco-packs [aria-pressed="true"]');
-  if(on&&on.scrollIntoView) on.scrollIntoView({block:"nearest",inline:"nearest"});
-}
-
-/* ── decorated ideas: endless ───────────────────────────── */
-function buildIdeas(){
-  if(!window.CF.randomDecoration) return;
-  /* Last thing in <main>, after the font list and anything under it. */
-  var main=sheetBody.parentNode;
-  var sec=document.createElement("section");
-  sec.className="ideas";
-  sec.setAttribute("aria-labelledby","ideasTitle");
-  sec.innerHTML=
-    '<h2 class="ideas-title" id="ideasTitle">Decorated ideas</h2>'+
-    '<div class="ideas-list"></div>'+
-    '<div class="ideas-sentinel" aria-hidden="true"></div>'+
-    '<button class="btn load-more" type="button">Load more</button>';
-  main.appendChild(sec);
-  var list=sec.querySelector(".ideas-list");
-  var more=sec.querySelector(".load-more");
-  var seen={};
-
-  function add(n){
-    var text=current(),added=0,tries=0;
-    while(added<n&&tries<n*20){
-      tries++;
-      var style=styles[Math.floor(Math.random()*styles.length)];
-      var d=window.CF.randomDecoration();
-      var key=style.name+"\u0000"+d.left+"\u0000"+d.right;
-      if(seen[key]) continue;
-      seen[key]=1;
-      added++;
-
-      var row=document.createElement("article");
-      row.className="row";
-      var head=document.createElement("div");
-      head.className="row-head";
-      var name=document.createElement("span");
-      name.className="row-name";
-      name.textContent=d.pack.name+" · "+style.name;
-      head.appendChild(name);
-      var len=lengthLabel();
-      head.appendChild(len);
-
-      var out=document.createElement("div");
-      out.className="row-out";
-      out.setAttribute("role","button");
-      out.setAttribute("tabindex","0");
-      out.title="Click to copy";
-      out.textContent=framed(style,d.left,d.right,text);
-
-      var copy=document.createElement("button");
-      copy.className="btn copy";
-      copy.type="button";
-      copy.textContent="Copy";
-      (function(out,label,copied,style,left,right,row){
-        function doCopy(){
-          copyText(out.textContent,label,function(){
-            copied();
-            remember(style,left,right,row,false);
-          });
-        }
-        out.addEventListener("click",doCopy);
-        out.addEventListener("keydown",function(e){
-          if(e.key==="Enter"||e.key===" "){ e.preventDefault(); doCopy(); }
-        });
-        copy.addEventListener("click",doCopy);
-      })(out,name.textContent,flasher(copy),style,d.left,d.right,row);
-
-      row.appendChild(head);
-      row.appendChild(out);
-      row.appendChild(decoButton(style));
-      row.appendChild(copy);
-      list.appendChild(row);
-      ideas.push({style:style,left:d.left,right:d.right,out:out,len:len});
-      setLength(len,out.textContent);
-    }
-    return added;
-  }
-
-  /* Infinite scroll: reaching the end loads the next page by itself,
-     IDEAS_AUTO pages at a time. Past that, Load more takes over (and
-     re-arms the auto-loading), so the FAQ and footer below are never
-     pushed out of reach for good. */
-  var auto=0;
-  if("IntersectionObserver" in window){
-    new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting&&auto<IDEAS_AUTO){ auto++; add(IDEAS_PAGE); }
-    },{rootMargin:"0px 0px 600px 0px"}).observe(sec.querySelector(".ideas-sentinel"));
-  }
-  more.addEventListener("click",function(){
-    var first=list.children.length;
-    add(IDEAS_PAGE);
-    auto=0;
-    /* Keep the reader's place: focus the first new row's text. */
-    var next=list.children[first];
-    if(next) next.querySelector(".row-out").focus({preventScroll:true});
-  });
-  add(IDEAS_PAGE);
-}
-
 /* ── wire up ────────────────────────────────────────────── */
 src.addEventListener("input",update);
 if(filterEl) filterEl.addEventListener("input",applyFilter);
@@ -791,7 +454,6 @@ if(heroCopy){
 }
 
 build();
-buildIdeas();
 update();
 
 })();
