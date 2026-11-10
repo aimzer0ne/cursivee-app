@@ -115,40 +115,40 @@ The choice is saved to `localStorage` under `cf.size`. If you add another place
 that renders converted text, multiply its font size by `var(--out-scale,1)` so it
 scales too.
 
-## Design: penmanship paper
+## Design: quiet paper
 
-The site is drawn as American handwriting paper. The generator is a punched
-sheet with a double red margin, and every style is written on its own ruled line
-(dashed midline, red baseline) with its name and the code point of its "A" as a
-margin note. Generator titles sit on full-width ruling, links are index cards, a
-copy lands as a rubber-stamp toast, and the footer is a signature. Light mode is
-cream paper; dark mode is midnight ink.
+Cream sheets with hairline borders on a warm desk (midnight ink in dark mode).
+The generator is one bordered card — text box on top, main preview below — and
+the styles are rows of a single sheet: name on the left, converted text in the
+middle, a Copy button on the right. Links are plain bordered cards, a copy shows
+a small dark toast, and the footer is a dark band with the name in script.
 
 Two conventions hold everywhere:
 
 - **Blue (`--nib`) means converted text you can copy**: the hero preview, glyph
   slips, `.g` cells, copy lists, card samples. Body text is blue-black `--ink`.
-- **Red is the margin and the baseline.** It is decorative (`--red`); use
-  `--red-ink` wherever red has to be read as text.
+- **Red is only for small labels** (eyebrows, list markers, the open FAQ sign).
+  Use `--red-ink` wherever red has to be read as text.
 
 The palette is fixed: the tokens at the top of `assets/style.css`, once for
 light and once for dark. Nothing generates or shuffles colours at runtime.
 
-**Ruling.** Any element in the selector list under `── ruling ──` gets one set of
-lines per line of text, computed from `--lh` (its unitless line height) and the
-line-box font's metrics (`--asc`, `--cap`, `--xh`). The defaults suit `--f-out`;
-the ruled titles override them for the display serif. A ruled element must set
-its line height through `--lh`, not `line-height`, or the lines drift off the
-text. Vertical space around ruled text should be a border or margin, not padding
-(see `.glyphs`): the ruling repeats into padding.
-
 **Display face.** `"Ruled Serif"` is a `local()`-only `@font-face` over the
 system's Palatino (Palatino Linotype on Windows, then Book Antiqua, P052, Noto
 Serif, Georgia), with `ascent-override`/`descent-override` pinned to the Mac cut
-so every platform puts its baseline where the ruling expects. Nothing is
-downloaded, which keeps the privacy page's "no third parties but Analytics" true.
+so every platform sets titles on the same baseline. Nothing is downloaded.
 
-**Full-bleed pieces** (ruled titles, the letterhead rule, the footer band) reach
+**Images.** Every image is made here, never AI-generated, so none carries an
+AI watermark such as SynthID. `assets/screens/*.webp` are real screenshots of
+each generator (light mode, sample text typed in), shown under its *How to use*
+section. `assets/blog/<slug>.{webp,jpg}` are post covers, and
+`assets/og-cursive-font-generator.jpg` is the share card for every other page;
+both are an HTML card (title plus a line of converted text) rendered by headless
+Chrome. Images are saved without metadata. A new post needs its own cover at
+`assets/blog/<slug>.jpg`, `.webp` and `-600.webp`, referenced from the post's
+`<figure class="cover">`, `og:image`, `twitter:image` and JSON-LD `image`.
+
+**Full-bleed pieces** (the header hairline, the footer band) reach
 the viewport edge and are clipped by `overflow-x:clip` on `body`. That only works
 because `html` has an overflow of its own: without it, body's value is handed to
 the viewport and phones lay the page out wider than the screen. For the same
@@ -195,11 +195,6 @@ IndexNow engines with every sitemap URL (or pass paths: `sh scripts/indexnow.sh
 /blog/new-post`). It depends on the key file `484cb0fe606f317f93480c5f1580d84f.txt`
 at the site root — don't delete or rename it. `_headers` sets HSTS and
 `X-Robots-Tag: noindex` on the fallback pages.
-
-`assets/og-image.png` (1200×630) is a generated placeholder: the brand mark on
-the ledger ground, with no wordmark, because these scripts have no text
-rasteriser. It is honest but plain — worth replacing with a properly set card if
-social previews matter to you.
 
 ## Two things that will bite you
 
